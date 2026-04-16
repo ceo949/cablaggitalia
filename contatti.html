@@ -122,7 +122,12 @@
     <div class="right">
       <p data-en="Prefer the form? Fill it in below, we'll reply by email with a structured proposal. We'll request large files in our reply to avoid overloading the form.">Preferisci il modulo? Compila sotto, ti rispondiamo via email con una proposta strutturata. I file pesanti li chiederemo in risposta per non saturare il form.</p>
 
-      <form class="fields" onsubmit="event.preventDefault();this.querySelector('.submit span').textContent='Inviato — grazie!';">
+      <form class="fields" action="https://formsubmit.co/info@cablaggitalia.com" method="POST">
+        <input type="hidden" name="_subject" value="Nuova richiesta dal sito cablaggitalia.com"/>
+        <input type="hidden" name="_next" value="https://ceo949.github.io/cablaggitalia/contatti.html?sent=1"/>
+        <input type="hidden" name="_captcha" value="true"/>
+        <input type="hidden" name="_template" value="table"/>
+        <input type="text" name="_honey" style="display:none"/>
         <div class="fld">
           <div class="k" data-en="01 · Full name *">01 · Nome e cognome *</div>
           <input type="text" name="name" placeholder="Mario Bianchi" required/>
@@ -212,5 +217,16 @@
 </main>
 
 <script src="partials.js"></script>
+<script>
+  if(new URLSearchParams(window.location.search).has('sent')){
+    const b=document.createElement('div');
+    b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:100;background:#f5c518;color:#0e0e0c;text-align:center;padding:18px 28px;font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700';
+    const lang=localStorage.getItem('ne-lang')||'it';
+    b.textContent=lang==='en'?'✓ MESSAGE SENT — WE WILL REPLY WITHIN 24 BUSINESS HOURS':'✓ MESSAGGIO INVIATO — RISPONDIAMO ENTRO 24H LAVORATIVE';
+    document.body.prepend(b);
+    setTimeout(()=>{b.style.transition='opacity .6s';b.style.opacity='0';setTimeout(()=>b.remove(),600)},6000);
+    history.replaceState(null,'',window.location.pathname);
+  }
+</script>
 </body>
 </html>

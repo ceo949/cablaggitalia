@@ -1,0 +1,274 @@
+/* ============================================================
+   NUOVA ELETTRONICA S.r.l. — shared stylesheet
+   Palette: bianco / nero / oro (saetta logo #f5c518)
+   Tipografia: Fraunces (display) + JetBrains Mono (tecnico)
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f6f3ec;
+  --paper-3:#efe9db;
+  --ink:#0e0e0c;
+  --ink-soft:#2a2826;
+  --ink-dim:#6b655a;
+  --ink-faint:#b5ac98;
+  --gold:#f5c518;
+  --gold-deep:#c99902;
+  --gold-soft:#fff3b4;
+  --rule:rgba(14,14,12,0.12);
+  --rule-strong:rgba(14,14,12,0.32);
+  --display:"Fraunces",serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);font-family:var(--display);font-feature-settings:"ss01","ss02","ss03";font-variation-settings:"SOFT" 30,"WONK" 0,"opsz" 14;font-weight:380;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{overflow-x:hidden;min-height:100vh}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--gold);color:var(--ink)}
+
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:80;mix-blend-mode:multiply;opacity:.28;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .12 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ========== TOP BAR ========== */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:20px;
+  padding:14px 28px;
+  background:linear-gradient(to bottom,rgba(255,255,255,.94),rgba(255,255,255,.6) 80%,transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid transparent;transition:border-color .4s;
+}
+.topbar.scrolled{border-bottom-color:var(--rule)}
+.mark{display:flex;align-items:center;gap:12px}
+.mark .logo{width:44px;height:44px;object-fit:contain}
+.mark .wm{font-family:var(--display);font-style:italic;font-weight:500;font-size:19px;letter-spacing:-.005em;font-variation-settings:"WONK" 1,"SOFT" 60,"opsz" 40;line-height:1}
+.mark .wm small{display:block;font-family:var(--mono);font-size:9px;color:var(--ink-dim);letter-spacing:.22em;text-transform:uppercase;font-style:normal;font-weight:400;margin-top:4px}
+
+.nav{display:flex;gap:26px;justify-content:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);flex-wrap:wrap}
+.nav a{position:relative;padding:6px 0;transition:color .3s}
+.nav a .num{color:var(--ink-faint);margin-right:6px}
+.nav a:hover,.nav a.active{color:var(--ink)}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.nav a:hover::after,.nav a.active::after{transform:scaleX(1)}
+
+.cta{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:10px 18px;background:var(--ink);color:var(--paper);border-radius:999px;transition:background .3s,color .3s}
+.cta .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);animation:pulse 1.8s infinite}
+.cta:hover{background:var(--gold);color:var(--ink)}
+.cta:hover .dot{background:var(--ink);box-shadow:none}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ========== LAYOUT PRIMITIVES ========== */
+main{position:relative;z-index:1;padding-top:0}
+section{position:relative;padding:110px 28px;border-top:1px solid var(--rule)}
+section.first{padding-top:160px;border-top:0}
+.wrap{max-width:1440px;margin:0 auto;position:relative}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--gold)}
+.eyebrow.inline::before{margin-right:6px}
+
+.h-xxl{font-family:var(--display);font-weight:320;font-size:clamp(54px,10vw,172px);line-height:.88;letter-spacing:-.032em;font-variation-settings:"opsz" 144,"WONK" 1,"SOFT" 40}
+.h-xl{font-family:var(--display);font-weight:320;font-size:clamp(46px,6vw,92px);line-height:.95;letter-spacing:-.028em;font-variation-settings:"opsz" 120,"WONK" 1,"SOFT" 40}
+.h-l{font-family:var(--display);font-weight:320;font-size:clamp(36px,4.4vw,64px);line-height:1.02;letter-spacing:-.022em;font-variation-settings:"opsz" 96,"WONK" 1,"SOFT" 60}
+.h-m{font-family:var(--display);font-weight:340;font-size:clamp(26px,2.8vw,40px);line-height:1.1;letter-spacing:-.018em;font-variation-settings:"opsz" 72}
+
+em.hl,.hl{font-style:italic;font-variation-settings:"WONK" 1,"SOFT" 100;background:linear-gradient(to top,var(--gold) 34%,transparent 34%);padding:0 .06em}
+em.it{font-style:italic;font-variation-settings:"WONK" 1,"SOFT" 100}
+
+/* Fix highlighted text on dark backgrounds — full gold bg so text is readable.
+   On light backgrounds, .hl uses a 34% gold underline + dark text = fine.
+   On dark backgrounds, the un-highlighted part is dark-on-dark = invisible.
+   Solution: full gold background with dark text on any dark container. */
+.inv em.hl,.inv .hl,
+.dark em.hl,.dark .hl,
+.values em.hl,.values .hl,
+.process em.hl,.process .hl,
+.ops em.hl,.ops .hl,
+.matrix em.hl,.matrix .hl,
+.lab em.hl,.lab .hl,
+.loop em.hl,.loop .hl{
+  background:var(--gold);color:var(--ink);padding:.02em .12em;background-image:none
+}
+
+p.lead{font-size:21px;line-height:1.55;max-width:52ch;color:var(--ink-soft);font-variation-settings:"opsz" 24}
+p.body{font-size:17px;line-height:1.65;color:var(--ink-soft);max-width:58ch;font-variation-settings:"opsz" 20}
+p.small{font-size:14px;line-height:1.6;color:var(--ink-dim);max-width:58ch}
+
+.mono-label{font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-dim)}
+
+/* ========== PAGE HEAD (shared for internal pages) ========== */
+.page-head{padding:160px 28px 80px;position:relative;overflow:hidden;border-top:0}
+.page-head .wrap{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:60px;align-items:end}
+.page-head h1{font-family:var(--display);font-weight:300;font-size:clamp(56px,10vw,172px);line-height:.9;letter-spacing:-.032em;font-variation-settings:"opsz" 144,"WONK" 1,"SOFT" 40}
+.page-head .crumbs{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:32px;display:flex;gap:10px;align-items:center}
+.page-head .crumbs span{color:var(--gold-deep)}
+.page-head p.lead{margin-top:24px}
+.page-head .meta{border-left:2px solid var(--gold);padding:10px 0 10px 20px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink-dim);line-height:1.9}
+.page-head .meta b{color:var(--ink);font-weight:500;text-transform:uppercase;letter-spacing:.22em;display:block;margin-bottom:6px;font-size:10px}
+.page-head .schem{position:absolute;inset:0;z-index:-1;opacity:.5;pointer-events:none}
+
+/* ========== MARQUEE ========== */
+.marquee{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);overflow:hidden;padding:22px 0;background:var(--ink);color:var(--paper)}
+.marquee-track{display:flex;gap:60px;animation:scroll 42s linear infinite;white-space:nowrap;font-family:var(--display);font-size:clamp(28px,4.2vw,56px);font-style:italic;font-variation-settings:"WONK" 1,"SOFT" 80,"opsz" 80;line-height:1;font-weight:300}
+.marquee-track span{display:inline-flex;align-items:center;gap:60px;color:var(--paper)}
+.marquee-track span::after{content:"⚡";color:var(--gold);font-style:normal;font-size:.7em;transform:translateY(-.06em)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ========== FIGURES / IMAGES ========== */
+.figure{position:relative;background:var(--paper-3);border:1px solid var(--rule);overflow:hidden}
+.figure img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15) contrast(1.05)}
+.figure .cap{position:absolute;left:0;bottom:0;right:0;padding:14px 18px;background:linear-gradient(to top,rgba(14,14,12,.85),rgba(14,14,12,0));color:var(--paper);font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase}
+.figure .cap b{color:var(--gold);font-weight:500}
+.figure.framed{padding:10px;background:var(--paper);border:1px solid var(--ink)}
+.figure.framed img{border:1px solid var(--rule)}
+.figure .tag{position:absolute;top:12px;left:12px;background:var(--gold);color:var(--ink);font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:4px 10px}
+
+/* ========== SPEC TABLE ========== */
+.spec-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12.5px}
+.spec-table th,.spec-table td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+.spec-table th{font-weight:500;letter-spacing:.18em;text-transform:uppercase;font-size:10.5px;color:var(--ink-dim);width:38%}
+.spec-table td{color:var(--ink);letter-spacing:.02em}
+.spec-table tr:first-child th,.spec-table tr:first-child td{border-top:2px solid var(--ink)}
+
+/* ========== CTA BANNER ========== */
+.cta-banner{padding:100px 28px;background:var(--ink);color:var(--paper);text-align:center}
+.cta-banner .wrap{max-width:1000px}
+.cta-banner h2{font-family:var(--display);font-weight:300;font-size:clamp(40px,5vw,84px);line-height:1;font-variation-settings:"WONK" 1;letter-spacing:-.028em}
+.cta-banner h2 em{font-style:italic;color:var(--gold)}
+.cta-banner p{font-size:16px;color:rgba(255,255,255,.7);margin-top:20px;max-width:48ch;margin-left:auto;margin-right:auto}
+.cta-banner .btn{margin-top:40px;display:inline-flex;align-items:center;gap:14px;padding:18px 28px;background:var(--gold);color:var(--ink);font-family:var(--mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;transition:background .3s;position:relative;overflow:hidden}
+.cta-banner .btn:hover{background:var(--paper)}
+.cta-banner .btn .arr{width:26px;height:2px;background:currentColor;position:relative}
+.cta-banner .btn .arr::after{content:"";position:absolute;right:-1px;top:-5px;width:12px;height:12px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg)}
+
+/* ========== FOOTER ========== */
+footer{border-top:1px solid var(--ink);padding:64px 28px 32px;background:var(--paper-2)}
+footer .wrap{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+footer .col h4{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px}
+footer .col a,footer .col p{display:block;color:var(--ink);font-size:15px;margin-bottom:6px;font-variation-settings:"opsz" 18}
+footer .col a:hover{color:var(--gold-deep)}
+footer .bottom{max-width:1440px;margin:60px auto 0;padding-top:24px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-dim)}
+footer .bottom a:hover{color:var(--gold-deep)}
+footer .wm-row{max-width:1440px;margin:56px auto 0;display:flex;align-items:flex-end;gap:24px;overflow:hidden}
+footer .wm-row img{width:88px;height:88px;object-fit:contain;flex:none}
+footer .wm{font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(60px,13vw,200px);line-height:.8;color:var(--ink);letter-spacing:-.04em;font-variation-settings:"WONK" 1,"SOFT" 100,"opsz" 144;white-space:nowrap}
+footer .wm b{font-weight:300;background:var(--gold);padding:0 .04em;font-style:italic}
+
+/* ========== REVEAL ANIM ========== */
+.reveal{overflow:hidden;display:inline-block;vertical-align:bottom}
+.reveal>span{display:inline-block;transform:translateY(105%);animation:up 1.1s cubic-bezier(.2,.7,.2,1) forwards}
+.reveal.d1>span{animation-delay:.1s}
+.reveal.d2>span{animation-delay:.22s}
+.reveal.d3>span{animation-delay:.34s}
+.reveal.d4>span{animation-delay:.46s}
+@keyframes up{to{transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(20px);animation:fup 1s ease-out .9s forwards}
+@keyframes fup{to{opacity:1;transform:none}}
+
+/* ========== LANGUAGE TOGGLE ========== */
+.topbar-right{display:flex;align-items:center;gap:14px}
+.lang-toggle{display:flex;align-items:center;gap:4px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;padding:6px 10px;border:1px solid var(--rule);border-radius:4px;background:var(--paper);cursor:pointer;transition:border-color .3s}
+.lang-toggle:hover{border-color:var(--ink)}
+.lang-opt{color:var(--ink-faint);transition:color .3s,font-weight .3s;display:inline-flex;align-items:center;gap:4px}
+.lang-opt.active{color:var(--ink);font-weight:700}
+.lang-opt .flag{width:20px;height:14px;border-radius:2px;overflow:hidden;flex:none;box-shadow:0 0 0 1px rgba(14,14,12,.15)}
+.lang-sep{color:var(--ink-faint);font-size:9px}
+
+/* ========== BURGER + MOBILE NAV ========== */
+.burger{display:none;width:32px;height:24px;flex-direction:column;justify-content:space-between;padding:0;position:relative;z-index:70}
+.burger span{display:block;width:100%;height:2px;background:var(--ink);transition:transform .35s,opacity .25s}
+.burger.open span:nth-child(1){transform:translateY(11px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-11px) rotate(-45deg)}
+
+.mobile-nav{position:fixed;inset:0;z-index:58;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;opacity:0;pointer-events:none;transition:opacity .35s;padding:20px}
+.mobile-nav.open{opacity:1;pointer-events:auto}
+.mobile-nav a{font-family:var(--display);font-weight:320;font-size:clamp(28px,6vw,44px);line-height:1.2;font-variation-settings:"opsz" 72,"WONK" 1;color:var(--ink);transition:color .3s;text-align:center}
+.mobile-nav a.active{color:var(--gold-deep)}
+.mobile-nav a:hover{color:var(--gold-deep)}
+.mobile-nav-contact{margin-top:32px;text-align:center;display:flex;flex-direction:column;gap:10px}
+.mobile-nav-contact a{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--ink-dim)}
+
+/* ========== RESPONSIVE ========== */
+
+/* Tablet */
+@media (max-width:1100px){
+  .nav{display:none}
+  .burger{display:flex}
+  .page-head .wrap{grid-template-columns:1fr;gap:40px}
+  footer .wrap{grid-template-columns:1fr 1fr}
+  .mark .wm small{display:none}
+  .spec-table{font-size:11.5px}
+  .spec-table th,.spec-table td{padding:10px 12px}
+}
+
+/* Large phone */
+@media (max-width:700px){
+  section{padding:70px 16px}
+  section.first,.page-head{padding-top:110px;padding-left:16px;padding-right:16px}
+  .topbar{padding:10px 16px;gap:8px;grid-template-columns:auto 1fr auto auto}
+  .topbar-right .cta{display:none}
+  .mark .logo{width:34px;height:34px}
+  .mark .wm{font-size:16px}
+  .cta{padding:8px 14px;font-size:10px}
+  footer .wrap{grid-template-columns:1fr}
+  footer .wm{font-size:clamp(44px,12vw,100px)}
+  footer .wm-row img{width:60px;height:60px}
+
+  .h-xxl{font-size:clamp(38px,10vw,80px)}
+  .h-xl{font-size:clamp(34px,7vw,60px)}
+  .h-l{font-size:clamp(28px,5.5vw,44px)}
+  .h-m{font-size:clamp(22px,4vw,32px)}
+
+  p.lead{font-size:17px}
+  p.body{font-size:15px}
+
+  .marquee-track{font-size:clamp(20px,5vw,36px);gap:36px}
+  .marquee{padding:14px 0}
+
+  .page-head h1{font-size:clamp(38px,10vw,80px)}
+  .page-head .meta{padding-left:16px}
+  .page-head .meta b{font-size:9px}
+
+  .cta-banner{padding:80px 16px}
+  .cta-banner h2{font-size:clamp(32px,7vw,56px)}
+  .cta-banner .btn{padding:14px 22px;font-size:11px}
+
+  .spec-table{font-size:11px}
+  .spec-table th{width:auto;min-width:100px}
+  .spec-table th,.spec-table td{padding:8px 10px}
+
+  .longform h2{font-size:clamp(22px,5vw,32px)}
+  .longform table{font-size:10.5px;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  .eyebrow{font-size:10px;letter-spacing:.22em}
+}
+
+/* Small phone */
+@media (max-width:400px){
+  .topbar{padding:8px 12px}
+  .mark .logo{width:30px;height:30px}
+  .mark .wm{font-size:14px}
+  .lang-toggle{padding:4px 8px;font-size:10px}
+  section{padding:56px 14px}
+  .page-head{padding-top:100px}
+}
+
+/* ========== LONGFORM TYPOGRAPHY (policies) ========== */
+.longform{max-width:760px;margin:0 auto}
+.longform h2{font-family:var(--display);font-weight:320;font-size:clamp(26px,3vw,40px);margin:48px 0 16px;line-height:1.1;letter-spacing:-.01em}
+.longform h2 em{font-style:italic;color:var(--gold-deep)}
+.longform h3{font-family:var(--display);font-weight:500;font-size:18px;margin:28px 0 10px;letter-spacing:-.005em;text-transform:uppercase;font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--ink-dim)}
+.longform p{font-size:16px;line-height:1.7;color:var(--ink-soft);margin-bottom:14px;font-variation-settings:"opsz" 18}
+.longform ul,.longform ol{margin:10px 0 18px 22px;color:var(--ink-soft);font-size:16px;line-height:1.7}
+.longform li{margin-bottom:6px}
+.longform li::marker{color:var(--gold-deep)}
+.longform a{color:var(--ink);border-bottom:1px solid var(--gold);padding-bottom:1px}
+.longform a:hover{background:var(--gold-soft)}
+.longform table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12px;margin:16px 0 24px}
+.longform table th,.longform table td{border:1px solid var(--rule);padding:10px 12px;text-align:left;vertical-align:top}
+.longform table th{background:var(--paper-2);text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--ink-dim);font-weight:500}
+.longform blockquote{border-left:3px solid var(--gold);padding:8px 0 8px 20px;margin:20px 0;font-style:italic;color:var(--ink)}

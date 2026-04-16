@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Processo produttivo — Nuova Elettronica S.r.l.</title>
+<meta name="description" content="Il nostro processo in otto fasi: dall'acquisizione dello schema cliente alla consegna con dossier di lotto firmato. Tempi, strumenti, deliverable per ogni step."/>
+<link rel="icon" href="https://static.wixstatic.com/media/5faddc_e50d0d818eed4b21bb1c7d1614ba7243~mv2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .phases{padding:140px 28px;background:var(--paper)}
+  .phases-head{max-width:900px;margin-bottom:90px}
+  .phase{display:grid;grid-template-columns:160px 1fr 240px;gap:50px;padding:50px 0;border-top:1px solid var(--rule);align-items:start;position:relative;transition:padding .4s}
+  .phase:last-child{border-bottom:1px solid var(--rule)}
+  .phase:hover{padding:60px 0;background:linear-gradient(to right,transparent,var(--gold-soft) 50%,transparent)}
+  .phase .ph-num{font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(54px,7vw,108px);line-height:.85;letter-spacing:-.04em;color:var(--ink);font-variation-settings:"WONK" 1,"SOFT" 100,"opsz" 144;transition:color .4s}
+  .phase:hover .ph-num{color:var(--gold-deep)}
+  .phase .ph-body h3{font-family:var(--display);font-weight:320;font-size:clamp(30px,3.4vw,48px);line-height:1.05;letter-spacing:-.022em;font-variation-settings:"opsz" 96,"WONK" 1}
+  .phase .ph-body h3 em{font-style:italic;background:linear-gradient(to top,var(--gold) 34%,transparent 34%)}
+  .phase .ph-body p{font-size:16px;color:var(--ink-soft);line-height:1.65;margin-top:18px;max-width:62ch}
+  .phase .ph-body .deliver{margin-top:22px;display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim)}
+  .phase .ph-body .deliver b{color:var(--ink);font-weight:500}
+  .phase .ph-meta{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-dim);line-height:1.8;text-align:left;padding-left:28px;border-left:2px solid var(--gold)}
+  .phase .ph-meta b{color:var(--ink);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:10px;display:block;margin-bottom:4px;margin-top:14px}
+  .phase .ph-meta b:first-child{margin-top:0}
+  @media(max-width:1000px){.phase{grid-template-columns:80px 1fr;gap:24px}.phase .ph-meta{display:none}}
+  @media(max-width:600px){.phase{grid-template-columns:1fr}}
+
+  .loop{padding:140px 28px;background:var(--ink);color:var(--paper);text-align:center}
+  .loop .eyebrow{color:var(--paper);justify-content:center}.loop .eyebrow::before{background:var(--gold)}
+  .loop h2{color:var(--paper);margin:0 auto;max-width:22ch}.loop h2 em{color:var(--gold);font-style:italic}
+  .loop p{color:rgba(255,255,255,.7);margin:28px auto 0;max-width:60ch;font-size:17px;line-height:1.65}
+  .loop svg{margin-top:60px;width:min(620px,90%);height:auto}
+
+  .kpi{padding:140px 28px;background:var(--paper-2)}
+  .kpi h2{max-width:18ch}
+  .kpi-grid{margin-top:60px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .kpi-box{background:var(--paper);border:1px solid var(--rule);padding:30px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+  .kpi-box:hover{border-color:var(--ink);box-shadow:6px 6px 0 var(--gold)}
+  .kpi-box .v{font-family:var(--display);font-weight:300;font-size:56px;line-height:.9;letter-spacing:-.03em;font-variation-settings:"opsz" 120,"WONK" 1;color:var(--ink)}
+  .kpi-box .v em{font-style:italic;background:linear-gradient(to top,var(--gold) 30%,transparent 30%);padding:0 .04em}
+  .kpi-box .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim);margin-top:16px}
+  .kpi-box .d{font-size:13px;color:var(--ink-soft);margin-top:8px;line-height:1.5}
+  @media(max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body data-page="processo">
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <div>
+      <div class="crumbs"><a href="index.html">Home</a> <span>·</span> <span data-en="Process">Processo</span></div>
+      <h1 data-en="&lt;span class='reveal d1'&gt;&lt;span&gt;Eight &lt;/span&gt;&lt;/span&gt;&lt;span class='reveal d2'&gt;&lt;span class='it'&gt;&lt;span class='hl'&gt;phases.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;&lt;span class='reveal d3'&gt;&lt;span&gt;One test&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;&lt;span class='reveal d4'&gt;&lt;span class='it'&gt;signature.&lt;/span&gt;&lt;/span&gt;">
+        <span class="reveal d1"><span>Otto </span></span><span class="reveal d2"><span class="it"><span class="hl">fasi.</span></span></span><br/>
+        <span class="reveal d3"><span>Una firma di</span></span><br/>
+        <span class="reveal d4"><span class="it">collaudo.</span></span>
+      </h1>
+      <p class="lead" style="margin-top:32px" data-en="Every order — from a single prototype to a 10,000-piece series — passes through the same eight stations, with the same controls and the same deliverables. Documented, repeatable, audit-ready process.">Ogni commessa — dal singolo prototipo alla serie di 10.000 pezzi — attraversa le stesse otto stazioni, con gli stessi controlli e gli stessi deliverable. Processo documentato, ripetibile, audit-ready.</p>
+    </div>
+    <div class="fade-up">
+      <div class="meta" data-en="&lt;b&gt;Lead time&lt;/b&gt;10 ÷ 30 business days&lt;br/&gt;&lt;b&gt;Department OEE&lt;/b&gt;&gt; 82% (2025)&lt;br/&gt;&lt;b&gt;First Time Right&lt;/b&gt;&gt; 99.7%">
+        <b>Lead time</b>
+        10 ÷ 30 gg lavorativi<br/>
+        <b>OEE reparto</b>
+        &gt; 82% (2025)<br/>
+        <b>First Time Right</b>
+        &gt; 99.7%
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASES -->
+<section class="phases">
+  <div class="wrap">
+    <div class="phases-head">
+      <div class="eyebrow" style="margin-bottom:22px" data-en="§ 01 — Phases">§ 01 — Fasi</div>
+      <h2 class="h-xl" data-en="From &lt;em class='hl'&gt;email&lt;/em&gt; to &lt;em class='hl'&gt;delivery.&lt;/em&gt;">Dalla <em class="hl">mail</em> alla <em class="hl">consegna.</em></h2>
+    </div>
+
+    <div class="phase" data-reveal>
+      <div class="ph-num">01</div>
+      <div class="ph-body">
+        <h3 data-en="Drawing &lt;em&gt;acquisition&lt;/em&gt; &amp; technical quotation">Acquisizione <em>schema</em> &amp; offerta tecnica</h3>
+        <p data-en="Upon receiving the drawing, single-line diagram, or connection list, a product technician verifies completeness and feasibility, identifies equivalent materials where necessary, drafts a preliminary BOM, and issues the technical-commercial quotation within 48 business hours. In case of criticalities (unavailable components, inconsistent tolerances), we propose engineered alternatives.">Ricevuto il disegno, lo schema unifilare o la lista di connessione, un tecnico di prodotto verifica completezza e fattibilità, identifica materiali equivalenti dove necessario, redige la distinta base di massima e formula l'offerta tecnica-commerciale entro 48 h lavorative. In caso di criticità (componenti non reperibili, tolleranze non coerenti) proponiamo alternative ingegnerizzate.</p>
+        <div class="deliver" data-en="&lt;span&gt;&lt;b&gt;→&lt;/b&gt; DWG/PDF analyzed&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Preliminary BOM&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Technical quotation&lt;/span&gt;"><span><b>→</b> DWG/PDF analizzato</span><span><b>→</b> BOM preliminare</span><span><b>→</b> Quotazione tecnica</span></div>
+      </div>
+      <div class="ph-meta" data-en="&lt;b&gt;Time&lt;/b&gt;24 ÷ 48 h&lt;br/&gt;&lt;b&gt;Output&lt;/b&gt;Quote + BOM&lt;br/&gt;&lt;b&gt;Owner&lt;/b&gt;Engineering dept."><b>Tempo</b>24 ÷ 48 h<br/><b>Output</b>Offerta + BOM<br/><b>Owner</b>Ufficio tecnico</div>
+    </div>
+
+    <div class="phase" data-reveal>
+      <div class="ph-num">02</div>
+      <div class="ph-body">
+        <h3 data-en="Order confirmation &amp; &lt;em&gt;industrialization&lt;/em&gt;">Conferma ordine &amp; <em>industrializzazione</em></h3>
+        <p data-en="Upon order confirmation, we convert the proposal into production documentation: final BOM with terminal codes, cable cross-section, strip length, crimp type, marking, cable routing list, and work instruction sheet with operation sequence and standard times. Where necessary, we design forming boards and dedicated tooling.">Alla conferma dell'ordine trasformiamo la proposta in documentazione di produzione: distinta base definitiva con codici terminale, sezione cavo, lunghezza spellata, tipo crimp, marcatura, lista percorsi cavo, scheda di lavorazione con sequenza di operazioni e tempi standard. Dove necessario progettiamo maschere di formatura e utensili dedicati.</p>
+        <div class="deliver" data-en="&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Final BOM&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Work instructions&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Forming boards&lt;/span&gt;"><span><b>→</b> BOM definitivo</span><span><b>→</b> Schede operative</span><span><b>→</b> Maschere di formatura</span></div>
+      </div>
+      <div class="ph-meta" data-en="&lt;b&gt;Time&lt;/b&gt;2 ÷ 5 days&lt;br/&gt;&lt;b&gt;Output&lt;/b&gt;Industrial dossier&lt;br/&gt;&lt;b&gt;Owner&lt;/b&gt;Industrialization"><b>Tempo</b>2 ÷ 5 gg<br/><b>Output</b>Dossier industriale<br/><b>Owner</b>Industrializzazione</div>
+    </div>
+
+    <div class="phase" data-reveal>
+      <div class="ph-num">03</div>
+      <div class="ph-body">
+        <h3 data-en="Procurement &amp; &lt;em&gt;incoming materials&lt;/em&gt;">Approvvigionamento &amp; <em>ingresso materiali</em></h3>
+        <p data-en="We order cables and terminals from qualified suppliers on our approved vendor list, with preference for traceable, RoHS/REACH-certified lots. At incoming inspection we perform document checks, dimensional sampling, and, for critical terminals, pre-production pull-force testing. Non-conforming materials enter a physical and logical quarantine area.">Ordiniamo cavi e terminali da fornitori qualificati in albo fornitori, con preferenza per lotti tracciabili e certificati RoHS/REACH. All'ingresso eseguiamo controllo documentale, verifica dimensionale a campione e, per i terminali critici, prova di pull-force pre-produzione. I materiali non conformi entrano in area quarantena fisica e logica.</p>
+        <div class="deliver" data-en="&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Certificate verification&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Pre-prod pull-force&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Stock with lot S/N&lt;/span&gt;"><span><b>→</b> Verifica certificati</span><span><b>→</b> Pull-force pre-prod</span><span><b>→</b> Stock con S/N lotto</span></div>
+      </div>
+      <div class="ph-meta" data-en="&lt;b&gt;Time&lt;/b&gt;3 ÷ 15 days&lt;br/&gt;&lt;b&gt;Cable lead&lt;/b&gt;Stock / order&lt;br/&gt;&lt;b&gt;Owner&lt;/b&gt;Purchasing &amp; QC"><b>Tempo</b>3 ÷ 15 gg<br/><b>Lead cavi</b>Stock / ordine<br/><b>Owner</b>Acquisti &amp; QC</div>
+    </div>
+
+    <div class="phase" data-reveal>
+      <div class="ph-num">04</div>
+      <div class="ph-body">
+        <h3 data-en="Cutting, &lt;em&gt;stripping&lt;/em&gt;, crimping">Taglio, <em>sguainatura</em>, crimpatura</h3>
+        <p data-en="At the cutting-stripping station, programmed Komax machines perform precision cable cutting, calibrated stripping, and laser marking for identification. On the crimping press, after a validation micrographic cross-section, each terminal is applied with recorded parameters. Every crimp lot starts and ends with an archived pull-force test.">Alla postazione taglio-sguainatura le macchine Komax programmate eseguono taglio cavo di precisione, spellatura calibrata, punto di marcatura laser per riconoscimento. Sulla pressa di crimpatura, previa sezione micrografica di validazione, ogni terminale viene applicato con parametri registrati. Ogni lotto di crimpatura inizia e finisce con una prova di pull-force archiviata.</p>
+        <div class="deliver" data-en="&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Validated cross-section&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Machine log&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Archived samples&lt;/span&gt;"><span><b>→</b> Sezione validata</span><span><b>→</b> Log macchina</span><span><b>→</b> Campioni archiviati</span></div>
+      </div>
+      <div class="ph-meta" data-en="&lt;b&gt;Time&lt;/b&gt;Lot-dependent&lt;br/&gt;&lt;b&gt;Capacity&lt;/b&gt;~10,000 crimps/day&lt;br/&gt;&lt;b&gt;Owner&lt;/b&gt;Crimping dept."><b>Tempo</b>In funzione lotto<br/><b>Capacità</b>~10.000 crimp/gg<br/><b>Owner</b>Reparto crimpatura</div>
+    </div>
+
+    <div class="phase" data-reveal>
+      <div class="ph-num">05</div>
+      <div class="ph-body">
+        <h3 data-en="Forming, &lt;em&gt;assembly&lt;/em&gt;, marking">Formatura, <em>assemblaggio</em>, marcatura</h3>
+        <p data-en="At the assembly bench, the operator builds the harness on a 1:1 forming board per the schematic, inserts conductors into connectors following the pin-out, and applies convoluted tubing, heat shrink, spiral wrap, cable ties, clips, and labels. Hot laser marking of conductors is done upstream; identification labels on the finished harness are printed at assembly time with a unique S/N.">Al banco di assemblaggio il cablatore monta il cablaggio su sagoma 1:1 secondo lo schema, inserisce i conduttori nei connettori rispettando la pin-out, applica guaine convolute, termorestringenti, spiraline, fascette, clip e label. La marcatura laser a caldo dei conduttori avviene a monte; le etichette di identificazione sul cablaggio finito vengono stampate al momento dell'assemblaggio con S/N univoco.</p>
+        <div class="deliver" data-en="&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Formed harness&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; S/N applied&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Visual inspection&lt;/span&gt;"><span><b>→</b> Cablaggio formato</span><span><b>→</b> S/N applicato</span><span><b>→</b> Controllo visivo</span></div>
+      </div>
+      <div class="ph-meta" data-en="&lt;b&gt;Time&lt;/b&gt;Product-dependent&lt;br/&gt;&lt;b&gt;Operators&lt;/b&gt;IPC-620 certified&lt;br/&gt;&lt;b&gt;Owner&lt;/b&gt;Wiring dept."><b>Tempo</b>In funzione prodotto<br/><b>Operatori</b>IPC-620 certificati<br/><b>Owner</b>Reparto cablaggio</div>
+    </div>
+
+    <div class="phase" data-reveal>
+      <div class="ph-num">06</div>
+      <div class="ph-body">
+        <h3 data-en="&lt;em&gt;100% electrical&lt;/em&gt; testing">Collaudo <em>elettrico 100%</em></h3>
+        <p data-en="Every harness, without exception, is tested on the CableEye M4 station with a dedicated fixture — point-to-point continuity, no short circuits, 1500 V DC insulation, insulation resistance &gt;100 MΩ. When the specification calls for it, we add 2 kV AC dielectric strength testing. The digital test log is signed and linked to the S/N.">Ogni cablaggio, senza eccezione, viene testato sulla stazione CableEye M4 con fixture dedicata — continuità punto-punto, assenza di cortocircuiti, isolamento 1500 V DC, resistenza di isolamento &gt;100 MΩ. Quando il capitolato lo prevede aggiungiamo test di rigidità dielettrica 2 kV AC. Il log digitale del test viene firmato e associato al S/N.</p>
+        <div class="deliver" data-en="&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Signed PDF&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; CSV log&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Q-TRACK database&lt;/span&gt;"><span><b>→</b> PDF firmato</span><span><b>→</b> Log CSV</span><span><b>→</b> Database Q-TRACK</span></div>
+      </div>
+      <div class="ph-meta" data-en="&lt;b&gt;Time&lt;/b&gt;30 ÷ 180 s/piece&lt;br/&gt;&lt;b&gt;Tolerance&lt;/b&gt;0 short circuits&lt;br/&gt;&lt;b&gt;Owner&lt;/b&gt;Testing dept."><b>Tempo</b>30 ÷ 180 s/pezzo<br/><b>Tolleranza</b>0 cortocircuiti<br/><b>Owner</b>Collaudo</div>
+    </div>
+
+    <div class="phase" data-reveal>
+      <div class="ph-num">07</div>
+      <div class="ph-body">
+        <h3 data-en="&lt;em&gt;Lot dossier&lt;/em&gt; closure &amp; packaging">Chiusura <em>dossier di lotto</em> &amp; imballaggio</h3>
+        <p data-en="At the end of production we compile the lot dossier: inspection report, S/N list, electrical test logs, sample photos, and material certificates. The dossier is archived digitally for 10 years and delivered in copy to the customer on request. Harnesses are packed in protective blisters, ESD cassettes, or accordion pallets depending on the agreed logistics.">Al termine della produzione compiliamo il dossier di lotto: foglio di verbale, elenco S/N, log dei test elettrici, foto campione, certificati materiali. Il dossier viene archiviato in digitale per 10 anni e consegnato in copia al cliente su richiesta. I cablaggi vengono imballati in blister protettivi, cassette ESD o pallet a fisarmonica a seconda della logistica concordata.</p>
+        <div class="deliver" data-en="&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Complete dossier&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Dedicated packaging&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; 10-year archive&lt;/span&gt;"><span><b>→</b> Dossier completo</span><span><b>→</b> Imballo dedicato</span><span><b>→</b> Archivio 10 anni</span></div>
+      </div>
+      <div class="ph-meta" data-en="&lt;b&gt;Time&lt;/b&gt;1 ÷ 3 days&lt;br/&gt;&lt;b&gt;Packaging&lt;/b&gt;Standard / ESD&lt;br/&gt;&lt;b&gt;Owner&lt;/b&gt;Shipping"><b>Tempo</b>1 ÷ 3 gg<br/><b>Imballo</b>Standard / ESD<br/><b>Owner</b>Spedizione</div>
+    </div>
+
+    <div class="phase" data-reveal>
+      <div class="ph-num">08</div>
+      <div class="ph-body">
+        <h3 data-en="Delivery &amp; &lt;em&gt;after-sales support&lt;/em&gt;">Consegna &amp; <em>assistenza post-vendita</em></h3>
+        <p data-en="Shipment is by qualified courier or direct delivery within 200 km of the facility. For strategic orders we can arrange Just-In-Time deliveries and kanban stocking. Our after-sales department remains available for mid-assembly modifications, extraordinary maintenance, and on-site intervention within 4 business hours in the North-West.">La spedizione avviene con corriere qualificato o consegna diretta nel raggio di 200 km dalla sede. Per commesse strategiche possiamo organizzare consegne Just-In-Time e stoccaggio in kanban. Il nostro ufficio post-vendita rimane a disposizione per modifiche in corso di montaggio, manutenzioni straordinarie e per intervento on-site entro 4 h lavorative nel Nord-Ovest.</p>
+        <div class="deliver" data-en="&lt;span&gt;&lt;b&gt;→&lt;/b&gt; Tracked delivery&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; After-sales support&lt;/span&gt;&lt;span&gt;&lt;b&gt;→&lt;/b&gt; On-site interventions&lt;/span&gt;"><span><b>→</b> Consegna tracciata</span><span><b>→</b> Supporto post-vendita</span><span><b>→</b> Interventi on-site</span></div>
+      </div>
+      <div class="ph-meta" data-en="&lt;b&gt;Delivery&lt;/b&gt;Standard / JIT&lt;br/&gt;&lt;b&gt;On-site&lt;/b&gt;4 h North-West&lt;br/&gt;&lt;b&gt;Owner&lt;/b&gt;Sales"><b>Consegna</b>Standard / JIT<br/><b>On-site</b>4 h Nord-Ovest<br/><b>Owner</b>Commerciale</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEEDBACK LOOP -->
+<section class="loop">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:22px" data-en="§ 02 — Continuous improvement">§ 02 — Miglioramento continuo</div>
+    <h2 class="h-xl" data-en="It doesn't end &lt;em&gt;at delivery.&lt;/em&gt;">Non finisce <em>alla consegna.</em></h2>
+    <p data-en="Every non-conformity reported — internal or by the customer — triggers an 8D analysis with documented corrective action within 72 hours. Line yield data feeds an OEE dashboard that we review at the quarterly management review. That is how, after 47 years, something still improves.">Ogni non conformità segnalata — interna o del cliente — genera un'analisi 8D con azione correttiva documentata entro 72 h. I dati di resa di linea alimentano un cruscotto OEE che discutiamo al riesame della direzione ogni trimestre. È così che, dopo 47 anni, ancora migliora qualcosa.</p>
+    <svg viewBox="0 0 620 220" aria-hidden="true">
+      <g fill="none" stroke="#f5c518" stroke-width="1.5">
+        <circle cx="60" cy="110" r="36"/>
+        <circle cx="190" cy="110" r="36"/>
+        <circle cx="320" cy="110" r="36"/>
+        <circle cx="450" cy="110" r="36"/>
+        <circle cx="580" cy="110" r="36" stroke="#fff"/>
+        <line x1="96" y1="110" x2="154" y2="110"/>
+        <line x1="226" y1="110" x2="284" y2="110"/>
+        <line x1="356" y1="110" x2="414" y2="110"/>
+        <line x1="486" y1="110" x2="544" y2="110"/>
+        <path d="M580 146 Q580 200 300 200 Q60 200 60 146" stroke-dasharray="4 6"/>
+      </g>
+      <g font-family="JetBrains Mono" font-size="10" fill="#fff" text-anchor="middle" letter-spacing="1.5">
+        <text x="60" y="114">MISURA</text>
+        <text x="190" y="114">ANALISI</text>
+        <text x="320" y="114">AZIONE</text>
+        <text x="450" y="114">VERIFICA</text>
+        <text x="580" y="114" fill="#f5c518">STANDARD</text>
+        <text x="320" y="218" fill="rgba(255,255,255,.5)">FEEDBACK / KAIZEN · ogni 90 giorni</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- KPI -->
+<section class="kpi">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:22px" data-en="§ 03 — Line KPIs">§ 03 — KPI di linea</div>
+    <h2 class="h-xl" data-en="Four &lt;em class='hl'&gt;numbers&lt;/em&gt;&lt;br/&gt;we watch&lt;br/&gt;every day.">Quattro <em class="hl">numeri</em><br/>che guardiamo<br/>ogni giorno.</h2>
+    <div class="kpi-grid">
+      <div class="kpi-box" data-reveal>
+        <div>
+          <div class="v">&gt;<em>99,7</em>%</div>
+          <div class="l">First Time Right</div>
+        </div>
+        <div class="d" data-en="Parts passing testing on the first attempt, 2025 annual average.">Pezzi che passano il collaudo al primo tentativo, media annua 2025.</div>
+      </div>
+      <div class="kpi-box" data-reveal>
+        <div>
+          <div class="v">&lt;<em>48</em>h</div>
+          <div class="l" data-en="Quote response">Risposta offerta</div>
+        </div>
+        <div class="d" data-en="Average time for feasibility analysis and technical quotation.">Tempo medio di analisi fattibilità e preventivo tecnico.</div>
+      </div>
+      <div class="kpi-box" data-reveal>
+        <div>
+          <div class="v"><em>0</em></div>
+          <div class="l" data-en="PPM returns 2025">PPM resi 2025</div>
+        </div>
+        <div class="d" data-en="Post-shipment non-conformities recorded in the fiscal year.">Non conformità post-spedizione registrate nell'esercizio.</div>
+      </div>
+      <div class="kpi-box" data-reveal>
+        <div>
+          <div class="v">&gt;<em>82</em>%</div>
+          <div class="l" data-en="Department OEE">OEE reparto</div>
+        </div>
+        <div class="d" data-en="Overall line efficiency (availability x performance x quality).">Efficienza complessiva di linea (disponibilità × prestazione × qualità).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="wrap">
+    <h2 data-en="Want to see it &lt;em&gt;in person?&lt;/em&gt;">Vuoi vederlo <em>dal vivo?</em></h2>
+    <p data-en="We organize technical site visits for customers and prospects. Bring a drawing and tour the workbenches.">Organizziamo visite tecniche in stabilimento per clienti e prospect. Portaci uno schema e fate il giro dei banchi.</p>
+    <a href="contatti.html" class="btn"><span data-en="Book a visit">Prenota visita</span> <span class="arr"></span></a>
+  </div>
+</section>
+
+</main>
+
+<script src="partials.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Certificazioni e standard — Nuova Elettronica S.r.l.</title>
+<meta name="description" content="Sistemi di qualità ISO 9001, standard di lavorazione IPC/WHMA-A-620, norme settoriali IEC 61439, EN 45545-2. I nostri controlli e gli strumenti di misura."/>
+<link rel="icon" href="https://static.wixstatic.com/media/5faddc_e50d0d818eed4b21bb1c7d1614ba7243~mv2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .certs{padding:140px 28px;background:var(--paper)}
+  .certs .head{max-width:900px;margin-bottom:70px}
+  .certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  .cert{background:var(--paper);padding:34px;min-height:340px;display:flex;flex-direction:column;gap:18px;position:relative;transition:background .3s}
+  .cert:hover{background:var(--paper-2)}
+  .cert .seal{width:64px;height:64px;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--ink);background:var(--gold);border-radius:50%}
+  .cert .code{font-family:var(--mono);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-dim)}
+  .cert h3{font-family:var(--display);font-weight:320;font-size:28px;line-height:1.08;letter-spacing:-.018em;font-variation-settings:"opsz" 64,"WONK" 1}
+  .cert h3 em{font-style:italic;background:linear-gradient(to top,var(--gold) 32%,transparent 32%)}
+  .cert p{font-size:14px;color:var(--ink-dim);line-height:1.55}
+  .cert .scope{margin-top:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink);border-top:1px solid var(--rule);padding-top:14px}
+  .cert .scope b{color:var(--ink-dim);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:9.5px}
+  @media(max-width:900px){.certs-grid{grid-template-columns:1fr}}
+
+  .lab{padding:140px 28px;background:var(--ink);color:var(--paper)}
+  .lab .eyebrow{color:var(--paper)}.lab .eyebrow::before{background:var(--gold)}
+  .lab h2{color:var(--paper)}.lab h2 em{color:var(--gold);font-style:italic}
+  .lab-grid{margin-top:70px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .lab-fig{position:relative;min-height:520px;background:#1a1815;border:1px solid rgba(255,255,255,.15);overflow:hidden}
+  .lab-fig svg{position:absolute;inset:0;width:100%;height:100%}
+  .lab-fig .caption{position:absolute;left:24px;bottom:24px;font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+  .lab-items{display:flex;flex-direction:column;gap:0}
+  .lab-item{border-top:1px solid rgba(255,255,255,.14);padding:22px 0;display:grid;grid-template-columns:80px 1fr 120px;gap:20px;align-items:baseline;transition:padding .3s}
+  .lab-item:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
+  .lab-item:hover{padding:30px 0}
+  .lab-item .n{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:rgba(255,255,255,.4)}
+  .lab-item .name{font-family:var(--display);font-weight:320;font-size:24px;line-height:1.1;color:var(--paper);font-variation-settings:"opsz" 56}
+  .lab-item .name em{font-style:italic;color:var(--gold)}
+  .lab-item .name small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:rgba(255,255,255,.5);margin-top:6px;font-weight:400}
+  .lab-item .range{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gold);text-align:right;line-height:1.7}
+  @media(max-width:900px){.lab-grid{grid-template-columns:1fr}.lab-item{grid-template-columns:60px 1fr;gap:16px}.lab-item .range{display:none}}
+
+  .checks{padding:140px 28px;background:var(--paper-2)}
+  .checks .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:60px;align-items:start}
+  .checks .left{position:sticky;top:120px}
+  .check-list{display:flex;flex-direction:column;gap:0}
+  .check{display:grid;grid-template-columns:80px 1fr;gap:28px;padding:26px 0;border-top:1px solid var(--rule)}
+  .check:last-child{border-bottom:1px solid var(--rule)}
+  .check .n{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--gold-deep);padding-top:4px}
+  .check .ttl{font-family:var(--display);font-weight:340;font-size:22px;line-height:1.15;letter-spacing:-.012em;font-variation-settings:"opsz" 48}
+  .check .ttl em{font-style:italic}
+  .check p{font-size:14.5px;color:var(--ink-dim);margin-top:8px;line-height:1.55;max-width:60ch}
+  @media(max-width:900px){.checks .wrap{grid-template-columns:1fr}.checks .left{position:static}}
+</style>
+</head>
+<body data-page="certificazioni">
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <div>
+      <div class="crumbs"><a href="index.html">Home</a> <span>·</span> <span data-en="Certifications">Certificazioni</span></div>
+      <h1 data-en="&lt;span class='reveal d1'&gt;&lt;span&gt;Every cable&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;&lt;span class='reveal d2'&gt;&lt;span&gt;ships with&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;&lt;span class='reveal d3'&gt;&lt;span class='it'&gt;&lt;span class='hl'&gt;a stamp.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;">
+        <span class="reveal d1"><span>Ogni cavo</span></span><br/>
+        <span class="reveal d2"><span>esce con</span></span><br/>
+        <span class="reveal d3"><span class="it"><span class="hl">un timbro.</span></span></span>
+      </h1>
+      <p class="lead" style="margin-top:32px" data-en="System standards, workmanship standards, sector-specific technical specifications: each with a purpose and a verification chain. Below, the full list with scope of application and associated control instrument.">Norme di sistema, standard di lavorazione, capitolati tecnici settoriali: ciascuno con uno scopo e una catena di verifica. Qui sotto, l'elenco completo con ambito di applicazione e strumento di controllo associato.</p>
+    </div>
+    <div class="fade-up">
+      <div class="meta" data-en="&lt;b&gt;Quality system&lt;/b&gt;ISO 9001 : 2015&lt;br/&gt;&lt;b&gt;Workmanship standard&lt;/b&gt;IPC/WHMA-A-620 Cl. 2/3&lt;br/&gt;&lt;b&gt;Report archive&lt;/b&gt;10 years — S/N traceability&lt;br/&gt;&lt;b&gt;VAT No.&lt;/b&gt;12220630011">
+        <b>Sistema qualità</b>
+        ISO 9001 : 2015<br/>
+        <b>Standard di lavorazione</b>
+        IPC/WHMA-A-620 Cl. 2/3<br/>
+        <b>Archivio report</b>
+        10 anni — rintracciabilità S/N<br/>
+        <b>P. IVA</b>
+        12220630011
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- certification cards -->
+<section class="certs">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" style="margin-bottom:22px" data-en="§ 01 — Reference standards">§ 01 — Norme di riferimento</div>
+      <h2 class="h-xl" data-en="Two &lt;em class='hl'&gt;pillars&lt;/em&gt;&lt;br/&gt;of quality.">Due <em class="hl">pilastri</em><br/>di qualità.</h2>
+    </div>
+    <div class="certs-grid" style="grid-template-columns:repeat(2,1fr)">
+      <article class="cert" data-reveal>
+        <div class="seal">ISO</div>
+        <div class="code" data-en="01 · Quality system">01 · Sistema qualità</div>
+        <h3>ISO <em>9001:2015</em></h3>
+        <p data-en="Quality management system applied to the full design, production, and testing cycle of wiring harnesses. Annual external audit by an Accredia-accredited body. Covers the entire chain: from material acceptance to final testing, from non-conformity management to management review.">Sistema di gestione per la qualità applicato all'intero ciclo di progettazione, produzione e collaudo dei cablaggi. Audit esterno annuale da ente accreditato Accredia. Copre l'intera catena: dall'accettazione materiali al collaudo finale, dalla gestione delle non conformità al riesame della direzione.</p>
+        <div class="scope" data-en="&lt;b&gt;Scope&lt;/b&gt;&lt;br/&gt;All activities — design, production, testing, logistics"><b>Ambito</b><br/>Tutta l'attività — progettazione, produzione, collaudo, logistica</div>
+      </article>
+      <article class="cert" data-reveal>
+        <div class="seal">IPC</div>
+        <div class="code" data-en="02 · Workmanship standard">02 · Standard di lavorazione</div>
+        <h3>IPC/WHMA <em>A-620</em></h3>
+        <p data-en="International standard for the construction and inspection of electrical wiring harnesses. CIT-certified operators on class 2 (industrial) and class 3 (high reliability). Defines the acceptability criteria for crimping, soldering, insulation, routing, mechanical protection, and marking.">Standard internazionale per la costruzione e ispezione dei cablaggi elettrici e harness. Operatori certificati CIT su classe 2 (industriale) e classe 3 (alta affidabilità). Definisce i criteri di accettabilità per crimpatura, saldatura, isolamento, instradamento, protezione meccanica e marcatura.</p>
+        <div class="scope" data-en="&lt;b&gt;Applied classes&lt;/b&gt;&lt;br/&gt;Cl. 2 (industrial) · Cl. 3 (high reliability)"><b>Classi applicate</b><br/>Cl. 2 (industriale) · Cl. 3 (alta affidabilità)</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- LAB / STRUMENTI -->
+<section class="lab">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:22px" data-en="§ 02 — Instrumentation">§ 02 — Strumentazione</div>
+    <h2 class="h-xl" data-en="Our measurement &lt;em&gt;laboratory.&lt;/em&gt;">Il nostro <em>laboratorio</em><br/>di misura.</h2>
+    <div class="lab-grid">
+      <div class="lab-fig">
+        <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(245,197,24,.08)" stroke-width=".5"/>
+            </pattern>
+          </defs>
+          <rect width="400" height="520" fill="url(#grid)"/>
+          <!-- oscilloscope-style -->
+          <g transform="translate(50 140)" stroke="#f5c518" fill="none" stroke-width="1.5">
+            <rect x="0" y="0" width="300" height="180" stroke="#f5c518" stroke-width=".5" opacity=".5"/>
+            <path d="M0 100 Q50 40 100 100 T200 100 T300 100" opacity=".9"/>
+            <path d="M0 110 Q40 60 80 110 T160 110 T240 110 T300 110" opacity=".4" stroke-dasharray="4 3"/>
+          </g>
+          <g transform="translate(50 380)" font-family="JetBrains Mono" font-size="10" fill="#f5c518">
+            <text x="0" y="0" letter-spacing="2">CABLE EYE · M4</text>
+            <text x="0" y="16" fill="rgba(255,255,255,.5)">TEST CONTINUITÀ · 1500V DC ISO</text>
+          </g>
+          <g stroke="rgba(255,255,255,.2)" stroke-width=".5">
+            <line x1="50" y1="50" x2="350" y2="50"/>
+            <line x1="50" y1="480" x2="350" y2="480"/>
+          </g>
+          <circle cx="200" cy="90" r="3" fill="#f5c518"/>
+          <circle cx="200" cy="90" r="8" fill="none" stroke="#f5c518" opacity=".4"/>
+        </svg>
+        <div class="caption">LABORATORIO / AVIGLIANA</div>
+      </div>
+      <div class="lab-items">
+        <article class="lab-item" data-reveal>
+          <div class="n">/ 01</div>
+          <div class="name" data-en="CableEye &lt;em&gt;M4&lt;/em&gt;&lt;small&gt;Automatic electrical test station&lt;/small&gt;">CableEye <em>M4</em><small>Stazione di test elettrico automatica</small></div>
+          <div class="range">fino a 1500 V DC<br/>&gt;100 MΩ iso</div>
+        </article>
+        <article class="lab-item" data-reveal>
+          <div class="n">/ 02</div>
+          <div class="name" data-en="Metallographic &lt;em&gt;microscope&lt;/em&gt;&lt;small&gt;In-house crimp cross-section analysis&lt;/small&gt;">Microscopio <em>metallografico</em><small>Analisi sezione crimpatura in-house</small></div>
+          <div class="range">50× ÷ 500×<br/>misura digitale</div>
+        </article>
+        <article class="lab-item" data-reveal>
+          <div class="n">/ 03</div>
+          <div class="name" data-en="Pull-force &lt;em&gt;tester&lt;/em&gt;&lt;small&gt;Dynamometer for crimp retention testing&lt;/small&gt;">Pull-force <em>tester</em><small>Dinamometro per test di tenuta crimp</small></div>
+          <div class="range">0 ÷ 2000 N<br/>acc. ±0.5%</div>
+        </article>
+        <article class="lab-item" data-reveal>
+          <div class="n">/ 04</div>
+          <div class="name" data-en="Hipot &lt;em&gt;tester&lt;/em&gt;&lt;small&gt;Dielectric strength and HV insulation&lt;/small&gt;">Hipot <em>tester</em><small>Rigidità dielettrica e isolamento HV</small></div>
+          <div class="range">fino a 2 kV AC<br/>5 kV DC</div>
+        </article>
+        <article class="lab-item" data-reveal>
+          <div class="n">/ 05</div>
+          <div class="name" data-en="Portable &lt;em&gt;OTDR&lt;/em&gt;&lt;small&gt;Fiber optic span certification&lt;/small&gt;">OTDR <em>portatile</em><small>Certificazione tratte fibra ottica</small></div>
+          <div class="range">1310/1550 · 850/1300 nm<br/>DR &gt; 35 dB</div>
+        </article>
+        <article class="lab-item" data-reveal>
+          <div class="n">/ 06</div>
+          <div class="name" data-en="Ferrule &lt;em&gt;microscope&lt;/em&gt;&lt;small&gt;Optical connector inspection IEC 61300-3-35&lt;/small&gt;">Microscopio <em>ferrule</em><small>Ispezione connettori ottici IEC 61300-3-35</small></div>
+          <div class="range">200× / 400×<br/>grading auto</div>
+        </article>
+        <article class="lab-item" data-reveal>
+          <div class="n">/ 07</div>
+          <div class="name" data-en="&lt;em&gt;Torque&lt;/em&gt; screwdrivers&lt;small&gt;Controlled fastening with digital log&lt;/small&gt;">Avvitatori in <em>coppia</em><small>Serraggio controllato con log digitale</small></div>
+          <div class="range">0.1 ÷ 40 Nm<br/>±3%</div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTROLLI -->
+<section class="checks">
+  <div class="wrap">
+    <div class="left">
+      <div class="mono-label" data-en="§ 03 — Line controls">§ 03 — Controlli di linea</div>
+      <h2 class="h-l" style="margin-top:20px" data-en="Six &lt;em class='hl'&gt;checks&lt;/em&gt;&lt;br/&gt;between incoming&lt;br/&gt;and shipment.">Sei <em class="hl">verifiche</em><br/>fra ingresso<br/>e spedizione.</h2>
+      <p class="small" style="margin-top:26px" data-en="Every check leaves a digital signature. In case of non-conformity, automatic lot blocking is triggered, with root-cause analysis and 8D report to the customer within 72 hours.">Ogni controllo lascia una firma digitale. In caso di non conformità si attiva il blocco automatico del lotto, con analisi causa-effetto e report 8D al cliente entro 72 h.</p>
+    </div>
+    <div class="check-list">
+      <div class="check"><div class="n">C / 01</div><div><div class="ttl" data-en="Incoming &lt;em class='it'&gt;material acceptance&lt;/em&gt;">Accettazione <em class="it">materiali in ingresso</em></div><p data-en="Supplier certificate conformity check, dimensional sampling, RoHS and REACH verification for cables and terminals.">Verifica di conformità certificato del fornitore, controllo dimensionale a campione, verifica RoHS e REACH per cavi e terminali.</p></div></div>
+      <div class="check"><div class="n">C / 02</div><div><div class="ttl" data-en="&lt;em class='it'&gt;First-run&lt;/em&gt; validation">Validazione <em class="it">prima serie</em></div><p data-en="Micrographic cross-section and pull-force test on the first piece of every crimp setup. Production blocked until OK.">Sezione micrografica e pull-force test sul primo pezzo di ogni taratura di crimpatura. Blocco produzione fino all'esito OK.</p></div></div>
+      <div class="check"><div class="n">C / 03</div><div><div class="ttl" data-en="Individual &lt;em class='it'&gt;visual inspection&lt;/em&gt;">Controllo <em class="it">visivo individuale</em></div><p data-en="Every operator visually checks markings, routing, and absence of mechanical damage before transfer to testing.">Ogni cablatore verifica visivamente marcature, instradamento e assenza di danni meccanici prima del trasferimento al collaudo.</p></div></div>
+      <div class="check"><div class="n">C / 04</div><div><div class="ttl" data-en="&lt;em class='it'&gt;100% electrical&lt;/em&gt; test">Test <em class="it">elettrico 100%</em></div><p data-en="CableEye test on every serial number: continuity, no inversions, 1500 V DC insulation. Dielectric strength 2 kV AC on request.">Prova CableEye su ogni matricola: continuità, assenza di inversioni, isolamento 1500 V DC. Rigidità dielettrica 2 kV AC su richiesta.</p></div></div>
+      <div class="check"><div class="n">C / 05</div><div><div class="ttl" data-en="Final &lt;em class='it'&gt;geometric inspection&lt;/em&gt;">Controllo <em class="it">geometrico finale</em></div><p data-en="Verification of bend lengths, connector positions, sheath integrity, and protections. Comparison with production drawing.">Verifica lunghezze di snodo, posizione connettori, tenuta guaine e protezioni. Confronto con disegno di produzione.</p></div></div>
+      <div class="check"><div class="n">C / 06</div><div><div class="ttl" data-en="&lt;em class='it'&gt;Lot dossier&lt;/em&gt; closure">Chiusura <em class="it">dossier di lotto</em></div><p data-en="Signed report, sample photo, assigned S/Ns, traceability list. Archived for 10 years, deliverable to the customer on request.">Report firmato, foto campione, S/N assegnati, lista rintracciabilità. Archiviazione per 10 anni, consegnabile al cliente su richiesta.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="wrap">
+    <h2 data-en="Need the &lt;em&gt;documents?&lt;/em&gt;">Ti servono <em>i documenti?</em></h2>
+    <p data-en="We provide up-to-date copies of certificates and procedural datasheets to all active customers. Write to us with what you need.">Forniamo copie aggiornate dei certificati e schede procedurali a tutti i clienti attivi. Scrivici quello che ti serve.</p>
+    <a href="contatti.html" class="btn"><span data-en="Request documentation">Richiedi documentazione</span> <span class="arr"></span></a>
+  </div>
+</section>
+
+</main>
+
+<script src="partials.js"></script>
+</body>
+</html>

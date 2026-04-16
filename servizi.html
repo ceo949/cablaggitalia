@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Servizi — Cablaggi, assemblaggi, collaudo · Nuova Elettronica S.r.l.</title>
+<meta name="description" content="Progettazione, cablaggio, crimpatura certificata, assemblaggi elettromeccanici, collaudo elettrico e analisi micrografica. Dal prototipo alla serie."/>
+<link rel="icon" href="https://static.wixstatic.com/media/5faddc_e50d0d818eed4b21bb1c7d1614ba7243~mv2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .svc-section{padding:130px 28px;border-top:1px solid var(--rule)}
+  .svc-section:nth-of-type(even){background:var(--paper-2)}
+  .svc-row{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  .svc-row.rev{direction:rtl}.svc-row.rev > *{direction:ltr}
+  .svc-row .fig{aspect-ratio:5/4;min-height:420px}
+  .svc-row .txt .num{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--gold-deep);margin-bottom:18px}
+  .svc-row .txt h2{font-family:var(--display);font-weight:300;font-size:clamp(40px,5vw,76px);line-height:.96;letter-spacing:-.028em;font-variation-settings:"opsz" 120,"WONK" 1}
+  .svc-row .txt h2 em{font-style:italic;background:linear-gradient(to top,var(--gold) 34%,transparent 34%);padding:0 .05em}
+  .svc-row .txt p.body{margin-top:28px}
+  .svc-row .specs{margin-top:36px}
+  @media(max-width:1000px){.svc-row{grid-template-columns:1fr;gap:40px}.svc-row.rev{direction:ltr}}
+
+  .matrix{padding:130px 28px;background:var(--ink);color:var(--paper)}
+  .matrix h2{color:var(--paper)}
+  .matrix h2 em{color:var(--gold);font-style:italic}
+  .matrix .eyebrow{color:var(--paper)}.matrix .eyebrow::before{background:var(--gold)}
+  .matrix table{width:100%;border-collapse:collapse;margin-top:56px;font-family:var(--mono);font-size:13px}
+  .matrix th,.matrix td{padding:16px 18px;text-align:left;border-bottom:1px solid rgba(255,255,255,.12);vertical-align:top}
+  .matrix th{color:var(--gold);letter-spacing:.22em;text-transform:uppercase;font-size:10.5px;font-weight:500}
+  .matrix td{color:rgba(255,255,255,.85)}
+  .matrix tr:hover td{background:rgba(245,197,24,.06)}
+  .matrix td b{color:var(--paper);font-weight:500}
+
+  /* Interactive exploded connector */
+  .connector-wrap{aspect-ratio:5/4;min-height:420px;background:var(--ink);border:1px solid var(--rule);position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .connector-wrap .tag{position:absolute;top:12px;left:12px;background:var(--gold);color:var(--ink);font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:4px 10px;z-index:2}
+  .connector-wrap .hint{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.45);transition:opacity .4s;z-index:2}
+  .connector-wrap:hover .hint{opacity:0}
+  .connector-wrap svg{width:90%;max-width:520px;height:auto}
+  .connector-wrap .part{transition:transform .8s cubic-bezier(.25,.1,.1,1),opacity .5s;transform-origin:center}
+  .connector-wrap:hover .shell{transform:translateX(-80px) translateY(-30px)}
+  .connector-wrap:hover .pins{transform:translateX(20px) translateY(-60px)}
+  .connector-wrap:hover .seal{transform:translateX(-40px) translateY(50px)}
+  .connector-wrap:hover .barrel{transform:translateX(60px) translateY(40px)}
+  .connector-wrap:hover .wire{transform:translateX(100px) translateY(10px)}
+  .connector-wrap .label{font-family:var(--mono);font-size:7px;fill:var(--gold);letter-spacing:1.5px;text-transform:uppercase;opacity:0;transition:opacity .6s .3s}
+  .connector-wrap:hover .label{opacity:1}
+  @media(max-width:700px){
+    .connector-wrap:hover .shell{transform:translateX(-40px) translateY(-16px)}
+    .connector-wrap:hover .pins{transform:translateX(10px) translateY(-32px)}
+    .connector-wrap:hover .seal{transform:translateX(-20px) translateY(26px)}
+    .connector-wrap:hover .barrel{transform:translateX(32px) translateY(22px)}
+    .connector-wrap:hover .wire{transform:translateX(50px) translateY(6px)}
+  }
+</style>
+</head>
+<body data-page="servizi">
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <div>
+      <div class="crumbs"><a href="index.html">Home</a> <span>·</span> <span data-en="Services">Servizi</span></div>
+      <h1 data-en="&lt;span class='reveal d1'&gt;&lt;span&gt;From &lt;/span&gt;&lt;/span&gt;&lt;span class='reveal d2'&gt;&lt;span class='it'&gt;&lt;span class='hl'&gt;drawing&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;&lt;span class='reveal d3'&gt;&lt;span&gt;to signed&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;&lt;span class='reveal d4'&gt;&lt;span class='it'&gt;test report.&lt;/span&gt;&lt;/span&gt;">
+        <span class="reveal d1"><span>Dal </span></span><span class="reveal d2"><span class="it"><span class="hl">disegno</span></span></span><br/>
+        <span class="reveal d3"><span>al collaudo</span></span><br/>
+        <span class="reveal d4"><span class="it">firmato.</span></span>
+      </h1>
+      <p class="lead" style="margin-top:32px" data-en="Seven service lines — design, crimping, assembly, fiber optics, testing, prototyping, retrofit. All under the same roof in Avigliana, all under the same ISO 9001 quality procedure.">Sette linee di servizio — progettazione, crimpatura, assemblaggio, fibra, collaudo, prototipazione, retrofit. Tutte sotto lo stesso tetto di Avigliana, tutte sotto la stessa procedura qualità ISO 9001.</p>
+    </div>
+    <div class="fade-up">
+      <div class="meta" data-en="&lt;b&gt;Standard lead time&lt;/b&gt;10 ÷ 30 business days&lt;br/&gt;&lt;b&gt;Series capacity&lt;/b&gt;Up to 10,000 pcs / month&lt;br/&gt;&lt;b&gt;Minimum lot&lt;/b&gt;1 piece (prototype)">
+        <b>Lead time standard</b>
+        10 ÷ 30 giorni lavorativi<br/>
+        <b>Capacità serie</b>
+        Fino a 10.000 pz / mese<br/>
+        <b>Lotto minimo</b>
+        1 pezzo (prototipo)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SVC 01 — Cablaggi -->
+<section class="svc-section">
+  <div class="wrap">
+    <div class="svc-row">
+      <div class="connector-wrap" aria-label="Connettore industriale esploso — passa il mouse per esplorare i componenti">
+        <div class="tag" data-en="01 · Exploded connector">01 · Connettore esploso</div>
+        <div class="hint" data-en="⟵ hover to explore ⟶">⟵ hover per esplorare ⟶</div>
+        <svg viewBox="0 0 560 360" aria-hidden="true">
+          <!-- Wire/cable -->
+          <g class="part wire">
+            <path d="M420 180 H560" stroke="#6b655a" stroke-width="14" stroke-linecap="round" fill="none"/>
+            <path d="M430 172 H540" stroke="#d4a017" stroke-width="3" fill="none"/>
+            <path d="M430 180 H540" stroke="#c9302c" stroke-width="3" fill="none"/>
+            <path d="M430 188 H540" stroke="#2e7d32" stroke-width="3" fill="none"/>
+            <text class="label" x="458" y="210">Cavo multipolare</text>
+          </g>
+          <!-- Crimp barrel -->
+          <g class="part barrel">
+            <rect x="370" y="162" width="55" height="36" rx="4" fill="#8c7a5a" stroke="#f5c518" stroke-width="1"/>
+            <rect x="375" y="167" width="10" height="26" rx="2" fill="#6b655a"/>
+            <rect x="410" y="167" width="10" height="26" rx="2" fill="#6b655a"/>
+            <path d="M378 174 H418" stroke="#f5c518" stroke-width=".5" stroke-dasharray="2 2"/>
+            <path d="M378 180 H418" stroke="#f5c518" stroke-width=".5" stroke-dasharray="2 2"/>
+            <path d="M378 186 H418" stroke="#f5c518" stroke-width=".5" stroke-dasharray="2 2"/>
+            <text class="label" x="368" y="215">Crimp barrel</text>
+          </g>
+          <!-- Seal/gasket -->
+          <g class="part seal">
+            <ellipse cx="340" cy="180" rx="22" ry="30" fill="#3a6ea5" opacity=".85" stroke="#f5c518" stroke-width=".8"/>
+            <ellipse cx="340" cy="180" rx="12" ry="20" fill="none" stroke="rgba(255,255,255,.3)" stroke-width=".5"/>
+            <circle cx="334" cy="172" r="3" fill="none" stroke="rgba(255,255,255,.25)"/>
+            <circle cx="346" cy="172" r="3" fill="none" stroke="rgba(255,255,255,.25)"/>
+            <circle cx="340" cy="185" r="3" fill="none" stroke="rgba(255,255,255,.25)"/>
+            <text class="label" x="316" y="226">Guarnizione IP67</text>
+          </g>
+          <!-- Contact pins -->
+          <g class="part pins">
+            <g stroke="#f5c518" stroke-width="1.2" fill="none">
+              <line x1="218" y1="168" x2="290" y2="168"/>
+              <line x1="218" y1="180" x2="290" y2="180"/>
+              <line x1="218" y1="192" x2="290" y2="192"/>
+            </g>
+            <circle cx="218" cy="168" r="3.5" fill="#f5c518"/>
+            <circle cx="218" cy="180" r="3.5" fill="#f5c518"/>
+            <circle cx="218" cy="192" r="3.5" fill="#f5c518"/>
+            <rect x="286" y="164" width="18" height="8" rx="1" fill="#c99902" stroke="#f5c518" stroke-width=".5"/>
+            <rect x="286" y="176" width="18" height="8" rx="1" fill="#c99902" stroke="#f5c518" stroke-width=".5"/>
+            <rect x="286" y="188" width="18" height="8" rx="1" fill="#c99902" stroke="#f5c518" stroke-width=".5"/>
+            <text class="label" x="228" y="224">Pin di contatto</text>
+          </g>
+          <!-- Shell/housing -->
+          <g class="part shell">
+            <rect x="40" y="130" width="180" height="100" rx="12" fill="#2a2826" stroke="#f5c518" stroke-width="1.2"/>
+            <rect x="50" y="140" width="160" height="80" rx="8" fill="#1a1815" stroke="rgba(255,255,255,.12)" stroke-width=".5"/>
+            <!-- pin holes -->
+            <circle cx="90" cy="170" r="6" fill="none" stroke="#f5c518" stroke-width=".8"/>
+            <circle cx="130" cy="170" r="6" fill="none" stroke="#f5c518" stroke-width=".8"/>
+            <circle cx="170" cy="170" r="6" fill="none" stroke="#f5c518" stroke-width=".8"/>
+            <circle cx="110" cy="195" r="6" fill="none" stroke="rgba(255,255,255,.2)" stroke-width=".8"/>
+            <circle cx="150" cy="195" r="6" fill="none" stroke="rgba(255,255,255,.2)" stroke-width=".8"/>
+            <!-- keyway -->
+            <rect x="56" y="156" width="6" height="28" rx="2" fill="#f5c518" opacity=".5"/>
+            <!-- label -->
+            <text x="68" y="150" font-family="JetBrains Mono" font-size="6" fill="rgba(255,255,255,.4)" letter-spacing="2">HOUSING · 3-POS</text>
+            <text class="label" x="72" y="248">Corpo connettore</text>
+          </g>
+          <!-- Dimension lines (decorative) -->
+          <g stroke="rgba(255,255,255,.15)" stroke-width=".5" stroke-dasharray="3 3">
+            <line x1="40" y1="115" x2="220" y2="115"/>
+            <line x1="40" y1="110" x2="40" y2="120"/>
+            <line x1="220" y1="110" x2="220" y2="120"/>
+          </g>
+          <text x="105" y="110" font-family="JetBrains Mono" font-size="6" fill="rgba(255,255,255,.25)" letter-spacing="1.5">42.5 mm</text>
+        </svg>
+      </div>
+      <div class="txt" data-reveal>
+        <div class="num" data-en="§ 01 / 07 — Core service">§ 01 / 07 — Servizio base</div>
+        <h2 data-en="Cable-to-terminal &lt;em&gt;wiring harnesses&lt;/em&gt; to customer drawing.">Cablaggi <em>cavi-terminale</em> a disegno cliente.</h2>
+        <p class="body" data-en="We manufacture complete pre-assembled harnesses — precision cable cutting, calibrated stripping, crimping with dedicated applicator per terminal, assembly on forming board, hot laser marking of conductors, convoluted or heat-shrink tubing insertion, and individual electrical testing. We produce from customer drawings, connection lists, or single-line diagrams; at quotation stage we suggest routing, cross-section, and protection optimizations.">Realizziamo cablaggi pre-assemblati completi — taglio cavo di precisione, sguainatura calibrata, crimpatura con applicatore dedicato per terminale, assemblaggio su maschera di formatura, marcatura laser a caldo dei conduttori, riempimento guaine convolute o termorestringenti, test elettrico individuale. Produciamo su disegno cliente, lista di connessione o schema unifilare; in fase di offerta suggeriamo ottimizzazioni di percorso, sezione e protezione.</p>
+        <div class="specs">
+          <table class="spec-table">
+            <tr><th data-en="Conductor cross-section">Sezione conduttori</th><td>0.14 ÷ 240 mm² (AWG 26 ÷ 4/0)</td></tr>
+            <tr><th data-en="Cable types">Tipologie cavo</th><td>H05V-K, H07V-K, FLRY, FLR, FLR2X, silicone, LSZH, auto (T2/T3)</td></tr>
+            <tr><th data-en="Harmonization">Armonizzazione</th><td>CEI, UL, CSA, ISO 6722</td></tr>
+            <tr><th data-en="Crimp standard">Crimp standard</th><td>IPC/WHMA-A-620 Cl.2 / Cl.3</td></tr>
+            <tr><th data-en="Marking">Marcatura</th><td data-en="Hot laser, inkjet, Brady heat-resistant labels">Laser a caldo, inkjet, etichette Brady termoresistenti</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SVC 02 — Crimpatura -->
+<section class="svc-section">
+  <div class="wrap">
+    <div class="svc-row rev">
+      <div class="figure fig">
+        <img src="https://images.unsplash.com/photo-1473186505569-9c61870c11f9?w=1200&q=80" alt="Pressa di crimpatura" onerror="this.parentNode.style.background='linear-gradient(135deg,var(--ink),var(--ink-soft))';this.style.display='none'"/>
+        <div class="tag" data-en="02 · Crimping">02 · Crimpatura</div>
+        <div class="cap" data-en="&lt;b&gt;40 kN press /&lt;/b&gt; mini-applicator · lot-calibrated pull-force"><b>Pressa 40 kN /</b> mini-applicatore · pull-force calibrato per lotto</div>
+      </div>
+      <div class="txt" data-reveal>
+        <div class="num" data-en="§ 02 / 07 — Critical process">§ 02 / 07 — Processo critico</div>
+        <h2 data-en="&lt;em&gt;Certified&lt;/em&gt; crimping&lt;br/&gt;IPC/WHMA-A-620.">Crimpatura <em>certificata</em><br/>IPC/WHMA-A-620.</h2>
+        <p class="body" data-en="Crimping is the mechanical-electrical interface that determines a harness's lifespan. We work with 25 and 40 kN stationary presses, terminal-dedicated applicators, and bargain height micrometers. Every setup is validated by a &lt;b&gt;micrographic cross-section&lt;/b&gt; under a metallographic microscope (compression factor, void absence, symmetry) and &lt;b&gt;pull-force tests&lt;/b&gt; at the beginning and end of each lot. All parameters are recorded in the production report and linked to the final serial number.">La crimpatura è l'interfaccia meccanico-elettrica che determina la vita del cablaggio. Lavoriamo con presse stazionarie da 25 e 40 kN, applicatori dedicati al terminale, micrometri di bargain height. Ogni taratura è validata da una <b>sezione micrografica</b> al microscopio metallografico (fattore di compressione, assenza di vuoti, simmetria) e da <b>prove di pull-force</b> campione all'inizio e al termine di ogni lotto. Tutti i parametri vengono registrati nel rapporto di produzione e associati al numero di serie finale.</p>
+        <div class="specs">
+          <table class="spec-table">
+            <tr><th data-en="Terminal types">Tipi terminale</th><td data-en="Ring, fork, faston, tab, ferrule, pin, CrimpFlex">Ad occhiello, forchetta, faston, tab, boccola, pin, CrimpFlex</td></tr>
+            <tr><th data-en="Brands">Marche</th><td>AMP/TE, Molex, Deutsch, Harting, JST, Delphi, Yazaki, Stocko</td></tr>
+            <tr><th data-en="Dimensional control">Controllo dimensionale</th><td>Bargain height, crimp width, insulation grip (IEC 60352-2)</td></tr>
+            <tr><th>Pull-force</th><td data-en="Start-of-lot calibration, periodic check, archived report">Taratura inizio lotto, controllo periodico, report archiviato</td></tr>
+            <tr><th data-en="Micrography">Micrografia</th><td data-en="Metallographic microscope 50× ÷ 500× in-house">Microscopio metallografico 50× ÷ 500× in-house</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SVC 03 — Assemblaggi -->
+<section class="svc-section">
+  <div class="wrap">
+    <div class="svc-row">
+      <div class="figure fig">
+        <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=1200&q=80" alt="Assemblaggio elettromeccanico" onerror="this.parentNode.style.background='linear-gradient(135deg,var(--paper-3),var(--paper))';this.style.display='none'"/>
+        <div class="tag" data-en="03 · Assemblies">03 · Assemblaggi</div>
+        <div class="cap" data-en="&lt;b&gt;IP67 box /&lt;/b&gt; sub-assembly ready for installation"><b>Box IP67 /</b> sotto-assemblato pronto al montaggio</div>
+      </div>
+      <div class="txt" data-reveal>
+        <div class="num" data-en="§ 03 / 07 — Integration">§ 03 / 07 — Integrazione</div>
+        <h2 data-en="&lt;em&gt;Electromechanical&lt;/em&gt; assemblies and pre-wired enclosures.">Assemblaggi <em>elettromeccanici</em> e box precablati.</h2>
+        <p class="body" data-en="Beyond pure wiring, we supply complete sub-assemblies: pre-wired IP65/IP67 junction boxes, command boxes with pushbuttons and indicators, plate-mounted machine electrical groups, and vehicular dashboards. We perform component mounting, calibrated torque fastening, internal wiring, and sample or individual functional testing per agreed procedure. We deliver assemblies ready for installation on the customer's line, with ESD-protected packaging where required.">Oltre al puro cablaggio forniamo sotto-assemblati completi: scatole di derivazione IP65/IP67 precablate, box comando con pulsanti e segnalatori, gruppi elettrici di macchina montati su piastra, cruscotti veicolari. Eseguiamo montaggio componenti, serraggio in coppia controllata, cablaggio interno, test funzionale a campione e individuale secondo procedura concordata. Forniamo il gruppo pronto al montaggio sulla linea cliente, con imballaggio protetto ESD ove richiesto.</p>
+        <div class="specs">
+          <table class="spec-table">
+            <tr><th data-en="Box types">Tipologie box</th><td>Polyamide IP65/IP67, alluminio pressofuso, acciaio inox, ABS</td></tr>
+            <tr><th data-en="Torque fastening">Serraggio</th><td data-en="Calibrated torque screwdrivers, digital torque log">Avvitatori in coppia calibrata, log digitale del serraggio</td></tr>
+            <tr><th data-en="Components">Componenti</th><td data-en="Relays, terminal blocks, switches, indicators, fuses, PCB">Relè, morsettiere, interruttori, segnalatori, fusibili, PCB</td></tr>
+            <tr><th data-en="Packaging">Imballaggio</th><td data-en="Standard, ESD, vacuum-sealed, custom to specification">Standard, ESD, vacuum-sealed, custom su specifica</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SVC 04 — Fibra ottica (short teaser) -->
+<section class="svc-section">
+  <div class="wrap">
+    <div class="svc-row rev">
+      <div class="figure fig">
+        <img src="https://images.unsplash.com/photo-1551808525-51a94da548ce?w=1200&q=80" alt="Fibra ottica" onerror="this.parentNode.style.background='radial-gradient(circle at 30% 40%,#f5c518 0 10%,transparent 10%),linear-gradient(135deg,var(--ink),var(--ink-soft))';this.style.display='none'"/>
+        <div class="tag" data-en="04 · Fiber optics">04 · Fibra ottica</div>
+        <div class="cap" data-en="&lt;b&gt;Fusion splicer /&lt;/b&gt; OM3/OM4/OS2 · OTDR certification"><b>Giuntatrice a fusione /</b> OM3/OM4/OS2 · certificazione OTDR</div>
+      </div>
+      <div class="txt" data-reveal>
+        <div class="num" data-en="§ 04 / 07 — Fiber">§ 04 / 07 — Fibra</div>
+        <h2 data-en="Fiber &lt;em&gt;optics&lt;/em&gt;:&lt;br/&gt;splicing, connectorization, certification.">Fibra <em>ottica</em>:<br/>giunzioni, connettorizzazione, certificazione.</h2>
+        <p class="body" data-en="We perform fusion splicing, SC/LC/ST/FC connectorization, termination of singlemode (OS2) and multimode (OM3/OM4/OM5) cables, with OTDR certification and insertion loss testing. We have a fusion splicer, precision cleaver, ferrule inspection microscope, and Fluke-level certification instruments.">Realizziamo giunzioni a fusione, connettorizzazioni SC/LC/ST/FC, terminazioni di cavi monomodali (OS2) e multimodali (OM3/OM4/OM5), con certificazione OTDR e insertion loss test. Disponiamo di giuntatrice a fusione, cliver di precisione, microscopio ispezione ferrules e strumenti di certificazione Fluke-level.</p>
+        <a href="fibra-ottica.html" class="cta" style="margin-top:30px;align-self:flex-start" data-en="&lt;span class='dot'&gt;&lt;/span&gt;Dedicated page &amp;nbsp;→"><span class="dot"></span>Pagina dedicata &nbsp;→</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SVC 05 — Collaudo -->
+<section class="svc-section">
+  <div class="wrap">
+    <div class="svc-row">
+      <div class="figure fig">
+        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&q=80" alt="Stazione di test e collaudo elettrico" onerror="this.parentNode.style.background='linear-gradient(135deg,#1a1815,var(--ink))';this.style.display='none'"/>
+        <div class="tag" data-en="05 · Testing">05 · Collaudo</div>
+        <div class="cap" data-en="&lt;b&gt;CableEye M4 /&lt;/b&gt; continuity, insulation, dielectric strength testing"><b>CableEye M4 /</b> test continuità, isolamento, rigidità dielettrica</div>
+      </div>
+      <div class="txt" data-reveal>
+        <div class="num" data-en="§ 05 / 07 — Quality">§ 05 / 07 — Qualità</div>
+        <h2 data-en="&lt;em&gt;100%&lt;/em&gt; testing with S/N log.">Collaudo <em>al 100%</em> con log S/N.</h2>
+        <p class="body" data-en="Every harness that leaves our benches is individually tested on the CableEye M4 station, with a fixture dedicated to the part number. The electrical test verifies point-to-point continuity, absence of short circuits, insulation up to 1500 V DC, and insulation resistance &gt;100 MΩ. When the specification requires it, we add dielectric strength up to 2 kV AC (hipot test) and geometric inspection with gauging jigs. The digitally signed test log is linked to the S/N and archived for ten years.">Ogni cablaggio che esce dai banchi è testato individualmente sulla stazione CableEye M4, con fixture dedicata alla matricola. Il test elettrico verifica continuità punto-punto, assenza di cortocircuiti, isolamento fino a 1500 V DC, resistenza di isolamento &gt;100 MΩ. Quando il capitolato lo richiede, aggiungiamo rigidità dielettrica fino a 2 kV AC (hipot test) e controllo geometrico con sagome di riscontro. Il log del test, firmato digitalmente, viene associato al S/N e archiviato dieci anni.</p>
+        <div class="specs">
+          <table class="spec-table">
+            <tr><th data-en="Electrical tests">Test elettrici</th><td data-en="Continuity, resistance, HV insulation, dielectric strength">Continuità, resistenza, isolamento HV, rigidità dielettrica</td></tr>
+            <tr><th data-en="Test voltages">Tensioni di prova</th><td data-en="Up to 1500 V DC / 2 kV AC">Fino a 1500 V DC / 2 kV AC</td></tr>
+            <tr><th>Output</th><td data-en="Digitally signed PDF, CSV log, Q-TRACK database">PDF firmato digitalmente, log CSV, database Q-TRACK</td></tr>
+            <tr><th data-en="Archival">Archiviazione</th><td data-en="10 years, lot / operator / date traceability">10 anni, rintracciabilità lotto / operatore / data</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MATRIX OVERVIEW -->
+<section class="matrix">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:22px" data-en="§ 06 — Overview">§ 06 — Quadro d'insieme</div>
+    <h2 class="h-xl" data-en="All services,&lt;br/&gt;on &lt;em&gt;one page.&lt;/em&gt;">Tutti i servizi,<br/>in <em>una pagina.</em></h2>
+    <table>
+      <thead>
+        <tr><th data-en="Code">Codice</th><th data-en="Service">Servizio</th><th>Output</th><th data-en="Lot">Lotto</th><th>Lead time</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>01</b></td><td data-en="Cable-to-terminal harnesses to drawing">Cablaggi cavi-terminale a disegno</td><td data-en="Marked harness + test report">Harness marcato + report test</td><td>1 ÷ 10.000 pz</td><td data-en="10 ÷ 30 days">10 ÷ 30 gg</td></tr>
+        <tr><td><b>02</b></td><td data-en="IPC-A-620 certified crimping">Crimpatura certificata IPC-A-620</td><td data-en="Crimped terminals + micrographic section">Terminali crimpati + sezione micrografica</td><td>≥ 1.000 pz</td><td data-en="5 ÷ 15 days">5 ÷ 15 gg</td></tr>
+        <tr><td><b>03</b></td><td data-en="Electromechanical assemblies / pre-wired enclosures">Assemblaggi elettromeccanici / box precablati</td><td data-en="Assembly ready for installation">Gruppo pronto al montaggio</td><td>1 ÷ 2.000 pz</td><td data-en="15 ÷ 40 days">15 ÷ 40 gg</td></tr>
+        <tr><td><b>04</b></td><td data-en="Fiber optics: splicing + connectorization">Fibra ottica: giunzione + connettorizzazione</td><td data-en="Certified cable + OTDR report">Cavo certificato + report OTDR</td><td data-en="Spans 1 ÷ 500 m">Tratte 1 ÷ 500 m</td><td data-en="5 ÷ 20 days">5 ÷ 20 gg</td></tr>
+        <tr><td><b>05</b></td><td data-en="Electrical testing &amp; hipot">Collaudo elettrico &amp; hipot</td><td data-en="Signed report, archived 10 years">Report firmato, archiviato 10 anni</td><td data-en="100% of parts">100% pezzi</td><td>In-line</td></tr>
+        <tr><td><b>06</b></td><td data-en="Rapid prototyping &amp; sampling">Prototipazione rapida &amp; campionatura</td><td data-en="First article + validation sheet">1° articolo + scheda di validazione</td><td>1 ÷ 20 pz</td><td data-en="5 days">5 gg</td></tr>
+        <tr><td><b>07</b></td><td data-en="Retrofit &amp; repairs on-site / at our lab">Retrofit &amp; riparazioni on-site / c/o laboratorio</td><td data-en="Intervention + functional verification">Intervento + verifica funzionale</td><td data-en="On request">Su richiesta</td><td data-en="4h ÷ 10 days">4h ÷ 10 gg</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="wrap">
+    <h2 data-en="You have a &lt;em&gt;drawing.&lt;/em&gt;&lt;br/&gt;We'll handle the rest.">Hai un <em>disegno.</em><br/>Facciamo il resto.</h2>
+    <p data-en="Feasibility analysis and technical quotation within 48 business hours.">Analisi di fattibilità e offerta tecnica entro 48 h lavorative.</p>
+    <a href="contatti.html" class="btn"><span data-en="Request a quote">Richiedi preventivo</span> <span class="arr"></span></a>
+  </div>
+</section>
+
+</main>
+
+<script src="partials.js"></script>
+</body>
+</html>

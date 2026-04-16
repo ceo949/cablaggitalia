@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Nuova Elettronica S.r.l. — Cablaggi industriali e automotive · Avigliana (TO)</title>
+<meta name="description" content="Dal 1978 progettiamo e assembliamo cablaggi elettrici per il settore automotive e industriale. Crimpatura certificata IPC/WHMA-A-620, test elettrico automatico CableEye M4, analisi micrografica su sezione."/>
+<link rel="icon" href="https://static.wixstatic.com/media/5faddc_e50d0d818eed4b21bb1c7d1614ba7243~mv2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  /* page-specific */
+  body::after{content:"";position:fixed;inset:auto -10vw -30vh auto;width:70vw;height:70vh;pointer-events:none;z-index:0;background:radial-gradient(closest-side,rgba(245,197,24,.20),transparent 70%);filter:blur(30px)}
+  .hero{padding:140px 28px 80px;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;border-top:0}
+  .schematic{position:absolute;inset:0;z-index:0;opacity:.9}
+  .schematic svg{width:100%;height:100%;display:block}
+  .schematic .wire{fill:none;stroke:var(--ink);stroke-width:.5;opacity:.18}
+  .schematic .wire.gold{stroke:var(--gold-deep);opacity:.55;stroke-width:.8}
+  .schematic .node{fill:var(--ink);opacity:.35}
+  .schematic .node.gold{fill:var(--gold);opacity:1;filter:drop-shadow(0 0 4px rgba(245,197,24,.5))}
+  .schematic .tick{stroke:var(--ink);stroke-width:.5;opacity:.22}
+  .schematic text{font-family:var(--mono);font-size:9px;fill:var(--ink-dim);letter-spacing:.1em}
+  .signal-path{stroke:var(--gold);stroke-width:1.4;fill:none;stroke-dasharray:3 6;opacity:.85;animation:dash 22s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-600}}
+  .bolts{position:absolute;right:6vw;top:14vh;width:min(420px,40vw);opacity:.10;z-index:0;pointer-events:none}
+  .hero-inner{position:relative;z-index:2;width:100%;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:80px;align-items:end}
+  .headline .hl::before{content:"";position:absolute;left:-.08em;right:-.08em;bottom:.08em;height:.32em;background:var(--gold);z-index:-1;transform-origin:left;transform:scaleX(0);animation:hl 1.2s cubic-bezier(.2,.7,.2,1) .9s forwards}
+  .headline .hl{position:relative;z-index:1}
+  @keyframes hl{to{transform:scaleX(1)}}
+  .headline .amp{display:inline-block;transform:translateY(-.06em) scale(1.1);color:var(--ink-faint);font-style:italic}
+  .headline-meta{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:32px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim)}
+  .headline-meta .lineage{color:var(--ink)}
+  .headline-meta .sep{color:var(--gold-deep)}
+  .hero-side{display:flex;flex-direction:column;gap:24px;padding-bottom:8px}
+  .hero-side p{font-size:17px;line-height:1.55;color:var(--ink-soft);max-width:34ch;font-variation-settings:"opsz" 20}
+  .hero-side p em{font-style:italic;color:var(--ink);background:linear-gradient(to top,var(--gold-soft) 45%,transparent 45%);padding:0 .08em;font-variation-settings:"WONK" 1}
+  .spec-box{border:1px solid var(--ink);padding:18px 20px;background:var(--paper);position:relative}
+  .spec-box::before{content:"";position:absolute;inset:5px;border:1px solid var(--rule);pointer-events:none}
+  .spec-box .lbl{font-family:var(--mono);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:8px}
+  .spec-box .val{font-family:var(--display);font-style:italic;font-size:20px;line-height:1.2;font-variation-settings:"WONK" 1,"SOFT" 70}
+  .spec-box .val b{font-style:normal;font-weight:500;background:var(--gold);padding:0 .12em}
+  .scroll-hint{position:absolute;left:28px;bottom:28px;font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim);display:flex;align-items:center;gap:10px;z-index:3}
+  .scroll-hint .bar{width:48px;height:2px;background:rgba(14,14,12,.12);position:relative;overflow:hidden}
+  .scroll-hint .bar::after{content:"";position:absolute;inset:0;background:var(--gold);animation:fill 2.4s ease-in-out infinite}
+  @keyframes fill{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+  .serial{position:absolute;right:28px;top:96px;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);z-index:3}
+
+  /* sections */
+  .intro{padding:140px 28px;background:var(--paper-2)}
+  .intro .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:start}
+  .intro .left{position:sticky;top:120px}
+  .intro h2{margin-top:22px}
+  .intro .prose p{font-size:20px;line-height:1.55;color:var(--ink-soft);margin-bottom:22px;max-width:56ch;font-variation-settings:"opsz" 22}
+  .intro .prose p:first-of-type::first-letter{font-family:var(--display);font-style:italic;font-size:5.6em;line-height:.82;float:left;padding:.08em .14em 0 0;color:transparent;font-weight:400;font-variation-settings:"WONK" 1,"SOFT" 100,"opsz" 144;background:linear-gradient(to bottom,var(--gold) 92%,transparent 92%);-webkit-background-clip:text;background-clip:text}
+
+  .cards{padding:140px 28px;background:var(--paper)}
+  .cards-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:60px}
+  .card-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+  .card{border:1px solid var(--rule);background:var(--paper);padding:28px;position:relative;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:border-color .4s, box-shadow .4s}
+  .card::before{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .card:hover{border-color:var(--ink);box-shadow:10px 10px 0 var(--ink)}
+  .card:hover::before{transform:scaleX(1)}
+  .card.inv{background:var(--ink);color:var(--paper)}
+  .card.inv:hover{box-shadow:10px 10px 0 var(--gold)}
+  .card.inv p,.card.inv .tag{color:rgba(255,255,255,.75)}
+  .card.inv h3{color:var(--paper)}
+  .card.beige{background:var(--paper-3)}
+  .card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-dim);display:flex;justify-content:space-between;gap:10px;align-items:center}
+  .card .tag .chip{border:1px solid currentColor;padding:3px 9px}
+  .card .tag .chip.g{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+  .card h3{font-family:var(--display);font-weight:320;font-size:clamp(26px,2.8vw,40px);line-height:1;letter-spacing:-.02em;font-variation-settings:"opsz" 72}
+  .card h3 em{font-style:italic;background:linear-gradient(to top,var(--gold) 32%,transparent 32%);padding:0 .06em}
+  .card.inv h3 em{color:var(--ink);background:var(--gold);padding:.02em .12em}
+  .card p{font-size:14.5px;line-height:1.55;color:var(--ink-dim);max-width:42ch;margin-top:14px}
+  .card ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:4px}
+  .card ul li{font-family:var(--mono);font-size:10.5px;color:var(--ink);display:flex;gap:10px;align-items:center}
+  .card.inv ul li{color:var(--paper)}
+  .card ul li::before{content:"";width:14px;height:2px;background:var(--gold);flex:none}
+  .card a.more{margin-top:22px;align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;padding:6px 0;border-bottom:2px solid var(--gold);display:inline-flex;gap:8px;align-items:center}
+  .card a.more::after{content:"→"}
+  .card.inv a.more{color:var(--gold)}
+  .a{grid-column:span 7;min-height:420px}.b{grid-column:span 5;min-height:420px}
+  .c{grid-column:span 4}.d{grid-column:span 4}.e{grid-column:span 4}
+  .f{grid-column:span 5}.g{grid-column:span 7}
+  @media(max-width:1100px){.a,.b,.c,.d,.e,.f,.g{grid-column:span 12;min-height:260px}.intro .wrap{grid-template-columns:1fr}.intro .left{position:static}.cards-head{grid-template-columns:1fr}}
+
+  .stats{padding:130px 28px;background:var(--paper-2)}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:end}
+  .stat{border-top:2px solid var(--ink);padding-top:28px;position:relative}
+  .stat::before{content:"";position:absolute;left:0;top:-2px;width:40px;height:2px;background:var(--gold)}
+  .stat .n{font-family:var(--display);font-weight:300;font-size:clamp(64px,8vw,132px);line-height:.9;letter-spacing:-.04em;font-variation-settings:"opsz" 144,"WONK" 1}
+  .stat .n em{font-style:italic;font-variation-settings:"WONK" 1,"SOFT" 100;position:relative;display:inline-block}
+  .stat .n em::after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.12em;height:.28em;background:var(--gold);z-index:-1}
+  .stat .u{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);margin-top:14px}
+  .stat .d{font-size:13.5px;color:var(--ink-soft);margin-top:6px;max-width:22ch;line-height:1.5}
+  @media(max-width:700px){.stats .wrap{grid-template-columns:repeat(2,1fr)}}
+
+  .quote{padding:150px 28px;background:var(--paper)}
+  .quote .wrap{max-width:1200px;position:relative}
+  .quote .mk{font-family:var(--display);font-style:italic;font-size:280px;line-height:.7;color:var(--gold);position:absolute;left:-30px;top:-70px;font-variation-settings:"WONK" 1,"SOFT" 100;z-index:0}
+  .quote blockquote{font-family:var(--display);font-weight:300;font-size:clamp(36px,4.2vw,68px);line-height:1.08;letter-spacing:-.02em;font-style:italic;max-width:22ch;font-variation-settings:"WONK" 1,"SOFT" 60,"opsz" 144;position:relative;z-index:1}
+  .quote blockquote em{background:linear-gradient(to top,var(--gold) 34%,transparent 34%);padding:0 .06em}
+  .quote .att{margin-top:44px;display:flex;gap:16px;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim)}
+  .quote .att .line{width:60px;height:2px;background:var(--gold)}
+  .quote .att b{color:var(--ink);font-weight:500}
+
+  .clients{padding:80px 28px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .clients .wrap{display:grid;grid-template-columns:200px 1fr;gap:60px;align-items:center}
+  .clients .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-dim)}
+  .clients .list{display:flex;flex-wrap:wrap;gap:30px 52px;font-family:var(--display);font-weight:300;font-size:clamp(22px,2.2vw,32px);color:var(--ink)}
+  .clients .list span{position:relative;padding-right:20px;font-style:italic;font-variation-settings:"WONK" 1,"SOFT" 70;transition:background .3s}
+  .clients .list span:hover{background:var(--gold)}
+  .clients .list span+span::before{content:"/";position:absolute;left:-30px;top:50%;transform:translateY(-50%);color:var(--ink-faint);font-style:normal}
+  @media(max-width:900px){.clients .wrap{grid-template-columns:1fr;gap:20px}}
+</style>
+</head>
+<body data-page="home">
+
+<main>
+
+<!-- ———— HERO ———— -->
+<section class="hero">
+  <div class="schematic" aria-hidden="true">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <g>
+        <line class="tick" x1="0" y1="60" x2="1440" y2="60"/>
+        <line class="tick" x1="144" y1="50" x2="144" y2="70"/><line class="tick" x1="288" y1="50" x2="288" y2="70"/>
+        <line class="tick" x1="432" y1="50" x2="432" y2="70"/><line class="tick" x1="576" y1="50" x2="576" y2="70"/>
+        <line class="tick" x1="720" y1="50" x2="720" y2="70"/><line class="tick" x1="864" y1="50" x2="864" y2="70"/>
+        <line class="tick" x1="1008" y1="50" x2="1008" y2="70"/><line class="tick" x1="1152" y1="50" x2="1152" y2="70"/>
+        <line class="tick" x1="1296" y1="50" x2="1296" y2="70"/>
+        <text x="4" y="48">000</text><text x="576" y="48">0400</text><text x="1152" y="48">0800</text><text x="1400" y="48">1000mm</text>
+      </g>
+      <path class="wire" d="M0 420 H260 L300 380 H480 L520 420 H740 L780 380 H1000"/>
+      <path class="wire" d="M200 700 H360 L400 660 H620 L660 700 H900 L940 740 H1200"/>
+      <path class="wire gold" d="M0 520 H180 L220 560 H440 L480 520 H720 L760 560 H1000 L1040 520 H1440"/>
+      <path class="wire" d="M1440 200 H1200 L1160 240 H980 L940 200 H760"/>
+      <path class="wire" d="M1080 0 V120 L1040 160 V260 L1080 300 V420"/>
+      <path class="signal-path" d="M0 520 H180 L220 560 H440 L480 520 H720 L760 560 H1000 L1040 520 H1440"/>
+      <circle class="node gold" cx="0" cy="520" r="3"/><circle class="node gold" cx="480" cy="520" r="3"/><circle class="node gold" cx="1040" cy="520" r="3"/>
+      <circle class="node" cx="260" cy="420" r="2.5"/><circle class="node" cx="520" cy="420" r="2.5"/><circle class="node" cx="780" cy="380" r="2.5"/>
+      <text x="22" y="435" fill="#6b655a">A / ALIM. 400V</text>
+      <text x="530" y="400" fill="#6b655a">NODO 7.03</text>
+      <text x="1050" y="505" fill="#c99902">SEGNALE · Cu 2.5mm²</text>
+      <text x="920" y="185" fill="#6b655a">RETURN LINE</text>
+    </svg>
+  </div>
+
+  <div class="bolts" aria-hidden="true">
+    <svg viewBox="0 0 300 300">
+      <path d="M110 10 L80 140 L130 140 L100 290 L180 120 L130 120 L160 10 Z" fill="#f5c518" stroke="#0e0e0c" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M230 40 L205 130 L240 130 L220 260 L280 120 L245 120 L265 40 Z" fill="#f5c518" stroke="#0e0e0c" stroke-width="2" stroke-linejoin="round" opacity=".85"/>
+    </svg>
+  </div>
+
+  <div class="serial">N.E. — LOTTO 74/2026 · REV.03 · AVIGLIANA (TO)</div>
+  <div class="scroll-hint"><span class="bar"></span><span data-en="Scroll / explore">Scorri / esplora</span></div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow fade-up inline" style="margin-bottom:26px" data-en="Automotive &amp; industrial wiring harnesses — since 1978">Cablaggi automotive &amp; industriali — dal 1978</div>
+
+      <h1 class="h-xxl headline" aria-label="Conduciamo corrente dove serve." data-en="&lt;span class='reveal d1'&gt;&lt;span&gt;We deliver&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;&lt;span class='reveal d2'&gt;&lt;span&gt;current &lt;/span&gt;&lt;/span&gt;&lt;span class='reveal d3'&gt;&lt;span class='it'&gt;&lt;span class='hl'&gt;where&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;&lt;span class='reveal d4'&gt;&lt;span class='it'&gt;needed.&lt;/span&gt; &lt;span class='amp'&gt;&amp;amp;&lt;/span&gt; &lt;span class='it'&gt;where it counts.&lt;/span&gt;&lt;/span&gt;">
+        <span class="reveal d1"><span>Conduciamo</span></span><br/>
+        <span class="reveal d2"><span>corrente </span></span><span class="reveal d3"><span class="it"><span class="hl">dove</span></span></span><br/>
+        <span class="reveal d4"><span class="it">serve.</span> <span class="amp">&amp;</span> <span class="it">dove conta.</span></span>
+      </h1>
+
+      <div class="headline-meta fade-up" data-en="&lt;span&gt;&lt;span class='lineage'&gt;47 years&lt;/span&gt; of electrical craftsmanship&lt;/span&gt;&lt;span class='sep'&gt;⚡&lt;/span&gt;&lt;span&gt;IPC/WHMA-A-620 crimping&lt;/span&gt;&lt;span class='sep'&gt;⚡&lt;/span&gt;&lt;span class='lineage'&gt;Avigliana — Turin&lt;/span&gt;">
+        <span><span class="lineage">47 anni</span> di artigianato elettrico</span>
+        <span class="sep">⚡</span>
+        <span>Crimpatura IPC/WHMA-A-620</span>
+        <span class="sep">⚡</span>
+        <span class="lineage">Avigliana — Torino</span>
+      </div>
+    </div>
+
+    <aside class="hero-side fade-up">
+      <p data-en="We design the harness, &lt;em&gt;form&lt;/em&gt; the bundle, crimp every terminal under pull-force control. &lt;em&gt;Zero&lt;/em&gt; blind automation. Every cable has a code, a signature, a lot.">Progettiamo l'impianto, <em>formiamo</em> la matassa, crimpiamo ogni terminale sotto controllo pull-force. <em>Zero</em> automatismi ciechi. Ogni cavo ha un codice, una firma, un lotto.</p>
+      <div class="spec-box">
+        <div class="lbl" data-en="Capacity · Avigliana facility">Capacità · Reparto Avigliana</div>
+        <div class="val" data-en="&lt;b&gt;400 m²&lt;/b&gt; production floor&lt;br/&gt;cables 0.14 ÷ 240 mm² · AWG 26÷4/0"><b>400 m²</b> produzione<br/>cavi 0.14 ÷ 240 mm² · AWG 26÷4/0</div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ———— MARQUEE ———— -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Cablaggi automotive</span>
+    <span>Cablaggi industriali</span>
+    <span>Crimpatura certificata</span>
+    <span>Test CableEye M4</span>
+    <span>Analisi micrografica</span>
+    <span>Fibra ottica OM3 / OS2</span>
+    <span>Cablaggi automotive</span>
+    <span>Cablaggi industriali</span>
+    <span>Crimpatura certificata</span>
+    <span>Test CableEye M4</span>
+  </div>
+</div>
+
+<!-- ———— INTRO ———— -->
+<section class="intro">
+  <div class="wrap">
+    <div class="left">
+      <div class="mono-label" style="color:var(--ink)" data-en="§ 01 — Studio">§ 01 — Studio</div>
+      <h2 class="h-xl" data-reveal data-en="We don't supply &lt;em class='hl'&gt;spools.&lt;/em&gt;&lt;br/&gt;We supply &lt;em class='hl'&gt;processes.&lt;/em&gt;">Non forniamo <em class="hl">matasse.</em><br/>Forniamo <em class="hl">processi.</em></h2>
+    </div>
+    <div class="prose">
+      <p data-en="Nuova Elettronica has been designing and manufacturing cable-to-terminal wiring harnesses, electromechanical sub-assemblies, and control panels for the automotive and industrial sectors since 1978. From our first workshop in Turin to the Almese facility (1988) and our current Avigliana plant (2023), we have upheld a single working principle: &lt;em class='hl'&gt;a wiring harness is a contract of continuity&lt;/em&gt;, and a contract must be signed.">Nuova Elettronica opera dal 1978 nella progettazione e produzione di cablaggi elettrici cavi-terminale, sotto-assemblati elettromeccanici e quadri di comando per i settori automotive e industriale. Dalla prima sede di Torino al reparto di Almese (1988) fino allo stabilimento attuale di Avigliana (2023), abbiamo mantenuto un solo principio di lavoro: <em class="hl">un cablaggio è un contratto di continuità</em>, e un contratto si firma.</p>
+      <p data-en="Our current facility — 400 m² of production floor, semi-automatic crimping stations with dedicated applicators, a &lt;b&gt;CableEye M4&lt;/b&gt; electrical test line, and a microscope for &lt;b&gt;micrographic analysis of the crimp cross-section&lt;/b&gt; — allows us to handle programs from prototype sampling to series runs of up to 10,000 pieces/month, under IPC/WHMA-A-620 class 2 and 3 quality control.">La struttura attuale — 400 m² di produzione, banchi di crimpatura semi-automatica con applicatori dedicati, linea di test elettrico <b>CableEye M4</b>, microscopio per <b>analisi micrografica della sezione di crimp</b> — ci permette di servire programmi da campionatura prototipale a serie fino a 10.000 pezzi/mese, sotto controllo qualità IPC/WHMA-A-620 classe 2 e 3.</p>
+      <p data-en="We work from customer drawings or in co-design, with full technical documentation: bill of materials, routing, connection lists, test plan, inspection report, and lot certificate. Everything tracked, everything verified, everything signed.">Lavoriamo su disegno cliente o in co-design, con documentazione tecnica completa: distinta base, instradamento, liste di connessione, piano di test, report di collaudo e certificato di lotto. Tutto tracciato, tutto verificato, tutto firmato.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ———— SERVICES CARDS ———— -->
+<section class="cards" id="servizi-preview">
+  <div class="wrap">
+    <div class="cards-head">
+      <div>
+        <div class="eyebrow" style="margin-bottom:20px" data-en="§ 02 — Expertise">§ 02 — Competenze</div>
+        <h2 class="h-xl" data-en="Seven departments.&lt;br/&gt;&lt;em class='hl'&gt;One single&lt;/em&gt; test signature.">Sette reparti.<br/><em class="hl">Una sola</em> firma di collaudo.</h2>
+      </div>
+      <p class="body" style="justify-self:end" data-en="From prototyped cable to turnkey power panel. In-house manufacturing in Avigliana under ISO 9001 procedure, with lot traceability on every terminal.">Dal cavo prototipato al quadro di potenza chiavi in mano. Lavorazione interna ad Avigliana sotto procedura ISO 9001, con tracciabilità lotto su ogni terminale.</p>
+    </div>
+
+    <div class="card-grid">
+      <article class="card a inv" data-reveal>
+        <header class="tag"><span data-en="A · Industrial wiring">A · Cablaggi industriali</span><span class="chip" data-en="LEAD 10 DAYS">LEAD 10 GG</span></header>
+        <div>
+          <h3 data-en="Custom &lt;em&gt;wiring&lt;/em&gt;&lt;br/&gt;for machinery.">Cablaggi <em>custom</em><br/>per macchina.</h3>
+          <p data-en="Pre-assembled harnesses to customer drawing, with individual continuity, insulation, and dielectric tests. Cross-sections 0.14 ÷ 240 mm², harmonized CEI / UL / CSA.">Cablaggi pre-assemblati su schema cliente, con test di continuità, isolamento e dielettrico individuali. Sezioni 0.14 ÷ 240 mm², armonizzati CEI / UL / CSA.</p>
+          <ul>
+            <li data-en="Crimp IPC/WHMA-A-620 Cl.2/Cl.3">Crimp IPC/WHMA-A-620 Cl.2/Cl.3</li>
+            <li data-en="Pull-force test &amp; micrographic cross-section">Pull-force test &amp; sezione micrografica</li>
+            <li data-en="Hot laser marking CableMark">Marcatura laser a caldo CableMark</li>
+          </ul>
+        </div>
+        <a class="more" href="servizi.html" data-en="Learn more">Approfondisci</a>
+      </article>
+
+      <article class="card b beige" data-reveal>
+        <header class="tag"><span data-en="B · Automotive">B · Automotive</span><span class="chip g">IATF-ready</span></header>
+        <div>
+          <h3 data-en="Automotive &lt;em&gt;harnesses&lt;/em&gt;">Cablaggi <em>automotive</em></h3>
+          <p data-en="Engine sub-assemblies, battery harnesses, ECU power feeds, convoluted-sheath cables. We work with Italian and European OEMs and Tier-1 suppliers.">Sotto-gruppi motore, harness batteria, alimentazioni centraline, cavi in guaina convoluta. Lavoriamo con OEM e Tier-1 italiani ed europei.</p>
+          <ul>
+            <li>Cavi FLR/FLRY · AWG 24÷2</li>
+            <li>Connettori AMP, Molex, Delphi, Yazaki</li>
+          </ul>
+        </div>
+        <a class="more" href="settori.html" data-en="Industries">Settori</a>
+      </article>
+
+      <article class="card c" data-reveal>
+        <header class="tag"><span data-en="C · Fiber optics">C · Fibra ottica</span></header>
+        <div>
+          <h3 data-en="Fiber &lt;em&gt;optics&lt;/em&gt;">Fibra <em>ottica</em></h3>
+          <p data-en="Fusion splicing, SC/LC/ST connector termination, OTDR certification on OM3/OM4/OS2.">Giunzioni a fusione, connettorizzazione SC/LC/ST, certificazione OTDR su OM3/OM4/OS2.</p>
+        </div>
+        <a class="more" href="fibra-ottica.html" data-en="Details">Dettagli</a>
+      </article>
+
+      <article class="card d" data-reveal>
+        <header class="tag"><span data-en="D · Assemblies">D · Assemblaggi</span></header>
+        <div>
+          <h3 data-en="Electromechanical &lt;em&gt;assemblies&lt;/em&gt;">Assemblaggi <em>elettromeccanici</em></h3>
+          <p data-en="Sub-assemblies, PCB boards, pre-wired IP67 enclosures, contract manufacturing or turnkey.">Sotto-gruppi, schede, box IP67 precablati, conto-lavoro o chiavi in mano.</p>
+        </div>
+        <a class="more" href="servizi.html" data-en="Details">Dettagli</a>
+      </article>
+
+      <article class="card e beige" data-reveal>
+        <header class="tag"><span data-en="E · Repairs">E · Riparazioni</span></header>
+        <div>
+          <h3 data-en="Retrofit &amp; &lt;em&gt;repairs&lt;/em&gt;">Retrofit &amp; <em>riparazioni</em></h3>
+          <p data-en="Diagnostics and refurbishment of boards, cabinets, and industrial systems. Functional testing before return.">Diagnosi e ripristino di schede, armadi, impianti industriali. Test funzionale prima della riconsegna.</p>
+        </div>
+        <a class="more" href="servizi.html" data-en="Details">Dettagli</a>
+      </article>
+
+      <article class="card f" data-reveal>
+        <header class="tag"><span data-en="F · Prototyping">F · Prototipazione</span><span class="chip">R&amp;D</span></header>
+        <div>
+          <h3 data-en="Rapid &lt;em&gt;prototypes&lt;/em&gt;">Prototipi <em>rapidi</em></h3>
+          <p data-en="Pre-series sampling with semi-automatic crimping and functional testing in 5 business days, minimum lot 1 pc.">Campionatura pre-serie con crimpatura semi-automatica e test funzionale in 5 giorni lavorativi, lotto minimo 1 pz.</p>
+        </div>
+        <a class="more" href="servizi.html" data-en="Process">Processo</a>
+      </article>
+
+      <article class="card g inv" data-reveal>
+        <header class="tag"><span data-en="G · Testing &amp; certification">G · Collaudo &amp; certificazione</span><span class="chip g">CableEye M4</span></header>
+        <div>
+          <h3 data-en="&lt;em&gt;100%&lt;/em&gt; testing&lt;br/&gt;on every piece.">Collaudo <em>100%</em><br/>su ogni pezzo.</h3>
+          <p data-en="Continuity testing, insulation up to 1500 V DC, dielectric strength 2 kV AC, geometry and marking verification. Signed report archived for 10 years.">Test di continuità, isolamento fino a 1500 V DC, rigidità dielettrica 2 kV AC, verifica geometria e marcatura. Report firmato e archiviato 10 anni.</p>
+          <ul>
+            <li data-en="Digital CableEye log for each S/N">Log digitale CableEye per ogni S/N</li>
+            <li data-en="Micrographic cross-section inspection">Sezione micrografica di controllo</li>
+          </ul>
+        </div>
+        <a class="more" href="certificazioni.html" data-en="Certifications">Certificazioni</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ———— STATS ———— -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stat" data-reveal>
+      <div class="n" data-count><em>47</em></div>
+      <div class="u" data-en="Years · since 1978">Anni · dal 1978</div>
+      <div class="d" data-en="Three generations of harness builders, same name on the door.">Tre generazioni di cablatori, stessa insegna.</div>
+    </div>
+    <div class="stat" data-reveal>
+      <div class="n" data-count>400</div>
+      <div class="u" data-en="m² production floor">m² produzione</div>
+      <div class="d" data-en="Avigliana facility — relocated in June 2023.">Reparto Avigliana — trasferito nel giugno 2023.</div>
+    </div>
+    <div class="stat" data-reveal>
+      <div class="n" data-count><em>3.240</em></div>
+      <div class="u" data-en="Completed orders">Commesse concluse</div>
+      <div class="d" data-en="From the first industrial harness in 1978 to today.">Dal primo harness industriale del 1978 a oggi.</div>
+    </div>
+    <div class="stat" data-reveal>
+      <div class="n" data-count>100</div>
+      <div class="u" data-en="% of parts tested">% pezzi testati</div>
+      <div class="d" data-en="No harness leaves the bench without a CableEye log.">Nessun cablaggio lascia il banco senza log CableEye.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ———— QUOTE ———— -->
+<section class="quote">
+  <div class="wrap">
+    <div class="mk" aria-hidden="true">“</div>
+    <blockquote data-reveal data-en="They delivered a harness that is &lt;em&gt;a museum piece.&lt;/em&gt; Seven years on the line, zero downtime.">Ci hanno consegnato un cablaggio che è <em>un oggetto da museo.</em> Sette anni in linea, zero fermi.</blockquote>
+    <div class="att" data-en="&lt;span class='line'&gt;&lt;/span&gt;&lt;span&gt;&lt;b&gt;Eng. Claudia M.&lt;/b&gt; · Technical management · Packaging OEM · Brescia&lt;/span&gt;"><span class="line"></span><span><b>Ing. Claudia M.</b> · Direzione tecnica · OEM packaging · Brescia</span></div>
+  </div>
+</section>
+
+<!-- ———— CLIENTS ———— -->
+<section class="clients">
+  <div class="wrap">
+    <div class="lbl" data-en="Reference industries">Settori di riferimento</div>
+    <div class="list">
+      <span>Automotive OEM</span>
+      <span>Automotive Tier-1</span>
+      <span>Packaging</span>
+      <span data-en="Automation">Automazione</span>
+      <span data-en="Railway">Ferroviario</span>
+      <span data-en="Energy">Energia</span>
+    </div>
+  </div>
+</section>
+
+<!-- ———— CTA ———— -->
+<section class="cta-banner">
+  <div class="wrap">
+    <h2 data-en="Give us a drawing.&lt;br/&gt;&lt;em&gt;We'll give you a plan.&lt;/em&gt;">Dacci uno schema.<br/><em>Ti diamo un piano.</em></h2>
+    <p data-en="Feasibility analysis and technical quotation within 48 business hours. Free site survey within 200 km of Turin.">Analisi di fattibilità e offerta tecnica entro 48 h lavorative. Sopralluogo gratuito nel raggio di 200 km da Torino.</p>
+    <a href="contatti.html" class="btn"><span data-en="Request a quote">Richiedi preventivo</span> <span class="arr"></span></a>
+  </div>
+</section>
+
+</main>
+
+<script src="partials.js"></script>
+</body>
+</html>

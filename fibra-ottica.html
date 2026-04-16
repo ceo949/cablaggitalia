@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fibra ottica — Giunzioni, connettorizzazione e certificazione OTDR · Nuova Elettronica</title>
+<meta name="description" content="Lavorazione di fibra ottica monomodale (OS2) e multimodale (OM3/OM4/OM5). Giunzioni a fusione, terminazioni SC/LC, certificazione OTDR e insertion loss."/>
+<link rel="icon" href="https://static.wixstatic.com/media/5faddc_e50d0d818eed4b21bb1c7d1614ba7243~mv2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  /* Glow fiber background */
+  .fiber-bg{position:absolute;inset:0;z-index:0;opacity:.7;pointer-events:none;overflow:hidden}
+  .fiber-bg::before{content:"";position:absolute;left:-5%;right:-5%;top:55%;height:2px;background:linear-gradient(to right,transparent,var(--gold) 20%,#fff 50%,var(--gold) 80%,transparent);filter:blur(2px);animation:fiber 8s ease-in-out infinite}
+  .fiber-bg::after{content:"";position:absolute;left:-5%;right:-5%;top:55%;height:14px;background:radial-gradient(ellipse at center,rgba(245,197,24,.6),transparent 70%);filter:blur(10px);animation:fiber 8s ease-in-out infinite}
+  @keyframes fiber{0%,100%{transform:translateY(-20px);opacity:.5}50%{transform:translateY(20px);opacity:1}}
+
+  .intro-fiber{padding:140px 28px;background:var(--paper)}
+  .intro-fiber .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:60px}
+  .intro-fiber .left{position:sticky;top:120px;align-self:start}
+  .intro-fiber h2{margin-top:20px}
+  .intro-fiber .prose p{font-size:19px;line-height:1.6;color:var(--ink-soft);margin-bottom:22px;max-width:58ch}
+  @media(max-width:1000px){.intro-fiber .wrap{grid-template-columns:1fr}.intro-fiber .left{position:static}}
+
+  .types{padding:140px 28px;background:var(--paper-2)}
+  .types .head{max-width:900px;margin-bottom:70px}
+  .types-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .type{border:1px solid var(--ink);background:var(--paper);padding:28px;min-height:320px;display:flex;flex-direction:column;justify-content:space-between;transition:box-shadow .3s}
+  .type:hover{box-shadow:8px 8px 0 var(--gold)}
+  .type .code{font-family:var(--mono);font-size:11px;letter-spacing:.26em;color:var(--gold-deep);text-transform:uppercase}
+  .type h3{font-family:var(--display);font-weight:320;font-size:32px;line-height:1.05;margin-top:12px;font-variation-settings:"opsz" 72,"WONK" 1}
+  .type h3 em{font-style:italic;background:linear-gradient(to top,var(--gold) 32%,transparent 32%)}
+  .type p{font-size:14.5px;color:var(--ink-dim);margin-top:16px;line-height:1.55}
+  .type .specs{margin-top:22px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink);line-height:1.8;border-top:1px solid var(--rule);padding-top:14px}
+  .type .specs b{color:var(--ink-dim);font-weight:500;display:inline-block;min-width:90px}
+  @media(max-width:900px){.types-grid{grid-template-columns:1fr}}
+
+  .ops{padding:140px 28px;background:var(--ink);color:var(--paper)}
+  .ops .eyebrow{color:var(--paper)}.ops .eyebrow::before{background:var(--gold)}
+  .ops h2{color:var(--paper)}.ops h2 em{color:var(--gold);font-style:italic}
+  .ops-grid{margin-top:70px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .op{padding:28px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);transition:background .3s, border-color .3s}
+  .op:hover{background:rgba(245,197,24,.08);border-color:var(--gold)}
+  .op .n{font-family:var(--mono);font-size:11px;letter-spacing:.26em;color:var(--gold)}
+  .op h3{font-family:var(--display);font-weight:320;font-size:22px;line-height:1.1;margin-top:12px;color:var(--paper);font-variation-settings:"opsz" 48,"WONK" 1}
+  .op h3 em{font-style:italic;color:var(--gold)}
+  .op p{font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.55;margin-top:14px}
+  @media(max-width:1000px){.ops-grid{grid-template-columns:repeat(2,1fr)}}
+
+  .equipment{padding:140px 28px;background:var(--paper)}
+  .equipment .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .equipment .figure{aspect-ratio:5/4;min-height:440px}
+  @media(max-width:900px){.equipment .wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="fibra-ottica">
+
+<main>
+
+<section class="page-head">
+  <div class="fiber-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <div class="crumbs"><a href="index.html">Home</a> <span>·</span> <a href="servizi.html" data-en="Services">Servizi</a> <span>·</span> <span data-en="Fiber optics">Fibra ottica</span></div>
+      <h1 data-en="&lt;span class='reveal d1'&gt;&lt;span&gt;The &lt;/span&gt;&lt;/span&gt;&lt;span class='reveal d2'&gt;&lt;span class='it'&gt;&lt;span class='hl'&gt;light&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;&lt;span class='reveal d3'&gt;&lt;span&gt;that carries&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;&lt;span class='reveal d4'&gt;&lt;span class='it'&gt;the signal.&lt;/span&gt;&lt;/span&gt;">
+        <span class="reveal d1"><span>La </span></span><span class="reveal d2"><span class="it"><span class="hl">luce</span></span></span><br/>
+        <span class="reveal d3"><span>che porta</span></span><br/>
+        <span class="reveal d4"><span class="it">il segnale.</span></span>
+      </h1>
+      <p class="lead" style="margin-top:32px" data-en="Complete singlemode and multimode fiber optic processing: fusion splicing, connectorization, termination, OTDR certification, and insertion loss testing. For industrial data networks, telecommunications, and automation systems in harsh environments.">Lavorazione completa di fibra ottica monomodale e multimodale: giunzioni a fusione, connettorizzazione, terminazione, certificazione OTDR e insertion loss. Per reti dati industriali, telecomunicazioni, impianti di automazione in ambienti difficili.</p>
+    </div>
+    <div class="fade-up">
+      <div class="meta" data-en="&lt;b&gt;Types&lt;/b&gt;OM3 · OM4 · OM5 · OS2&lt;br/&gt;&lt;b&gt;Connectors&lt;/b&gt;SC · LC · ST · FC · MPO&lt;br/&gt;&lt;b&gt;Certification&lt;/b&gt;OTDR + Insertion Loss">
+        <b>Tipologie</b>
+        OM3 · OM4 · OM5 · OS2<br/>
+        <b>Connettori</b>
+        SC · LC · ST · FC · MPO<br/>
+        <b>Certificazione</b>
+        OTDR + Insertion Loss
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- intro -->
+<section class="intro-fiber">
+  <div class="wrap">
+    <div class="left">
+      <div class="mono-label" data-en="§ 01 — Why us">§ 01 — Perché a noi</div>
+      <h2 class="h-l" data-en="Thirty years of &lt;em class='hl'&gt;copper&lt;/em&gt;, now also &lt;em class='hl'&gt;glass.&lt;/em&gt;">Trent'anni di <em class="hl">rame</em>, ora anche <em class="hl">vetro.</em></h2>
+    </div>
+    <div class="prose">
+      <p data-en="Fiber optics in industrial settings is no longer a data-center option: it is the de facto standard for automation backbones, high-resolution vision systems, communication networks between distributed PLCs, safety systems in EMI-critical environments, and long-distance installations. Installation and connectorization require an accuracy that does not forgive: a dirty end face, an imperfect cleave, or an out-of-tolerance alignment produce attenuations that the system will only reveal months later, under real traffic load.">La fibra ottica, in ambito industriale, non è più un'opzione da data center: è lo standard di fatto per le dorsali di automazione, i sistemi di visione ad alta risoluzione, le reti di comunicazione fra PLC distribuiti, i sistemi di sicurezza in ambienti EMI-critical e le installazioni a lunga distanza. La posa e la connettorizzazione richiedono un'accuratezza che non perdona: un'estremità sporca, un cliving imperfetto, un allineamento fuori tolleranza producono attenuazioni che il sistema manifesterà solo mesi dopo, sotto carico di traffico reale.</p>
+      <p data-en="We process fiber with the same logic we apply to copper: &lt;b&gt;procedure, instrument, verification, document&lt;/b&gt;. Every span is certified with bi-directional &lt;b&gt;OTDR&lt;/b&gt; (1310/1550 nm for singlemode, 850/1300 nm for multimode) and an &lt;b&gt;insertion loss&lt;/b&gt; test; the certification report is delivered in Fluke/Viavi format and archived alongside the system S/N.">Lavoriamo la fibra con la stessa logica con cui lavoriamo il rame: <b>procedura, strumento, verifica, documento</b>. Ogni tratta realizzata viene certificata con <b>OTDR</b> bi-direzionale (1310/1550 nm per monomodale, 850/1300 nm per multimodale) e test di <b>insertion loss</b>; il report di certificazione viene consegnato in formato Fluke/Viavi e archiviato assieme al S/N dell'impianto.</p>
+      <p data-en="We perform both workshop processing (patch cords, pigtails, pre-wired panels, modular distribution) and on-site installation and termination at the customer's facility, with rapid response across the entire North-West area.">Eseguiamo sia lavorazioni in officina (bretelle, pig-tail, panel precablati, distribuzione modulare) sia posa e terminazione on-site nello stabilimento del cliente, con intervento rapido in tutta l'area del Nord-Ovest.</p>
+    </div>
+  </div>
+</section>
+
+<!-- tipologie fibre -->
+<section class="types">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" style="margin-bottom:22px" data-en="§ 02 — Types">§ 02 — Tipologie</div>
+      <h2 class="h-xl" data-en="Four &lt;em class='hl'&gt;fiber types.&lt;/em&gt;&lt;br/&gt;One set of instruments.">Quattro <em class="hl">fibre.</em><br/>Una sola strumentazione.</h2>
+    </div>
+    <div class="types-grid">
+      <article class="type" data-reveal>
+        <div>
+          <div class="code">OS2 · Monomodale</div>
+          <h3 data-en="Long &lt;em&gt;distances.&lt;/em&gt;">Lunghe <em>distanze.</em></h3>
+          <p data-en="Graded-index fiber with 9 µm core. Distances up to 40 km at 1310 nm, campus backbones and telecommunications, distributed automation.">Fibra a indice a gradiente con core 9 µm. Distanze fino a 40 km a 1310 nm, dorsali campus e telecomunicazioni, automazione distribuita.</p>
+        </div>
+        <div class="specs">
+          <b>Core</b> 9 µm · cladding 125 µm<br/>
+          <b>λ</b> 1310 / 1550 nm<br/>
+          <b data-en="Typical attenuation">Attenuazione tipica</b> 0.35 dB/km
+        </div>
+      </article>
+      <article class="type" data-reveal>
+        <div>
+          <div class="code">OM3 · Multimodale</div>
+          <h3 data-en="10 Gb/s &lt;em&gt;up to 300 m.&lt;/em&gt;">10 Gb/s <em>fino a 300 m.</em></h3>
+          <p data-en="Laser-optimized 50/125 µm fiber. Standard for industrial LANs, 10GBASE-SR. Modal bandwidth 2000 MHz·km at 850 nm.">Fibra laser-optimized 50/125 µm. Standard per reti LAN industriali, 10GBASE-SR. Larga banda modale 2000 MHz·km a 850 nm.</p>
+        </div>
+        <div class="specs">
+          <b>Core</b> 50 µm<br/>
+          <b>λ</b> 850 / 1300 nm<br/>
+          <b data-en="Jacket color">Colore guaina</b> acqua
+        </div>
+      </article>
+      <article class="type" data-reveal>
+        <div>
+          <div class="code">OM4 · Multimodale HD</div>
+          <h3 data-en="40 Gb/s &lt;em&gt;short range.&lt;/em&gt;">40 Gb/s <em>breve raggio.</em></h3>
+          <p data-en="Evolution of OM3 with 4700 MHz·km modal bandwidth. Supports 40GBASE-SR4 and 100GBASE-SR10 up to 150 m on VCSEL.">Evoluzione dell'OM3 con banda modale 4700 MHz·km. Supporta 40GBASE-SR4 e 100GBASE-SR10 fino a 150 m su VCSEL.</p>
+        </div>
+        <div class="specs">
+          <b>Core</b> 50 µm<br/>
+          <b data-en="Bandwidth">Banda</b> 4700 MHz·km<br/>
+          <b data-en="Jacket color">Colore guaina</b> acqua / lilla
+        </div>
+      </article>
+      <article class="type" data-reveal>
+        <div>
+          <div class="code">OM5 · WBMMF</div>
+          <h3>SWDM <em>short-wave.</em></h3>
+          <p data-en="Wideband multimode for future-proof applications with multi-wavelength transmission (846–953 nm). Optimal for new data centers.">Wideband multimode per applicazioni future-proof con trasmissioni multilunghezza d'onda (846–953 nm). Ottimale per nuovi data center.</p>
+        </div>
+        <div class="specs">
+          <b>Core</b> 50 µm<br/>
+          <b>Range</b> 846 ÷ 953 nm<br/>
+          <b data-en="Jacket color">Colore guaina</b> verde-lime
+        </div>
+      </article>
+      <article class="type" data-reveal>
+        <div>
+          <div class="code">Indoor / Outdoor</div>
+          <h3 data-en="For every &lt;em&gt;environment.&lt;/em&gt;">Per ogni <em>ambiente.</em></h3>
+          <p data-en="We handle tight-buffered cables for indoor installation, loose-tube with gel for outdoor/underground, and dielectric armored or armored cables for harsh environments.">Trattiamo cavi tight-buffered per posa interna, loose-tube con gel per posa esterna/interrata, cavi armati dielettrici e corazzati per ambienti gravosi.</p>
+        </div>
+        <div class="specs">
+          <b data-en="Types">Tipi</b> TB · LT · ADSS<br/>
+          <b data-en="Jackets">Guaine</b> LSZH · PE · HFFR
+        </div>
+      </article>
+      <article class="type" data-reveal>
+        <div>
+          <div class="code" data-en="Connectors">Connettori</div>
+          <h3>SC · LC · ST · MPO</h3>
+          <p data-en="Workshop or on-site connectorization with UPC/APC ferrules. Cleaning and microscope inspection per IEC 61300-3-35 grading scale.">Connettorizzazione in officina o on-site con ferrules UPC/APC. Pulizia e ispezione a microscopio con scala IEC 61300-3-35.</p>
+        </div>
+        <div class="specs">
+          <b>Polish</b> UPC / APC<br/>
+          <b>Grade</b> IEC 61300-3-35 A/B/C
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- operations -->
+<section class="ops">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:22px" data-en="§ 03 — Operations">§ 03 — Lavorazioni</div>
+    <h2 class="h-xl" data-en="Four operations,&lt;br/&gt;one single &lt;em&gt;procedure.&lt;/em&gt;">Quattro operazioni,<br/>una sola <em>procedura.</em></h2>
+    <div class="ops-grid">
+      <article class="op" data-reveal>
+        <div class="n">OP / 01</div>
+        <h3 data-en="&lt;em&gt;Fusion&lt;/em&gt; splicing">Giunzione <em>a fusione</em></h3>
+        <p data-en="Core-alignment fusion splicer, average attenuation &lt; 0.05 dB. IP68 splice closures for indoor and outdoor use.">Saldatrice a fusione per-core-alignment, attenuazione media &lt; 0.05 dB. Muffole di giunzione IP68 per interno ed esterno.</p>
+      </article>
+      <article class="op" data-reveal>
+        <div class="n">OP / 02</div>
+        <h3 data-en="&lt;em&gt;Inline&lt;/em&gt; connectorization">Connettorizzazione <em>inline</em></h3>
+        <p data-en="SC/LC/ST/FC termination with pre-polished ferrules or manual polishing, Cletop cleaning, and 200×/400× microscope inspection.">Terminazione SC/LC/ST/FC con ferrule pre-polite o polishing manuale, pulizia con Cletop e ispezione a microscopio 200×/400×.</p>
+      </article>
+      <article class="op" data-reveal>
+        <div class="n">OP / 03</div>
+        <h3 data-en="&lt;em&gt;OTDR&lt;/em&gt; certification">Certificazione <em>OTDR</em></h3>
+        <p data-en="Bi-directional measurement at two wavelengths, event map, per-span attenuation calculation. PDF report + native format.">Misura bi-direzionale a due lunghezze d'onda, event map, calcolo attenuazione per tratta. Report PDF + formato nativo.</p>
+      </article>
+      <article class="op" data-reveal>
+        <div class="n">OP / 04</div>
+        <h3>Test <em>insertion loss</em></h3>
+        <p data-en="IL measurement with laser source and power meter, one-jumper / three-jumper method per TIA-568.3-D.">Misura IL con sorgente laser e power meter, metodo one-jumper / three-jumper secondo TIA-568.3-D.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Equipment -->
+<section class="equipment">
+  <div class="wrap">
+    <div class="figure" style="aspect-ratio:5/4;min-height:440px">
+      <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?w=1200&q=80" alt="Cavi fibra ottica" onerror="this.parentNode.style.background='radial-gradient(circle at 30% 30%,#f5c518 0 15%,transparent 15%),linear-gradient(135deg,var(--ink),#1a1815)';this.style.display='none'"/>
+      <div class="tag" data-en="INSTRUMENTATION">STRUMENTAZIONE</div>
+      <div class="cap" data-en="&lt;b&gt;Fiber station /&lt;/b&gt; fusion splicer · precision cleaver · ferrule microscope"><b>Stazione fibra /</b> saldatrice fusione · cliver precisione · microscopio ferrule</div>
+    </div>
+    <div>
+      <div class="eyebrow" data-en="§ 04 — Equipment">§ 04 — Attrezzatura</div>
+      <h2 class="h-l" data-en="&lt;em class='hl'&gt;Serious&lt;/em&gt; instruments.&lt;br/&gt;Serious reports.">Strumenti <em class="hl">seri.</em><br/>Report seri.</h2>
+      <p class="body" data-en="We operate with a core-alignment fusion splicer, a precision cleaver for 90°±0.5° cuts, laser source and power meter for insertion loss testing, a portable OTDR for network certification, and a ferrule inspection microscope with automatic grading per IEC 61300-3-35. Every instrument is calibrated annually at an accredited laboratory.">Operiamo con giuntatrice a fusione core-alignment, cliver di precisione per tagli a 90°±0.5°, sorgente laser e power meter per test inserzione, OTDR portatile per certificazione di rete, microscopio ispezione ferrules con grading automatico secondo IEC 61300-3-35. Ogni strumento è calibrato con cadenza annuale presso laboratorio accreditato.</p>
+      <table class="spec-table" style="margin-top:28px">
+        <tr><th data-en="Splicer">Giuntatrice</th><td data-en="Fusion splicer core-alignment · average loss ≤ 0.05 dB">Fusion splicer core-alignment · perdita media ≤ 0.05 dB</td></tr>
+        <tr><th>OTDR</th><td data-en="Bi-directional, multi-λ, dynamic range &gt; 35 dB">Bi-direzionale, multi-λ, dynamic range &gt; 35 dB</td></tr>
+        <tr><th data-en="Microscope">Microscopio</th><td data-en="Ferrule inspection 200×/400× with IEC 61300-3-35 grading">Ispezione ferrules 200×/400× con grading IEC 61300-3-35</td></tr>
+        <tr><th data-en="Certification">Certificazione</th><td data-en="Native Fluke/Viavi report + signed PDF">Report nativo Fluke/Viavi + PDF firmato</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="wrap">
+    <h2 data-en="A span to &lt;em&gt;certify?&lt;/em&gt;">Una tratta da <em>certificare?</em></h2>
+    <p data-en="Site survey, quotation, and intervention planning within 48 business hours.">Sopralluogo, offerta e planning dell'intervento entro 48 h lavorative.</p>
+    <a href="contatti.html" class="btn"><span data-en="Let's talk fiber">Parliamo di fibra</span> <span class="arr"></span></a>
+  </div>
+</section>
+
+</main>
+
+<script src="partials.js"></script>
+</body>
+</html>

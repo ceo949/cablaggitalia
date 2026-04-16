@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Chi siamo — Nuova Elettronica S.r.l. · Avigliana (TO)</title>
+<meta name="description" content="Dal 1978 realizziamo cablaggi elettrici per automotive e industriale. La nostra storia, il reparto di Avigliana, le persone e i principi di lavoro."/>
+<link rel="icon" href="https://static.wixstatic.com/media/5faddc_e50d0d818eed4b21bb1c7d1614ba7243~mv2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .prose-block{padding:120px 28px;background:var(--paper)}
+  .prose-block .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start}
+  .prose-block .left{position:sticky;top:120px}
+  .prose-block h2{margin-top:18px}
+  .prose-block .prose p{font-size:19px;line-height:1.6;color:var(--ink-soft);margin-bottom:22px;max-width:60ch;font-variation-settings:"opsz" 22}
+  .prose-block .prose p:first-of-type::first-letter{font-family:var(--display);font-style:italic;font-size:5.4em;line-height:.82;float:left;padding:.06em .12em 0 0;color:transparent;background:linear-gradient(to bottom,var(--gold) 92%,transparent 92%);-webkit-background-clip:text;background-clip:text;font-variation-settings:"WONK" 1,"SOFT" 100,"opsz" 144}
+  @media(max-width:1000px){.prose-block .wrap{grid-template-columns:1fr}.prose-block .left{position:static}}
+
+  .timeline{padding:140px 28px;background:var(--paper-2)}
+  .timeline .head{margin-bottom:70px;max-width:900px}
+  .timeline .row{display:grid;grid-template-columns:160px 240px 1fr 200px;gap:40px;align-items:baseline;padding:34px 0;border-top:1px solid var(--rule);transition:padding .4s;cursor:default}
+  .timeline .row:last-child{border-bottom:1px solid var(--rule)}
+  .timeline .row:hover{padding:46px 0}
+  .timeline .row:hover .yr{color:var(--gold-deep)}
+  .timeline .yr{font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(44px,5vw,84px);line-height:.9;letter-spacing:-.03em;font-variation-settings:"opsz" 120,"WONK" 1;color:var(--ink);transition:color .4s}
+  .timeline .place{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-dim)}
+  .timeline .event{font-family:var(--display);font-weight:320;font-size:clamp(22px,2.2vw,32px);line-height:1.15;letter-spacing:-.015em;font-variation-settings:"opsz" 48}
+  .timeline .event em{background:linear-gradient(to top,var(--gold) 32%,transparent 32%);font-style:italic}
+  .timeline .note{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink-dim);text-align:right;line-height:1.6}
+  .timeline .note b{color:var(--ink);font-weight:500}
+  @media(max-width:900px){.timeline .row{grid-template-columns:100px 1fr;gap:20px}.timeline .place,.timeline .note{display:none}}
+
+  .split{padding:140px 28px;background:var(--paper)}
+  .split .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .split .figure{aspect-ratio:4/5;min-height:480px}
+  .split .text .eyebrow{margin-bottom:24px}
+  .split .text h2{margin-bottom:28px}
+  @media(max-width:900px){.split .wrap{grid-template-columns:1fr}}
+
+  .values{padding:140px 28px;background:var(--ink);color:var(--paper)}
+  .values .eyebrow{color:var(--paper);}
+  .values .eyebrow::before{background:var(--gold)}
+  .values h2{color:var(--paper)}
+  .values h2 em{color:var(--gold);font-style:italic}
+  .values-grid{margin-top:70px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12)}
+  .val{background:var(--ink);padding:36px 34px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between;transition:background .3s}
+  .val:hover{background:#1a1815}
+  .val .n{font-family:var(--mono);font-size:11px;letter-spacing:.26em;color:var(--gold)}
+  .val h3{font-family:var(--display);font-weight:320;font-size:32px;line-height:1.05;margin-top:16px;color:var(--paper);font-variation-settings:"opsz" 72,"WONK" 1}
+  .val h3 em{font-style:italic;color:var(--gold)}
+  .val p{font-size:15px;color:rgba(255,255,255,.7);line-height:1.55;margin-top:20px}
+  @media(max-width:900px){.values-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="chi-siamo">
+
+<main>
+
+<!-- page head -->
+<section class="page-head">
+  <div class="wrap">
+    <div>
+      <div class="crumbs"><a href="index.html">Home</a> <span>·</span> <a href="chi-siamo.html" data-en="About us">Chi siamo</a></div>
+      <h1 data-en="&lt;span class='reveal d1'&gt;&lt;span class='it'&gt;&lt;span class='hl'&gt;Forty-seven&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;&lt;span class='reveal d3'&gt;&lt;span&gt;years on the same&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;&lt;span class='reveal d4'&gt;&lt;span class='it'&gt;workbench line.&lt;/span&gt;&lt;/span&gt;">
+        <span class="reveal d1"><span class="it"><span class="hl">Quarantasette</span></span></span><br/>
+        <span class="reveal d3"><span>anni sulla stessa</span></span><br/>
+        <span class="reveal d4"><span class="it">linea di banco.</span></span>
+      </h1>
+    </div>
+    <div class="fade-up">
+      <div class="meta" data-en="&lt;b&gt;Facility&lt;/b&gt;Avigliana (TO) — 400 m²&lt;br/&gt;&lt;b&gt;Team&lt;/b&gt;Harness builders · Technicians · Testing&lt;br/&gt;&lt;b&gt;Founded&lt;/b&gt;Turin · 1978">
+        <b>Insediamento</b>
+        Avigliana (TO) — 400 m²<br/>
+        <b>Team</b>
+        Cablatori · Tecnici · Collaudo<br/>
+        <b>Fondazione</b>
+        Torino · 1978
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- intro prose -->
+<section class="prose-block">
+  <div class="wrap">
+    <div class="left">
+      <div class="mono-label" data-en="§ 01 — Identity">§ 01 — Identità</div>
+      <h2 class="h-xl" data-en="An &lt;em class='hl'&gt;electrical&lt;/em&gt; workshop&lt;br/&gt;that never stopped&lt;br/&gt;being one.">Una bottega <em class="hl">elettrica</em><br/>che non ha mai smesso<br/>di essere tale.</h2>
+    </div>
+    <div class="prose">
+      <p data-en="Nuova Elettronica was founded in Turin in 1978 as a small repair shop for electrical and electronic equipment. Within a decade, cable-to-terminal harness production — initially contract manufacturing — became the core business: in 1988 the company moved to Almese (5 employees, first dedicated production department), and in 1992 the first crimping presses and mini-applicators arrived, enabling the transition to small series production.">Nuova Elettronica nasce a Torino nel 1978 come piccolo laboratorio di riparazione apparecchiature elettriche ed elettroniche. Nel giro di un decennio la produzione di cablaggi cavi-terminale, inizialmente conto-lavoro, diventa l'attività prevalente: nel 1988 la sede si sposta ad Almese (5 dipendenti, primo reparto di produzione dedicato), nel 1992 arrivano le prime presse di crimpatura e i mini-applicatori che consentono il passaggio alla piccola serie.</p>
+      <p data-en="In June 2023 we relocated the entire operation to the current Avigliana facility at Viale Caduti della Polveriera 21, expanding the warehouse and production area to 400 square meters. The new department houses the semi-automatic crimping line, manual assembly benches, the &lt;b&gt;CableEye M4&lt;/b&gt; electrical test station, the metallographic microscope for crimp cross-section analysis, the laser marking area, and the automated cable and terminal warehouse.">Nel giugno 2023 abbiamo trasferito l'intera struttura nell'attuale stabilimento di Avigliana, in Viale Caduti della Polveriera 21, ampliando magazzino e area di produzione a 400 metri quadri. Il nuovo reparto ospita la linea di crimpatura semi-automatica, i banchi di assemblaggio manuale, la stazione di test elettrico <b>CableEye M4</b>, il microscopio metallografico per l'analisi della sezione di crimp, l'area di marcatura laser e il magazzino automatico dei cavi e dei terminali.</p>
+      <p data-en="Today our team comprises harness builders, product technicians, quality managers, and administrative staff. We work every day for automotive OEMs and Tier-1 suppliers, industrial machinery manufacturers, packaging companies, and automation integrators. Those who choose us, in most cases, remain customers for decades.">Oggi la squadra è composta da cablatori, tecnici di prodotto, responsabili qualità e personale amministrativo. Lavoriamo ogni giorno per OEM e Tier-1 dell'automotive, costruttori di macchine industriali, aziende di packaging, integratori di automazione. Chi ci sceglie, nella maggior parte dei casi, resta cliente per decenni.</p>
+    </div>
+  </div>
+</section>
+
+<!-- timeline -->
+<section class="timeline">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" style="margin-bottom:22px" data-en="§ 02 — History">§ 02 — Storia</div>
+      <h2 class="h-xl" data-en="Five milestones&lt;br/&gt;in &lt;em class='hl'&gt;half a century.&lt;/em&gt;">Cinque tappe<br/>in <em class="hl">mezzo secolo.</em></h2>
+    </div>
+    <div class="row" data-reveal>
+      <div class="yr">1978</div>
+      <div class="place" data-en="Turin · foundation">Torino · fondazione</div>
+      <div class="event" data-en="The electrical repair workshop is &lt;em&gt;born&lt;/em&gt;, embryo of the future harness production."><em>Nasce</em> il laboratorio di riparazione elettrica, embrione della futura produzione cablaggi.</div>
+      <div class="note" data-en="&lt;b&gt;Employees&lt;/b&gt;&lt;br/&gt;2"><b>Dipendenti</b><br/>2</div>
+    </div>
+    <div class="row" data-reveal>
+      <div class="yr">1988</div>
+      <div class="place" data-en="Almese · first department">Almese · primo reparto</div>
+      <div class="event" data-en="Relocation to Almese and shift from &lt;em&gt;repair&lt;/em&gt; to contract harness manufacturing.">Trasferimento ad Almese e passaggio da <em>riparazione</em> a produzione conto-terzi di cablaggi.</div>
+      <div class="note" data-en="&lt;b&gt;Employees&lt;/b&gt;&lt;br/&gt;5"><b>Dipendenti</b><br/>5</div>
+    </div>
+    <div class="row" data-reveal>
+      <div class="yr">1992</div>
+      <div class="place" data-en="Almese · industrialization">Almese · industrializzazione</div>
+      <div class="event" data-en="Acquisition of crimping &lt;em&gt;presses&lt;/em&gt; and mini-applicators. Start of small series production.">Acquisto di <em>presse</em> e mini-applicatori. Avvio della produzione in piccola serie.</div>
+      <div class="note" data-en="&lt;b&gt;Capacity&lt;/b&gt;&lt;br/&gt;5,000 terminals/day"><b>Capacità</b><br/>5.000 terminali/giorno</div>
+    </div>
+    <div class="row" data-reveal>
+      <div class="yr">2008</div>
+      <div class="place" data-en="Almese · quality">Almese · qualità</div>
+      <div class="event" data-en="Introduction of &lt;em&gt;automatic electrical testing&lt;/em&gt; with CableEye and digital lot traceability.">Introduzione del <em>test elettrico automatico</em> CableEye e della tracciabilità lotto digitale.</div>
+      <div class="note" data-en="&lt;b&gt;Quality system&lt;/b&gt;&lt;br/&gt;ISO 9001 : 2008"><b>Sistema qualità</b><br/>ISO 9001 : 2008</div>
+    </div>
+    <div class="row" data-reveal>
+      <div class="yr">2023</div>
+      <div class="place" data-en="Avigliana · current facility">Avigliana · stabilimento attuale</div>
+      <div class="event" data-en="Relocation to &lt;em&gt;Avigliana&lt;/em&gt; — 400 m², semi-automatic crimping line, in-house metallography.">Trasferimento ad <em>Avigliana</em> — 400 m², linea di crimpatura semi-automatica, metallografia interna.</div>
+      <div class="note" data-en="&lt;b&gt;Floor area&lt;/b&gt;&lt;br/&gt;400 m²"><b>Superficie</b><br/>400 m²</div>
+    </div>
+  </div>
+</section>
+
+<!-- split -->
+<section class="split">
+  <div class="wrap">
+    <div class="figure">
+      <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80" alt="Tecnico al lavoro sul banco cablaggi" onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,var(--paper-3),var(--paper-2))'"/>
+      <div class="tag" data-en="DEPARTMENT · AVIGLIANA">REPARTO · AVIGLIANA</div>
+      <div class="cap" data-en="&lt;b&gt;Bench 04 /&lt;/b&gt; semi-automatic crimping — FLRY AWG 20 cables"><b>Banco 04 /</b> crimpatura semi-automatica — cavi FLRY AWG 20</div>
+    </div>
+    <div class="text">
+      <div class="eyebrow" data-en="§ 03 — Method">§ 03 — Metodo</div>
+      <h2 class="h-l" data-en="Every terminal&lt;br/&gt;has &lt;em class='hl'&gt;a signature.&lt;/em&gt;">Ogni terminale<br/>ha <em class="hl">una firma.</em></h2>
+      <p class="body" data-en="Every crimp that leaves our benches undergoes three checks: &lt;b&gt;pull-force test&lt;/b&gt; on the calibration lot, &lt;b&gt;visual inspection&lt;/b&gt; at the operator's bench, and periodic &lt;b&gt;micrographic cross-section&lt;/b&gt; on the sample. Downstream, the complete harness is 100% tested on CableEye M4 — every serial number has a signed report archived for ten years, traceable by terminal, cable, and crimp lot.">Ogni crimpatura che esce dai nostri banchi ha tre verifiche: <b>pull-force test</b> sul lotto di taratura, <b>controllo visivo</b> a banco del cablatore, <b>sezione micrografica</b> periodica sul campione. A valle, il cablaggio completo viene testato al 100% con CableEye M4 — ogni numero di serie ha un report firmato archiviato per dieci anni, rintracciabile per lotto di terminale, di cavo e di crimp.</p>
+      <p class="body" data-en="This is not a philosophy. It is the only way to ensure that a harness installed today on a pharmaceutical packaging machine will still be running in 2040.">Non è una filosofia. È l'unico modo per garantire che un cablaggio installato oggi su una macchina di packaging farmaceutico continui a funzionare nel 2040.</p>
+    </div>
+  </div>
+</section>
+
+<!-- values dark -->
+<section class="values">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:22px" data-en="§ 04 — Principles">§ 04 — Principi</div>
+    <h2 class="h-xl" data-en="Three &lt;em&gt;non-negotiable&lt;/em&gt;&lt;br/&gt;rules.">Tre regole<br/><em>non negoziabili.</em></h2>
+    <div class="values-grid">
+      <article class="val"><div><div class="n" data-en="I / Traceability">I / Tracciabilità</div><h3 data-en="Every piece&lt;br/&gt;&lt;em&gt;is an S/N.&lt;/em&gt;">Ogni pezzo<br/><em>è un S/N.</em></h3></div><p data-en="Terminal lot, cable lot, crimp lot, operator, date, test result. Everything in the log. Always.">Lotto terminale, lotto cavo, lotto crimp, operatore, data, esito test. Tutto nel log. Sempre.</p></article>
+      <article class="val"><div><div class="n" data-en="II / Testing">II / Collaudo</div><h3 data-en="100% of parts,&lt;br/&gt;&lt;em&gt;zero exceptions.&lt;/em&gt;">100% dei pezzi,<br/><em>zero eccezioni.</em></h3></div><p data-en="No harness leaves the bench without a pass on continuity, insulation, and dielectric strength.">Nessun cablaggio lascia il banco senza esito OK su continuità, isolamento e rigidità dielettrica.</p></article>
+      <article class="val"><div><div class="n" data-en="III / Craftsmanship">III / Artigianato</div><h3 data-en="No &lt;em&gt;blind&lt;/em&gt;&lt;br/&gt;automation.">Nessun automatismo<br/><em>cieco.</em></h3></div><p data-en="The machine crimps, but the operator inspects. Quality is a human judgment, not a force curve.">La macchina crimpa, ma l'operatore controlla. La qualità è un giudizio umano, non una curva di forza.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="wrap">
+    <h2 data-en="Come see us &lt;em&gt;at the bench.&lt;/em&gt;">Vieni a vederci <em>al banco.</em></h2>
+    <p data-en="Free site visit at our Avigliana facility — we show you the process, the equipment, and the test reports.">Sopralluogo gratuito in stabilimento ad Avigliana — mostriamo il processo, le attrezzature, i report di collaudo.</p>
+    <a href="contatti.html" class="btn"><span data-en="Book a visit">Prenota visita</span> <span class="arr"></span></a>
+  </div>
+</section>
+
+</main>
+
+<script src="partials.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Contatti — Nuova Elettronica S.r.l. · Avigliana (TO)</title>
+<meta name="description" content="Scrivici, chiamaci o vieni a trovarci. Viale Caduti della Polveriera 21, 10051 Avigliana (TO). Tel +39 380 218 9876 · info@cablaggitalia.com"/>
+<link rel="icon" href="https://static.wixstatic.com/media/5faddc_e50d0d818eed4b21bb1c7d1614ba7243~mv2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .contact-main{padding:100px 28px 120px;background:var(--paper)}
+  .contact-main .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .contact-main h2{font-family:var(--display);font-weight:300;font-size:clamp(48px,8vw,140px);line-height:.88;letter-spacing:-.03em;font-variation-settings:"opsz" 144,"WONK" 1,"SOFT" 40}
+  .contact-main h2 em{font-style:italic;background:linear-gradient(to top,var(--gold) 36%,transparent 36%);padding:0 .04em}
+  .contact-main .lead{margin-top:30px;color:var(--ink-dim)}
+  .contact-main .quick{margin-top:46px;display:flex;flex-direction:column;gap:0;border-top:2px solid var(--ink)}
+  .contact-main .quick .r{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+  .contact-main .quick .k{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-dim)}
+  .contact-main .quick .v{font-family:var(--display);font-size:22px;font-weight:400;font-variation-settings:"opsz" 40}
+  .contact-main .quick .v a{border-bottom:2px solid var(--gold);padding-bottom:2px}
+  .contact-main .quick .v a:hover{background:var(--gold)}
+
+  .right{padding-top:20px;display:flex;flex-direction:column;gap:30px}
+  .right p{font-size:17px;line-height:1.6;color:var(--ink-soft);max-width:46ch}
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--ink);margin-top:12px}
+  .fld{border-bottom:1px solid var(--rule);padding:22px 0;position:relative}
+  .fld.full{grid-column:1/-1}
+  .fld:nth-child(odd):not(.full){padding-right:20px;border-right:1px solid var(--rule);padding-left:0}
+  .fld:nth-child(even):not(.full){padding-left:20px}
+  .fld .k{font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+  .fld input,.fld textarea,.fld select{width:100%;background:transparent;border:0;color:var(--ink);font-family:var(--display);font-size:19px;outline:none;padding:4px 0;font-weight:400;font-variation-settings:"opsz" 24}
+  .fld input::placeholder,.fld textarea::placeholder{color:var(--ink-faint);font-style:italic}
+  .fld:focus-within{background:var(--gold-soft)}
+  .fld select{-webkit-appearance:none;appearance:none;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%230e0e0c' stroke-width='1.5' fill='none'/></svg>") no-repeat right .5em center}
+  .consent{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-dim);display:flex;gap:10px;align-items:flex-start;line-height:1.55}
+  .consent input{margin-top:4px;accent-color:var(--ink)}
+  .consent a{border-bottom:1px solid var(--gold)}
+  .submit{margin-top:30px;align-self:flex-start;display:inline-flex;align-items:center;gap:16px;padding:20px 30px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;position:relative;overflow:hidden;transition:color .4s}
+  .submit::before{content:"";position:absolute;inset:0;background:var(--gold);transform:translateY(100%);transition:transform .5s cubic-bezier(.6,.2,.1,1);z-index:0}
+  .submit:hover{color:var(--ink)}
+  .submit:hover::before{transform:translateY(0)}
+  .submit span{position:relative;z-index:1;display:flex;align-items:center;gap:16px}
+  .submit .arr{width:26px;height:2px;background:currentColor;position:relative}
+  .submit .arr::after{content:"";position:absolute;right:-1px;top:-5px;width:12px;height:12px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg)}
+  @media(max-width:1000px){.contact-main .wrap{grid-template-columns:1fr;gap:40px}.fields{grid-template-columns:1fr}.fld:nth-child(odd):not(.full){border-right:0;padding-right:0}.fld:nth-child(even):not(.full){padding-left:0}}
+
+  .where{padding:140px 28px;background:var(--paper-2)}
+  .where .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+  .where h2{margin-top:24px}
+  .where .map-wrap{aspect-ratio:5/4;min-height:420px;position:relative;border:2px solid var(--ink);overflow:hidden;background:var(--paper-3)}
+  .where .map-wrap iframe{width:100%;height:100%;border:0;filter:grayscale(.2) contrast(1.05)}
+  .where .address{font-family:var(--display);font-size:24px;line-height:1.45;font-variation-settings:"opsz" 48;margin-top:28px}
+  .where .address b{font-weight:500}
+  .where .hours{margin-top:30px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;line-height:2;color:var(--ink-soft)}
+  .where .hours b{color:var(--ink);font-weight:500;display:inline-block;min-width:160px;text-transform:uppercase;letter-spacing:.22em;font-size:11px}
+  .where .actions{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+  .where .actions a{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:14px 22px;border:1px solid var(--ink);color:var(--ink);transition:background .3s,color .3s}
+  .where .actions a:hover{background:var(--ink);color:var(--paper)}
+  .where .actions a.g{background:var(--ink);color:var(--paper)}
+  .where .actions a.g:hover{background:var(--gold);color:var(--ink)}
+  @media(max-width:1000px){.where .wrap{grid-template-columns:1fr;gap:40px}}
+</style>
+</head>
+<body data-page="contatti">
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <div>
+      <div class="crumbs"><a href="index.html">Home</a> <span>·</span> <span data-en="Contact">Contatti</span></div>
+      <h1 data-en="&lt;span class='reveal d1'&gt;&lt;span&gt;Let's talk&lt;/span&gt;&lt;/span&gt;&lt;br/&gt;&lt;span class='reveal d2'&gt;&lt;span class='it'&gt;&lt;span class='hl'&gt;seriously.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;">
+        <span class="reveal d1"><span>Parliamone</span></span><br/>
+        <span class="reveal d2"><span class="it"><span class="hl">seriamente.</span></span></span>
+      </h1>
+      <p class="lead" style="margin-top:32px" data-en="Attach a drawing, DWG file, photo of the sub-panel, or a parts list. We analyze your request within 48 business hours and send you a technical-commercial offer with lead times, preliminary BOM, and supply conditions.">Allega uno schema, un DWG, una foto del sottoquadro o una lista di pezzi. Analizziamo la richiesta entro 48 h lavorative e ti inviamo offerta tecnica-commerciale con tempi, BOM preliminare e condizioni di fornitura.</p>
+    </div>
+    <div class="fade-up">
+      <div class="meta" data-en="&lt;b&gt;Office hours&lt;/b&gt;Mon–Fri · 08:30 ÷ 12:30&lt;br/&gt;14:00 ÷ 18:00&lt;br/&gt;&lt;b&gt;Average response&lt;/b&gt;Within 24 business hours&lt;br/&gt;&lt;b&gt;Languages&lt;/b&gt;IT · EN · FR">
+        <b>Orari ufficio</b>
+        Lun–Ven · 08:30 ÷ 12:30<br/>
+        14:00 ÷ 18:00<br/>
+        <b>Risposta media</b>
+        Entro 24 h lavorative<br/>
+        <b>Lingue</b>
+        IT · EN · FR
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM + INFO -->
+<section class="contact-main">
+  <div class="wrap">
+    <div>
+      <h2 data-en="Send us&lt;br/&gt;&lt;em&gt;the drawing.&lt;/em&gt;">Mandaci<br/><em>il disegno.</em></h2>
+      <p class="lead" style="margin-top:28px" data-en="Or choose the direct channel. We answer — not a call center.">Oppure scegli il canale diretto. Rispondiamo noi — non un centralino.</p>
+
+      <div class="quick">
+        <div class="r">
+          <div class="k" data-en="Phone">Telefono</div>
+          <div class="v"><a href="tel:+393802189876">+39 380 218 9876</a></div>
+        </div>
+        <div class="r">
+          <div class="k" data-en="Sales email">Email commerciale</div>
+          <div class="v"><a href="mailto:info@cablaggitalia.com">info@cablaggitalia.com</a></div>
+        </div>
+        <div class="r">
+          <div class="k" data-en="HQ &amp; production">Sede &amp; produzione</div>
+          <div class="v">Viale Caduti della Polveriera, 21<br/>10051 Avigliana (TO)</div>
+        </div>
+        <div class="r">
+          <div class="k">Web</div>
+          <div class="v"><a href="https://www.cablaggitalia.com" target="_blank" rel="noopener">www.cablaggitalia.com</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <p data-en="Prefer the form? Fill it in below, we'll reply by email with a structured proposal. We'll request large files in our reply to avoid overloading the form.">Preferisci il modulo? Compila sotto, ti rispondiamo via email con una proposta strutturata. I file pesanti li chiederemo in risposta per non saturare il form.</p>
+
+      <form class="fields" onsubmit="event.preventDefault();this.querySelector('.submit span').textContent='Inviato — grazie!';">
+        <div class="fld">
+          <div class="k" data-en="01 · Full name *">01 · Nome e cognome *</div>
+          <input type="text" name="name" placeholder="Mario Bianchi" required/>
+        </div>
+        <div class="fld">
+          <div class="k" data-en="02 · Company">02 · Azienda</div>
+          <input type="text" name="company" placeholder="Bianchi Automazione S.r.l."/>
+        </div>
+        <div class="fld">
+          <div class="k">03 · Email *</div>
+          <input type="email" name="email" placeholder="m.bianchi@azienda.it" required/>
+        </div>
+        <div class="fld">
+          <div class="k" data-en="04 · Phone">04 · Telefono</div>
+          <input type="tel" name="phone" placeholder="+39 333 000 0000"/>
+        </div>
+        <div class="fld">
+          <div class="k" data-en="05 · Industry">05 · Settore</div>
+          <select name="sector">
+            <option>Automotive</option>
+            <option>Automazione industriale</option>
+            <option>Packaging</option>
+            <option>Ferroviario</option>
+            <option>Energia</option>
+            <option>Fibra ottica</option>
+            <option>Altro</option>
+          </select>
+        </div>
+        <div class="fld">
+          <div class="k" data-en="06 · Request type">06 · Tipo di richiesta</div>
+          <select name="type">
+            <option>Preventivo cablaggi custom</option>
+            <option>Prototipo / campionatura</option>
+            <option>Produzione in serie</option>
+            <option>Servizio fibra ottica</option>
+            <option>Intervento on-site</option>
+            <option>Richiesta documentazione</option>
+          </select>
+        </div>
+        <div class="fld full">
+          <div class="k" data-en="07 · Briefly describe the project">07 · Descrivi brevemente il progetto</div>
+          <textarea rows="4" placeholder="Due righe bastano — tipo di cablaggio, quantità, tempi attesi. Allega file via email dopo l'invio." name="message"></textarea>
+        </div>
+        <div class="fld full">
+          <label class="consent">
+            <input type="checkbox" required/>
+            <span data-en="I have read and accept the &lt;a href='privacy.html'&gt;Privacy policy&lt;/a&gt; and consent to data processing solely for the purpose of handling this request (EU Reg. 2016/679 — GDPR).">Ho letto e accetto l'informativa <a href="privacy.html">Privacy</a> e do il consenso al trattamento dei dati ai soli fini della gestione della richiesta (Reg. UE 2016/679 — GDPR).</span>
+          </label>
+        </div>
+        <button type="submit" class="submit"><span data-en="Send request &lt;span class='arr'&gt;&lt;/span&gt;">Invia richiesta <span class="arr"></span></span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE -->
+<section class="where">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" data-en="§ 02 — Where we are">§ 02 — Dove siamo</div>
+      <h2 class="h-l">Avigliana <em class="hl">(TO).</em></h2>
+      <div class="address">
+        <b>Nuova Elettronica S.r.l.</b><br/>
+        Viale Caduti della Polveriera, 21<br/>
+        10051 Avigliana (TO) — Italia
+      </div>
+      <div class="hours">
+        <div><b data-en="Mon — Fri">Lun — Ven</b> 08:30 ÷ 12:30 · 14:00 ÷ 18:00</div>
+        <div><b data-en="Saturday">Sabato</b> <span data-en="By appointment">Su appuntamento</span></div>
+        <div><b data-en="Sunday">Domenica</b> <span data-en="Closed">Chiuso</span></div>
+      </div>
+      <div class="actions">
+        <a class="g" href="https://maps.google.com/?q=Viale+Caduti+della+Polveriera+21+Avigliana+TO" target="_blank" rel="noopener" data-en="Open on Google Maps →">Apri su Google Maps →</a>
+        <a href="tel:+393802189876" data-en="Call now">Chiama ora</a>
+        <a href="mailto:info@cablaggitalia.com" data-en="Send an email">Scrivi un'email</a>
+      </div>
+    </div>
+    <div class="map-wrap" aria-label="Mappa sede Avigliana">
+      <iframe
+        src="https://www.google.com/maps?q=Viale%20Caduti%20della%20Polveriera%2021%20Avigliana&hl=it&z=15&output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Mappa Nuova Elettronica — Avigliana (TO)"></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script src="partials.js"></script>
+</body>
+</html>

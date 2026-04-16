@@ -54,6 +54,7 @@
   .check .ttl em{font-style:italic}
   .check p{font-size:14.5px;color:var(--ink-dim);margin-top:8px;line-height:1.55;max-width:60ch}
   @media(max-width:900px){.checks .wrap{grid-template-columns:1fr}.checks .left{position:static}}
+  @media(max-width:700px){.docs [style*="grid-template-columns:repeat(2"]{grid-template-columns:1fr !important}}
 </style>
 </head>
 <body data-page="certificazioni">
@@ -98,8 +99,8 @@
         <div class="seal">ISO</div>
         <div class="code" data-en="01 · Quality system">01 · Sistema qualità</div>
         <h3>ISO <em>9001:2015</em></h3>
-        <p data-en="Quality management system applied to the full design, production, and testing cycle of wiring harnesses. Annual external audit by an Accredia-accredited body. Covers the entire chain: from material acceptance to final testing, from non-conformity management to management review.">Sistema di gestione per la qualità applicato all'intero ciclo di progettazione, produzione e collaudo dei cablaggi. Audit esterno annuale da ente accreditato Accredia. Copre l'intera catena: dall'accettazione materiali al collaudo finale, dalla gestione delle non conformità al riesame della direzione.</p>
-        <div class="scope" data-en="&lt;b&gt;Scope&lt;/b&gt;&lt;br/&gt;All activities — design, production, testing, logistics"><b>Ambito</b><br/>Tutta l'attività — progettazione, produzione, collaudo, logistica</div>
+        <p data-en="Quality management system applied to the full production and testing cycle of wiring harnesses. Annual external audit by an Accredia-accredited body. Covers the entire chain: from material acceptance to final testing, from non-conformity management to management review.">Sistema di gestione per la qualità applicato all'intero ciclo di produzione e collaudo dei cablaggi. Audit esterno annuale da ente accreditato Accredia. Copre l'intera catena: dall'accettazione materiali al collaudo finale, dalla gestione delle non conformità al riesame della direzione.</p>
+        <div class="scope" data-en="&lt;b&gt;Scope&lt;/b&gt;&lt;br/&gt;All activities — production, testing, logistics"><b>Ambito</b><br/>Tutta l'attività — produzione, collaudo, logistica</div>
       </article>
       <article class="cert" data-reveal>
         <div class="seal">IPC</div>
@@ -205,9 +206,44 @@
   </div>
 </section>
 
+<!-- DOCUMENTI SCARICABILI -->
+<section class="docs" style="padding:140px 28px;background:var(--paper-2)">
+  <div class="wrap">
+    <div style="max-width:900px;margin-bottom:70px">
+      <div class="eyebrow" style="margin-bottom:22px" data-en="§ 04 — Downloads">§ 04 — Documenti</div>
+      <h2 class="h-xl" data-en="View and &lt;em class='hl'&gt;download.&lt;/em&gt;">Consulta e <em class="hl">scarica.</em></h2>
+      <p class="body" style="margin-top:24px" data-en="The quality policy and ISO 9001 certificate are available for viewing and download. For additional documentation, contact us.">La politica per la qualità e il certificato ISO 9001 sono disponibili per la consultazione e il download. Per documentazione aggiuntiva, contattaci.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px">
+      <!-- Politica qualità -->
+      <div style="border:1px solid var(--ink);background:var(--paper);padding:32px;display:flex;flex-direction:column;gap:18px;transition:box-shadow .3s;position:relative" onmouseenter="this.style.boxShadow='8px 8px 0 var(--gold)'" onmouseleave="this.style.boxShadow='none'">
+        <div style="width:56px;height:56px;border:2px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--gold);font-family:var(--mono);font-size:14px;font-weight:700;color:var(--ink)">PDF</div>
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-dim)" data-en="Quality policy">Politica per la qualità</div>
+        <h3 style="font-family:var(--display);font-weight:320;font-size:28px;line-height:1.08;letter-spacing:-.018em;font-variation-settings:'opsz' 64,'WONK' 1" data-en="Quality &lt;em style='font-style:italic;background:linear-gradient(to top,var(--gold) 32%,transparent 32%)'&gt;Policy&lt;/em&gt; MOD. 5.2">Politica per la <em style="font-style:italic;background:linear-gradient(to top,var(--gold) 32%,transparent 32%)">Qualità</em> MOD. 5.2</h3>
+        <p style="font-size:14px;color:var(--ink-dim);line-height:1.55" data-en="Document defining the organization's quality objectives, management commitment, and the principles guiding the quality management system in accordance with ISO 9001:2015.">Documento che definisce gli obiettivi di qualità dell'organizzazione, l'impegno della direzione e i principi che guidano il sistema di gestione qualità conforme alla norma ISO 9001:2015.</p>
+        <div style="margin-top:auto;display:flex;gap:12px;flex-wrap:wrap">
+          <a href="docs/politica-qualita.pdf" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:12px 20px;background:var(--ink);color:var(--paper);transition:background .3s,color .3s;display:inline-flex;align-items:center;gap:8px" onmouseenter="this.style.background='var(--gold)';this.style.color='var(--ink)'" onmouseleave="this.style.background='var(--ink)';this.style.color='var(--paper)'" data-en="View PDF">Visualizza PDF</a>
+          <a href="docs/politica-qualita.pdf" download style="font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:12px 20px;border:1px solid var(--ink);color:var(--ink);transition:background .3s,color .3s;display:inline-flex;align-items:center;gap:8px" onmouseenter="this.style.background='var(--ink)';this.style.color='var(--paper)'" onmouseleave="this.style.background='transparent';this.style.color='var(--ink)'" data-en="↓ Download">↓ Scarica</a>
+        </div>
+      </div>
+      <!-- Certificato ISO 9001 -->
+      <div style="border:1px solid var(--ink);background:var(--paper);padding:32px;display:flex;flex-direction:column;gap:18px;transition:box-shadow .3s;position:relative" onmouseenter="this.style.boxShadow='8px 8px 0 var(--gold)'" onmouseleave="this.style.boxShadow='none'">
+        <div style="width:56px;height:56px;border:2px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--gold);font-family:var(--mono);font-size:14px;font-weight:700;color:var(--ink)">ISO</div>
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-dim)" data-en="Quality certification">Certificazione di qualità</div>
+        <h3 style="font-family:var(--display);font-weight:320;font-size:28px;line-height:1.08;letter-spacing:-.018em;font-variation-settings:'opsz' 64,'WONK' 1" data-en="Certificate ISO &lt;em style='font-style:italic;background:linear-gradient(to top,var(--gold) 32%,transparent 32%)'&gt;9001:2015&lt;/em&gt;">Certificato ISO <em style="font-style:italic;background:linear-gradient(to top,var(--gold) 32%,transparent 32%)">9001:2015</em></h3>
+        <p style="font-size:14px;color:var(--ink-dim);line-height:1.55" data-en="ISO 9001:2015 quality management system certificate issued by WCS — World Certification Services. Covers the entire production and testing cycle for wiring harnesses.">Certificato del sistema di gestione qualità ISO 9001:2015 rilasciato da WCS — World Certification Services. Copre l'intero ciclo di produzione e collaudo dei cablaggi.</p>
+        <div style="margin-top:auto;display:flex;gap:12px;flex-wrap:wrap">
+          <a href="docs/certificato-iso-9001.pdf" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:12px 20px;background:var(--ink);color:var(--paper);transition:background .3s,color .3s;display:inline-flex;align-items:center;gap:8px" onmouseenter="this.style.background='var(--gold)';this.style.color='var(--ink)'" onmouseleave="this.style.background='var(--ink)';this.style.color='var(--paper)'" data-en="View PDF">Visualizza PDF</a>
+          <a href="docs/certificato-iso-9001.pdf" download style="font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:12px 20px;border:1px solid var(--ink);color:var(--ink);transition:background .3s,color .3s;display:inline-flex;align-items:center;gap:8px" onmouseenter="this.style.background='var(--ink)';this.style.color='var(--paper)'" onmouseleave="this.style.background='transparent';this.style.color='var(--ink)'" data-en="↓ Download">↓ Scarica</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="cta-banner">
   <div class="wrap">
-    <h2 data-en="Need the &lt;em&gt;documents?&lt;/em&gt;">Ti servono <em>i documenti?</em></h2>
+    <h2 data-en="Need &lt;em&gt;other documents?&lt;/em&gt;">Ti serve <em>altro?</em></h2>
     <p data-en="We provide up-to-date copies of certificates and procedural datasheets to all active customers. Write to us with what you need.">Forniamo copie aggiornate dei certificati e schede procedurali a tutti i clienti attivi. Scrivici quello che ti serve.</p>
     <a href="contatti.html" class="btn"><span data-en="Request documentation">Richiedi documentazione</span> <span class="arr"></span></a>
   </div>

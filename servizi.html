@@ -92,72 +92,239 @@
       <div class="connector-wrap" aria-label="Connettore industriale esploso — passa il mouse per esplorare i componenti">
         <div class="tag" data-en="01 · Exploded connector">01 · Connettore esploso</div>
         <div class="hint" data-en="⟵ hover to explore ⟶">⟵ hover per esplorare ⟶</div>
-        <svg viewBox="0 0 560 360" aria-hidden="true">
-          <!-- Wire/cable -->
-          <g class="part wire">
-            <path d="M420 180 H560" stroke="#6b655a" stroke-width="14" stroke-linecap="round" fill="none"/>
-            <path d="M430 172 H540" stroke="#d4a017" stroke-width="3" fill="none"/>
-            <path d="M430 180 H540" stroke="#c9302c" stroke-width="3" fill="none"/>
-            <path d="M430 188 H540" stroke="#2e7d32" stroke-width="3" fill="none"/>
-            <text class="label" x="458" y="210">Cavo multipolare</text>
+        <svg viewBox="0 0 620 400" aria-hidden="true">
+          <defs>
+            <!-- Metallic shell gradient -->
+            <linearGradient id="shellMetal" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5a5a5a"/>
+              <stop offset="18%" stop-color="#8a8a8a"/>
+              <stop offset="35%" stop-color="#a0a0a0"/>
+              <stop offset="50%" stop-color="#b8b8b8"/>
+              <stop offset="65%" stop-color="#a0a0a0"/>
+              <stop offset="82%" stop-color="#787878"/>
+              <stop offset="100%" stop-color="#4a4a4a"/>
+            </linearGradient>
+            <!-- Inner housing (black nylon) -->
+            <linearGradient id="nylon" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3a3a3a"/>
+              <stop offset="30%" stop-color="#2a2a2a"/>
+              <stop offset="70%" stop-color="#1e1e1e"/>
+              <stop offset="100%" stop-color="#141414"/>
+            </linearGradient>
+            <!-- Gold pin gradient -->
+            <linearGradient id="pinGold" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f5d66b"/>
+              <stop offset="25%" stop-color="#daa520"/>
+              <stop offset="50%" stop-color="#f5c518"/>
+              <stop offset="75%" stop-color="#b8860b"/>
+              <stop offset="100%" stop-color="#8b6914"/>
+            </linearGradient>
+            <!-- Crimp metal gradient -->
+            <linearGradient id="crimpMetal" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#c0c0c0"/>
+              <stop offset="20%" stop-color="#e0e0e0"/>
+              <stop offset="50%" stop-color="#d0d0d0"/>
+              <stop offset="80%" stop-color="#a0a0a0"/>
+              <stop offset="100%" stop-color="#808080"/>
+            </linearGradient>
+            <!-- Rubber seal gradient -->
+            <radialGradient id="rubber" cx=".45" cy=".4" r=".55">
+              <stop offset="0%" stop-color="#4a7fb5"/>
+              <stop offset="50%" stop-color="#2e5f8a"/>
+              <stop offset="100%" stop-color="#1a3d5c"/>
+            </radialGradient>
+            <!-- Wire insulation -->
+            <linearGradient id="wireSheath" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#444"/>
+              <stop offset="30%" stop-color="#555"/>
+              <stop offset="70%" stop-color="#333"/>
+              <stop offset="100%" stop-color="#222"/>
+            </linearGradient>
+            <!-- Drop shadow -->
+            <filter id="ds" x="-5%" y="-5%" width="115%" height="120%">
+              <feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#000" flood-opacity=".35"/>
+            </filter>
+            <filter id="dsSmall" x="-8%" y="-8%" width="120%" height="130%">
+              <feDropShadow dx="2" dy="3" stdDeviation="2.5" flood-color="#000" flood-opacity=".3"/>
+            </filter>
+            <!-- Specular highlight -->
+            <linearGradient id="spec" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(255,255,255,.4)"/>
+              <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+            </linearGradient>
+          </defs>
+
+          <!-- ===== WIRE / CABLE ===== -->
+          <g class="part wire" filter="url(#dsSmall)">
+            <!-- Outer sheath -->
+            <path d="M460 200 Q490 200 510 198 Q550 194 590 194 L620 194" stroke="url(#wireSheath)" stroke-width="22" stroke-linecap="round" fill="none"/>
+            <!-- Sheath texture ridges -->
+            <path d="M465 190 Q466 200 465 210" stroke="rgba(255,255,255,.06)" stroke-width="1" fill="none"/>
+            <path d="M480 189 Q481 200 480 211" stroke="rgba(255,255,255,.06)" stroke-width="1" fill="none"/>
+            <path d="M495 188 Q496 199 495 210" stroke="rgba(255,255,255,.06)" stroke-width="1" fill="none"/>
+            <!-- Inner conductors visible at cut end -->
+            <circle cx="460" cy="192" r="3.2" fill="#c9302c"/>
+            <circle cx="460" cy="192" r="1.4" fill="#d4875a"/>
+            <circle cx="460" cy="200" r="3.2" fill="#2e7d32"/>
+            <circle cx="460" cy="200" r="1.4" fill="#d4875a"/>
+            <circle cx="460" cy="208" r="3.2" fill="#1565c0"/>
+            <circle cx="460" cy="208" r="1.4" fill="#d4875a"/>
+            <!-- Stripped wire ends -->
+            <line x1="445" y1="192" x2="460" y2="192" stroke="#c9302c" stroke-width="5" stroke-linecap="round"/>
+            <line x1="445" y1="200" x2="460" y2="200" stroke="#2e7d32" stroke-width="5" stroke-linecap="round"/>
+            <line x1="445" y1="208" x2="460" y2="208" stroke="#1565c0" stroke-width="5" stroke-linecap="round"/>
+            <!-- Copper strands at strip point -->
+            <line x1="440" y1="192" x2="446" y2="192" stroke="#d4875a" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="440" y1="200" x2="446" y2="200" stroke="#d4875a" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="440" y1="208" x2="446" y2="208" stroke="#d4875a" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Label -->
+            <text class="label" x="470" y="234" data-en="Multicore cable · 3×1.5mm²">Cavo multipolare · 3×1.5mm²</text>
           </g>
-          <!-- Crimp barrel -->
-          <g class="part barrel">
-            <rect x="370" y="162" width="55" height="36" rx="4" fill="#8c7a5a" stroke="#f5c518" stroke-width="1"/>
-            <rect x="375" y="167" width="10" height="26" rx="2" fill="#6b655a"/>
-            <rect x="410" y="167" width="10" height="26" rx="2" fill="#6b655a"/>
-            <path d="M378 174 H418" stroke="#f5c518" stroke-width=".5" stroke-dasharray="2 2"/>
-            <path d="M378 180 H418" stroke="#f5c518" stroke-width=".5" stroke-dasharray="2 2"/>
-            <path d="M378 186 H418" stroke="#f5c518" stroke-width=".5" stroke-dasharray="2 2"/>
-            <text class="label" x="368" y="215">Crimp barrel</text>
+
+          <!-- ===== CRIMP BARREL ===== -->
+          <g class="part barrel" filter="url(#dsSmall)">
+            <!-- Barrel body -->
+            <rect x="378" y="176" width="52" height="14" rx="2.5" fill="url(#crimpMetal)" stroke="#888" stroke-width=".6"/>
+            <rect x="378" y="192" width="52" height="14" rx="2.5" fill="url(#crimpMetal)" stroke="#888" stroke-width=".6"/>
+            <rect x="378" y="208" width="52" height="14" rx="2.5" fill="url(#crimpMetal)" stroke="#888" stroke-width=".6"/>
+            <!-- Crimp deformation marks -->
+            <rect x="392" y="177" width="8" height="12" rx="1" fill="none" stroke="rgba(0,0,0,.18)" stroke-width=".8"/>
+            <rect x="406" y="177" width="8" height="12" rx="1" fill="none" stroke="rgba(0,0,0,.18)" stroke-width=".8"/>
+            <rect x="392" y="193" width="8" height="12" rx="1" fill="none" stroke="rgba(0,0,0,.18)" stroke-width=".8"/>
+            <rect x="406" y="193" width="8" height="12" rx="1" fill="none" stroke="rgba(0,0,0,.18)" stroke-width=".8"/>
+            <rect x="392" y="209" width="8" height="12" rx="1" fill="none" stroke="rgba(0,0,0,.18)" stroke-width=".8"/>
+            <rect x="406" y="209" width="8" height="12" rx="1" fill="none" stroke="rgba(0,0,0,.18)" stroke-width=".8"/>
+            <!-- Specular line -->
+            <line x1="380" y1="179" x2="428" y2="179" stroke="rgba(255,255,255,.25)" stroke-width=".7"/>
+            <line x1="380" y1="195" x2="428" y2="195" stroke="rgba(255,255,255,.25)" stroke-width=".7"/>
+            <line x1="380" y1="211" x2="428" y2="211" stroke="rgba(255,255,255,.25)" stroke-width=".7"/>
+            <!-- Wire insulation entering barrel -->
+            <rect x="425" y="178" width="14" height="10" rx="3" fill="#c9302c" opacity=".9"/>
+            <rect x="425" y="194" width="14" height="10" rx="3" fill="#2e7d32" opacity=".9"/>
+            <rect x="425" y="210" width="14" height="10" rx="3" fill="#1565c0" opacity=".9"/>
+            <!-- Label -->
+            <text class="label" x="378" y="242" data-en="Crimp barrel · tin-plated Cu">Barrel di crimpatura · Cu stagnato</text>
           </g>
-          <!-- Seal/gasket -->
-          <g class="part seal">
-            <ellipse cx="340" cy="180" rx="22" ry="30" fill="#3a6ea5" opacity=".85" stroke="#f5c518" stroke-width=".8"/>
-            <ellipse cx="340" cy="180" rx="12" ry="20" fill="none" stroke="rgba(255,255,255,.3)" stroke-width=".5"/>
-            <circle cx="334" cy="172" r="3" fill="none" stroke="rgba(255,255,255,.25)"/>
-            <circle cx="346" cy="172" r="3" fill="none" stroke="rgba(255,255,255,.25)"/>
-            <circle cx="340" cy="185" r="3" fill="none" stroke="rgba(255,255,255,.25)"/>
-            <text class="label" x="316" y="226">Guarnizione IP67</text>
+
+          <!-- ===== SEAL / GASKET ===== -->
+          <g class="part seal" filter="url(#dsSmall)">
+            <!-- Main rubber body -->
+            <ellipse cx="345" cy="200" rx="26" ry="40" fill="url(#rubber)"/>
+            <!-- Surface texture - concentric rings -->
+            <ellipse cx="345" cy="200" rx="22" ry="36" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1.2"/>
+            <ellipse cx="345" cy="200" rx="18" ry="32" fill="none" stroke="rgba(255,255,255,.06)" stroke-width=".8"/>
+            <!-- Wire pass-through holes -->
+            <ellipse cx="345" cy="186" rx="5" ry="5.5" fill="#142d44" stroke="rgba(255,255,255,.12)" stroke-width=".6"/>
+            <ellipse cx="345" cy="200" rx="5" ry="5.5" fill="#142d44" stroke="rgba(255,255,255,.12)" stroke-width=".6"/>
+            <ellipse cx="345" cy="214" rx="5" ry="5.5" fill="#142d44" stroke="rgba(255,255,255,.12)" stroke-width=".6"/>
+            <!-- Highlight -->
+            <ellipse cx="340" cy="185" rx="14" ry="20" fill="url(#spec)" opacity=".3"/>
+            <!-- Lip seal ridges -->
+            <path d="M320 178 Q345 172 370 178" stroke="rgba(255,255,255,.1)" stroke-width=".8" fill="none"/>
+            <path d="M320 222 Q345 228 370 222" stroke="rgba(0,0,0,.15)" stroke-width=".8" fill="none"/>
+            <!-- IP67 marking -->
+            <text x="335" y="202" font-family="JetBrains Mono" font-size="5" fill="rgba(255,255,255,.25)" letter-spacing="1">IP67</text>
+            <!-- Label -->
+            <text class="label" x="316" y="256" data-en="Silicone seal · IP67">Guarnizione siliconica · IP67</text>
           </g>
-          <!-- Contact pins -->
-          <g class="part pins">
-            <g stroke="#f5c518" stroke-width="1.2" fill="none">
-              <line x1="218" y1="168" x2="290" y2="168"/>
-              <line x1="218" y1="180" x2="290" y2="180"/>
-              <line x1="218" y1="192" x2="290" y2="192"/>
+
+          <!-- ===== CONTACT PINS ===== -->
+          <g class="part pins" filter="url(#dsSmall)">
+            <!-- Pin 1 -->
+            <g>
+              <rect x="232" y="179" width="80" height="8" rx="1.5" fill="url(#pinGold)" stroke="#8b6914" stroke-width=".4"/>
+              <rect x="232" y="180" width="80" height="2.5" rx=".8" fill="rgba(255,255,255,.2)"/>
+              <!-- Contact tip -->
+              <path d="M228 179 L222 181.5 Q220 183 222 184.5 L228 187 Z" fill="url(#pinGold)" stroke="#8b6914" stroke-width=".4"/>
+              <!-- Spring contact tab -->
+              <path d="M250 179 L250 175 Q255 173 260 175 L260 179" fill="url(#pinGold)" stroke="#8b6914" stroke-width=".3"/>
             </g>
-            <circle cx="218" cy="168" r="3.5" fill="#f5c518"/>
-            <circle cx="218" cy="180" r="3.5" fill="#f5c518"/>
-            <circle cx="218" cy="192" r="3.5" fill="#f5c518"/>
-            <rect x="286" y="164" width="18" height="8" rx="1" fill="#c99902" stroke="#f5c518" stroke-width=".5"/>
-            <rect x="286" y="176" width="18" height="8" rx="1" fill="#c99902" stroke="#f5c518" stroke-width=".5"/>
-            <rect x="286" y="188" width="18" height="8" rx="1" fill="#c99902" stroke="#f5c518" stroke-width=".5"/>
-            <text class="label" x="228" y="224">Pin di contatto</text>
+            <!-- Pin 2 -->
+            <g>
+              <rect x="232" y="195" width="80" height="8" rx="1.5" fill="url(#pinGold)" stroke="#8b6914" stroke-width=".4"/>
+              <rect x="232" y="196" width="80" height="2.5" rx=".8" fill="rgba(255,255,255,.2)"/>
+              <path d="M228 195 L222 197.5 Q220 199 222 200.5 L228 203 Z" fill="url(#pinGold)" stroke="#8b6914" stroke-width=".4"/>
+              <path d="M250 195 L250 191 Q255 189 260 191 L260 195" fill="url(#pinGold)" stroke="#8b6914" stroke-width=".3"/>
+            </g>
+            <!-- Pin 3 -->
+            <g>
+              <rect x="232" y="211" width="80" height="8" rx="1.5" fill="url(#pinGold)" stroke="#8b6914" stroke-width=".4"/>
+              <rect x="232" y="212" width="80" height="2.5" rx=".8" fill="rgba(255,255,255,.2)"/>
+              <path d="M228 211 L222 213.5 Q220 215 222 216.5 L228 219 Z" fill="url(#pinGold)" stroke="#8b6914" stroke-width=".4"/>
+              <path d="M250 211 L250 207 Q255 205 260 207 L260 211" fill="url(#pinGold)" stroke="#8b6914" stroke-width=".3"/>
+            </g>
+            <!-- Label -->
+            <text class="label" x="240" y="244" data-en="Gold-plated pins · CuSn">Pin placcati oro · CuSn</text>
           </g>
-          <!-- Shell/housing -->
-          <g class="part shell">
-            <rect x="40" y="130" width="180" height="100" rx="12" fill="#2a2826" stroke="#f5c518" stroke-width="1.2"/>
-            <rect x="50" y="140" width="160" height="80" rx="8" fill="#1a1815" stroke="rgba(255,255,255,.12)" stroke-width=".5"/>
-            <!-- pin holes -->
-            <circle cx="90" cy="170" r="6" fill="none" stroke="#f5c518" stroke-width=".8"/>
-            <circle cx="130" cy="170" r="6" fill="none" stroke="#f5c518" stroke-width=".8"/>
-            <circle cx="170" cy="170" r="6" fill="none" stroke="#f5c518" stroke-width=".8"/>
-            <circle cx="110" cy="195" r="6" fill="none" stroke="rgba(255,255,255,.2)" stroke-width=".8"/>
-            <circle cx="150" cy="195" r="6" fill="none" stroke="rgba(255,255,255,.2)" stroke-width=".8"/>
-            <!-- keyway -->
-            <rect x="56" y="156" width="6" height="28" rx="2" fill="#f5c518" opacity=".5"/>
-            <!-- label -->
-            <text x="68" y="150" font-family="JetBrains Mono" font-size="6" fill="rgba(255,255,255,.4)" letter-spacing="2">HOUSING · 3-POS</text>
-            <text class="label" x="72" y="248">Corpo connettore</text>
+
+          <!-- ===== SHELL / HOUSING ===== -->
+          <g class="part shell" filter="url(#ds)">
+            <!-- Outer metal shell -->
+            <rect x="20" y="132" width="190" height="136" rx="16" fill="url(#shellMetal)" stroke="#666" stroke-width="1"/>
+            <!-- Shell highlight -->
+            <rect x="22" y="134" width="186" height="40" rx="14" fill="url(#spec)" opacity=".25"/>
+            <!-- Shell ridges / knurling -->
+            <g stroke="rgba(0,0,0,.1)" stroke-width=".5">
+              <line x1="28" y1="136" x2="28" y2="264"/><line x1="34" y1="134" x2="34" y2="266"/>
+              <line x1="40" y1="133" x2="40" y2="267"/><line x1="46" y1="133" x2="46" y2="267"/>
+            </g>
+            <g stroke="rgba(255,255,255,.06)" stroke-width=".3">
+              <line x1="31" y1="136" x2="31" y2="264"/><line x1="37" y1="134" x2="37" y2="266"/>
+              <line x1="43" y1="133" x2="43" y2="267"/>
+            </g>
+            <!-- Inner nylon housing -->
+            <rect x="54" y="144" width="148" height="112" rx="10" fill="url(#nylon)" stroke="#444" stroke-width=".8"/>
+            <!-- Pin cavities -->
+            <g>
+              <!-- Cavity 1 -->
+              <circle cx="100" cy="178" r="9" fill="#111" stroke="#444" stroke-width=".8"/>
+              <circle cx="100" cy="178" r="6.5" fill="#0a0a0a" stroke="#333" stroke-width=".5"/>
+              <circle cx="100" cy="178" r="3" fill="none" stroke="#555" stroke-width=".3"/>
+              <!-- Cavity 2 -->
+              <circle cx="140" cy="178" r="9" fill="#111" stroke="#444" stroke-width=".8"/>
+              <circle cx="140" cy="178" r="6.5" fill="#0a0a0a" stroke="#333" stroke-width=".5"/>
+              <circle cx="140" cy="178" r="3" fill="none" stroke="#555" stroke-width=".3"/>
+              <!-- Cavity 3 -->
+              <circle cx="180" cy="178" r="9" fill="#111" stroke="#444" stroke-width=".8"/>
+              <circle cx="180" cy="178" r="6.5" fill="#0a0a0a" stroke="#333" stroke-width=".5"/>
+              <circle cx="180" cy="178" r="3" fill="none" stroke="#555" stroke-width=".3"/>
+              <!-- Cavity 4 (empty) -->
+              <circle cx="120" cy="218" r="9" fill="#111" stroke="#444" stroke-width=".8"/>
+              <circle cx="120" cy="218" r="6.5" fill="#0a0a0a" stroke="#333" stroke-width=".5"/>
+              <!-- Cavity 5 (empty) -->
+              <circle cx="160" cy="218" r="9" fill="#111" stroke="#444" stroke-width=".8"/>
+              <circle cx="160" cy="218" r="6.5" fill="#0a0a0a" stroke="#333" stroke-width=".5"/>
+            </g>
+            <!-- Keyway (polarization) -->
+            <rect x="62" y="168" width="8" height="24" rx="3" fill="#f5c518"/>
+            <rect x="63" y="170" width="6" height="20" rx="2" fill="#c99902"/>
+            <!-- TPA slot -->
+            <rect x="62" y="230" width="30" height="8" rx="2" fill="#222" stroke="#444" stroke-width=".4"/>
+            <text x="65" y="237" font-family="JetBrains Mono" font-size="4.5" fill="#666" letter-spacing="1">TPA</text>
+            <!-- Part number engraving -->
+            <text x="100" y="153" font-family="JetBrains Mono" font-size="5.5" fill="rgba(255,255,255,.2)" letter-spacing="1.5" text-anchor="middle">DT04-3P</text>
+            <text x="140" y="248" font-family="JetBrains Mono" font-size="4.5" fill="rgba(255,255,255,.15)" letter-spacing="1" text-anchor="middle">3-POS · DEUTSCH</text>
+            <!-- Locking tab -->
+            <rect x="186" y="188" width="12" height="24" rx="3" fill="url(#nylon)" stroke="#444" stroke-width=".6"/>
+            <path d="M192 192 L192 208" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <!-- Label -->
+            <text class="label" x="52" y="290" data-en="Housing DT04-3P · Nylon 66 GF">Corpo DT04-3P · Nylon 66 GF</text>
           </g>
-          <!-- Dimension lines (decorative) -->
-          <g stroke="rgba(255,255,255,.15)" stroke-width=".5" stroke-dasharray="3 3">
-            <line x1="40" y1="115" x2="220" y2="115"/>
-            <line x1="40" y1="110" x2="40" y2="120"/>
-            <line x1="220" y1="110" x2="220" y2="120"/>
+
+          <!-- Dimension lines -->
+          <g stroke="rgba(255,255,255,.12)" stroke-width=".5" stroke-dasharray="3 3">
+            <line x1="20" y1="118" x2="210" y2="118"/>
+            <line x1="20" y1="113" x2="20" y2="123"/>
+            <line x1="210" y1="113" x2="210" y2="123"/>
           </g>
-          <text x="105" y="110" font-family="JetBrains Mono" font-size="6" fill="rgba(255,255,255,.25)" letter-spacing="1.5">42.5 mm</text>
+          <text x="90" y="113" font-family="JetBrains Mono" font-size="6" fill="rgba(255,255,255,.2)" letter-spacing="1.5">47.8 mm</text>
+          <!-- Vertical dimension -->
+          <g stroke="rgba(255,255,255,.12)" stroke-width=".5" stroke-dasharray="3 3">
+            <line x1="6" y1="132" x2="6" y2="268"/>
+            <line x1="2" y1="132" x2="10" y2="132"/>
+            <line x1="2" y1="268" x2="10" y2="268"/>
+          </g>
+          <text x="4" y="205" font-family="JetBrains Mono" font-size="5.5" fill="rgba(255,255,255,.2)" letter-spacing="1" transform="rotate(-90 4 205)">33.2 mm</text>
         </svg>
       </div>
       <div class="txt" data-reveal>

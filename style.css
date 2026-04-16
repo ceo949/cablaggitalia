@@ -198,63 +198,106 @@ footer .wm b{font-weight:300;background:var(--gold);padding:0 .04em;font-style:i
 @media (max-width:1100px){
   .nav{display:none}
   .burger{display:flex}
-  .page-head .wrap{grid-template-columns:1fr;gap:40px}
+  .page-head .wrap{grid-template-columns:1fr;gap:30px}
   footer .wrap{grid-template-columns:1fr 1fr}
   .mark .wm small{display:none}
   .spec-table{font-size:11.5px}
   .spec-table th,.spec-table td{padding:10px 12px}
+  .figure{min-height:280px !important}
 }
 
 /* Large phone */
 @media (max-width:700px){
-  section{padding:70px 16px}
-  section.first,.page-head{padding-top:110px;padding-left:16px;padding-right:16px}
-  .topbar{padding:10px 16px;gap:8px;grid-template-columns:auto 1fr auto auto}
+  html{overflow-x:hidden}
+  body{overflow-x:hidden;width:100%}
+  section{padding:60px 16px}
+  section.first,.page-head{padding-top:100px;padding-left:16px;padding-right:16px;padding-bottom:40px}
+
+  /* Topbar mobile */
+  .topbar{padding:10px 14px;gap:6px;grid-template-columns:auto auto auto;justify-content:space-between}
+  .topbar-right{gap:8px}
   .topbar-right .cta{display:none}
-  .mark .logo{width:34px;height:34px}
-  .mark .wm{font-size:16px}
-  .cta{padding:8px 14px;font-size:10px}
-  footer .wrap{grid-template-columns:1fr}
-  footer .wm{font-size:clamp(44px,12vw,100px)}
-  footer .wm-row img{width:60px;height:60px}
+  .mark{gap:8px}
+  .mark .logo{width:32px;height:32px}
+  .mark .wm{font-size:15px}
+  .lang-toggle{padding:4px 8px;font-size:9px;gap:3px;letter-spacing:.12em}
+  .lang-opt .flag{width:16px;height:11px}
+  .burger{width:28px;height:20px}
 
-  .h-xxl{font-size:clamp(38px,10vw,80px)}
-  .h-xl{font-size:clamp(34px,7vw,60px)}
-  .h-l{font-size:clamp(28px,5.5vw,44px)}
-  .h-m{font-size:clamp(22px,4vw,32px)}
+  /* Typography scaling */
+  .h-xxl{font-size:clamp(32px,9vw,60px);letter-spacing:-.02em}
+  .h-xl{font-size:clamp(28px,7vw,48px)}
+  .h-l{font-size:clamp(24px,5.5vw,38px)}
+  .h-m{font-size:clamp(20px,4vw,28px)}
+  p.lead{font-size:16px;max-width:100%}
+  p.body{font-size:15px;max-width:100%}
+  .eyebrow{font-size:9.5px;letter-spacing:.2em}
+  .mono-label{font-size:9px}
 
-  p.lead{font-size:17px}
-  p.body{font-size:15px}
+  /* Page head */
+  .page-head h1{font-size:clamp(32px,9vw,60px) !important;word-break:break-word}
+  .page-head .meta{padding-left:14px;font-size:10px}
+  .page-head .meta b{font-size:8.5px;letter-spacing:.18em}
+  .page-head .crumbs{font-size:10px;gap:6px}
 
-  .marquee-track{font-size:clamp(20px,5vw,36px);gap:36px}
-  .marquee{padding:14px 0}
+  /* Marquee */
+  .marquee-track{font-size:clamp(18px,4.5vw,32px);gap:28px}
+  .marquee{padding:12px 0}
 
-  .page-head h1{font-size:clamp(38px,10vw,80px)}
-  .page-head .meta{padding-left:16px}
-  .page-head .meta b{font-size:9px}
+  /* CTA banner */
+  .cta-banner{padding:70px 16px}
+  .cta-banner h2{font-size:clamp(28px,7vw,48px)}
+  .cta-banner p{font-size:14px}
+  .cta-banner .btn{padding:14px 20px;font-size:10px;letter-spacing:.2em}
 
-  .cta-banner{padding:80px 16px}
-  .cta-banner h2{font-size:clamp(32px,7vw,56px)}
-  .cta-banner .btn{padding:14px 22px;font-size:11px}
-
-  .spec-table{font-size:11px}
-  .spec-table th{width:auto;min-width:100px}
+  /* Tables */
+  .spec-table{font-size:10.5px;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .spec-table th{width:auto;min-width:90px;white-space:nowrap}
   .spec-table th,.spec-table td{padding:8px 10px}
 
-  .longform h2{font-size:clamp(22px,5vw,32px)}
-  .longform table{font-size:10.5px;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  /* Figures */
+  .figure{min-height:220px !important;aspect-ratio:16/10 !important}
+  .figure .cap{font-size:9px;padding:10px 12px}
+  .figure .tag{font-size:8.5px;padding:3px 8px}
 
-  .eyebrow{font-size:10px;letter-spacing:.22em}
+  /* Footer */
+  footer{padding:40px 16px 24px}
+  footer .wrap{grid-template-columns:1fr;gap:28px}
+  footer .col h4{margin-bottom:10px}
+  footer .col a,footer .col p{font-size:14px;margin-bottom:4px}
+  footer .wm{font-size:clamp(36px,11vw,80px);white-space:normal;word-break:break-word}
+  footer .wm-row{margin-top:36px;gap:16px;flex-wrap:wrap}
+  footer .wm-row img{width:50px;height:50px}
+  footer .bottom{font-size:9px;letter-spacing:.18em;margin-top:36px;padding-top:16px;flex-direction:column;gap:6px}
+
+  /* Longform / policies */
+  .longform{padding:0}
+  .longform h2{font-size:clamp(20px,5vw,28px);margin:36px 0 12px}
+  .longform p{font-size:15px}
+  .longform ul,.longform ol{font-size:15px;margin-left:16px}
+  .longform table{font-size:10px;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .longform table th,.longform table td{padding:8px;min-width:80px}
+
+  /* Mobile nav adjustments */
+  .mobile-nav a{font-size:clamp(24px,5.5vw,36px)}
+  .mobile-nav{gap:18px;padding:80px 20px 40px}
 }
 
 /* Small phone */
-@media (max-width:400px){
+@media (max-width:420px){
   .topbar{padding:8px 12px}
-  .mark .logo{width:30px;height:30px}
-  .mark .wm{font-size:14px}
-  .lang-toggle{padding:4px 8px;font-size:10px}
-  section{padding:56px 14px}
-  .page-head{padding-top:100px}
+  .mark .logo{width:28px;height:28px}
+  .mark .wm{font-size:13px}
+  .lang-toggle{padding:3px 6px;font-size:8px}
+  .lang-opt .flag{width:14px;height:10px}
+  section{padding:48px 12px}
+  .page-head{padding-top:90px !important}
+  .page-head h1{font-size:clamp(28px,8vw,48px) !important}
+  .h-xxl{font-size:clamp(28px,8vw,48px)}
+  .h-xl{font-size:clamp(24px,6.5vw,40px)}
+  .cta-banner h2{font-size:clamp(24px,6.5vw,40px)}
+  footer .wm{font-size:clamp(30px,10vw,60px)}
+  .mobile-nav a{font-size:clamp(20px,5vw,30px)}
 }
 
 /* ========== LONGFORM TYPOGRAPHY (policies) ========== */

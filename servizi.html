@@ -22,6 +22,19 @@
   .svc-row .txt p.body{margin-top:28px}
   .svc-row .specs{margin-top:36px}
   @media(max-width:1000px){.svc-row{grid-template-columns:1fr;gap:40px}.svc-row.rev{direction:ltr}}
+  @media(max-width:700px){
+    .svc-section{padding:70px 16px}
+    .svc-row{gap:28px}
+    .svc-row .fig{min-height:240px !important;aspect-ratio:16/10 !important}
+    .svc-row .txt h2{font-size:clamp(26px,6vw,40px)}
+    .svc-row .txt .num{font-size:10px;letter-spacing:.22em;margin-bottom:12px}
+    .svc-row .txt p.body{margin-top:18px;font-size:15px}
+    .svc-row .specs{margin-top:24px}
+    .connector-wrap{min-height:300px !important;aspect-ratio:4/3 !important}
+    .matrix table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:11px}
+    .matrix th,.matrix td{padding:10px 12px;white-space:nowrap}
+    .matrix{padding:80px 16px}
+  }
 
   .matrix{padding:130px 28px;background:var(--ink);color:var(--paper)}
   .matrix h2{color:var(--paper)}

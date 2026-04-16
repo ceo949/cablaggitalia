@@ -62,6 +62,22 @@
   .where .actions a.g{background:var(--ink);color:var(--paper)}
   .where .actions a.g:hover{background:var(--gold);color:var(--ink)}
   @media(max-width:1000px){.where .wrap{grid-template-columns:1fr;gap:40px}}
+  @media(max-width:700px){
+    .contact-main{padding:60px 16px 80px}
+    .contact-main h2{font-size:clamp(36px,8vw,72px)}
+    .contact-main .quick .r{grid-template-columns:1fr;gap:6px;padding:16px 0}
+    .contact-main .quick .v{font-size:18px}
+    .fld input,.fld textarea,.fld select{font-size:16px}
+    .submit{padding:16px 24px;font-size:11px;width:100%;justify-content:center}
+    .where{padding:80px 16px}
+    .where h2{font-size:clamp(28px,7vw,48px) !important}
+    .where .address{font-size:18px}
+    .where .hours{font-size:11px}
+    .where .hours b{min-width:120px;font-size:10px}
+    .where .actions{flex-direction:column}
+    .where .actions a{text-align:center;padding:12px 18px;font-size:10px}
+    .where .map-wrap{min-height:280px !important;aspect-ratio:16/10 !important}
+  }
 </style>
 </head>
 <body data-page="contatti">

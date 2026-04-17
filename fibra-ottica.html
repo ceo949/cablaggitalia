@@ -28,7 +28,7 @@
 <link rel="icon" href="https://static.wixstatic.com/media/5faddc_e50d0d818eed4b21bb1c7d1614ba7243~mv2.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=JetBrains+Mono:wght@300;400;500;700&display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
 <link rel="stylesheet" href="style.css"/>
 <style>
   /* Glow fiber background */
@@ -235,7 +235,7 @@
 <section class="equipment">
   <div class="wrap">
     <div class="figure" style="aspect-ratio:5/4;min-height:440px">
-      <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?w=1200&q=80" alt="Cavi fibra ottica" onerror="this.parentNode.style.background='radial-gradient(circle at 30% 30%,#f5c518 0 15%,transparent 15%),linear-gradient(135deg,var(--ink),#1a1815)';this.style.display='none'"/>
+      <img loading="lazy" decoding="async" width="1200" height="800" src="https://images.unsplash.com/photo-1563770660941-20978e870e26?w=1200&q=80" alt="Cavi fibra ottica" onerror="this.parentNode.style.background='radial-gradient(circle at 30% 30%,#f5c518 0 15%,transparent 15%),linear-gradient(135deg,var(--ink),#1a1815)';this.style.display='none'"/>
       <div class="tag" data-en="INSTRUMENTATION">STRUMENTAZIONE</div>
       <div class="cap" data-en="&lt;b&gt;Fiber station /&lt;/b&gt; fusion splicer · precision cleaver · ferrule microscope"><b>Stazione fibra /</b> saldatrice fusione · cliver precisione · microscopio ferrule</div>
     </div>
@@ -263,6 +263,6 @@
 
 </main>
 
-<script src="partials.js"></script>
+<script src="partials.js" defer></script>
 </body>
 </html>

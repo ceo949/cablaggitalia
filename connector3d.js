@@ -274,5 +274,13 @@
     if(typeof gsap === 'undefined') await loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js');
     init();
   }
-  boot();
+
+  // Lazy load: only boot when container is near viewport
+  const container = document.getElementById('connector-3d');
+  if(container){
+    const obs = new IntersectionObserver((entries)=>{
+      if(entries[0].isIntersecting){ obs.disconnect(); boot(); }
+    },{rootMargin:'200px'});
+    obs.observe(container);
+  }
 })();

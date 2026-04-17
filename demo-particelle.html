@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Demo — Particelle elettriche</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#ffffff;color:#0e0e0c;font-family:'Fraunces',serif;overflow:hidden;height:100vh;width:100vw}
+
+  #particles{position:fixed;inset:0;z-index:0}
+
+  .content{position:relative;z-index:1;height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 8vw}
+
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.28em;
+    text-transform:uppercase;color:#f5c518;margin-bottom:28px;
+    display:flex;align-items:center;gap:12px;
+    opacity:0;animation:fadeUp .8s ease-out .3s forwards;
+  }
+  .eyebrow::before{content:'';width:22px;height:2px;background:#f5c518}
+
+  h1{
+    font-weight:300;font-size:clamp(48px,10vw,160px);line-height:.88;
+    letter-spacing:-.032em;font-variation-settings:"opsz" 144;
+    opacity:0;animation:fadeUp 1s ease-out .5s forwards;
+  }
+  h1 .hl{
+    font-style:italic;position:relative;display:inline-block;
+  }
+  h1 .hl::after{
+    content:'';position:absolute;left:-.06em;right:-.06em;bottom:.08em;
+    height:.34em;background:#f5c518;z-index:-1;
+    transform-origin:left;transform:scaleX(0);
+    animation:highlight 1s cubic-bezier(.2,.7,.2,1) 1.2s forwards;
+  }
+
+  .sub{
+    margin-top:32px;font-family:'JetBrains Mono',monospace;font-size:12px;
+    letter-spacing:.18em;text-transform:uppercase;color:rgba(14,14,12,.45);
+    display:flex;gap:20px;flex-wrap:wrap;
+    opacity:0;animation:fadeUp .8s ease-out .8s forwards;
+  }
+  .sub .sep{color:#f5c518}
+
+  .badge{
+    position:fixed;bottom:32px;right:32px;
+    font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;color:rgba(14,14,12,.4);
+    border:1px solid rgba(14,14,12,.12);padding:10px 18px;border-radius:99px;
+    background:rgba(255,255,255,.6);backdrop-filter:blur(8px);z-index:2;
+  }
+
+  @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+  @keyframes highlight{to{transform:scaleX(1)}}
+  .eyebrow,h1,.sub{transform:translateY(24px)}
+
+  /* Glow cursor follower */
+  .glow{
+    position:fixed;width:300px;height:300px;border-radius:50%;
+    background:radial-gradient(circle,rgba(245,197,24,.18),transparent 70%);
+    pointer-events:none;z-index:0;
+    transform:translate(-50%,-50%);
+    transition:left .3s ease-out,top .3s ease-out;
+  }
+
+  @media(max-width:700px){
+    .content{padding:0 6vw}
+    .badge{bottom:16px;right:16px;font-size:9px;padding:8px 14px}
+    .sub{font-size:10px;letter-spacing:.14em;gap:12px}
+  }
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+<div class="glow" id="glow"></div>
+
+<div class="content">
+  <div class="eyebrow">Cablaggi automotive &amp; industriali — dal 1978</div>
+  <h1>
+    Conduciamo<br/>
+    corrente <span class="hl">dove</span><br/>
+    <span class="hl">serve.</span>
+  </h1>
+  <div class="sub">
+    <span>47 anni di artigianato elettrico</span>
+    <span class="sep">⚡</span>
+    <span>Crimpatura IPC/WHMA-A-620</span>
+    <span class="sep">⚡</span>
+    <span>Avigliana — Torino</span>
+  </div>
+</div>
+
+<div class="badge">Demo · particelle elettriche</div>
+
+<script>
+(function(){
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  const glow = document.getElementById('glow');
+
+  let W, H, mouse = { x: -9999, y: -9999 }, dpr;
+
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio, 2);
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Mouse / touch tracking
+  window.addEventListener('mousemove', e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+  window.addEventListener('touchmove', e => {
+    mouse.x = e.touches[0].clientX;
+    mouse.y = e.touches[0].clientY;
+    glow.style.left = mouse.x + 'px';
+    glow.style.top = mouse.y + 'px';
+  }, { passive: true });
+
+  // ---- CIRCUIT PATHS ----
+  // Define wire-like paths for particles to follow
+  const paths = [];
+  function generatePaths(){
+    paths.length = 0;
+    const count = W < 700 ? 6 : 12;
+    for(let i = 0; i < count; i++){
+      const segments = [];
+      let x = -50;
+      let y = Math.random() * H;
+      const direction = Math.random() > 0.3 ? 1 : -1; // mostly left to right
+      if(direction < 0) x = W + 50;
+
+      segments.push({ x, y });
+
+      const steps = 4 + Math.floor(Math.random() * 4);
+      for(let s = 0; s < steps; s++){
+        x += direction * (80 + Math.random() * 200);
+        // Sharp turns like real wiring
+        if(Math.random() > 0.5){
+          y += (Math.random() - 0.5) * 200;
+        }
+        y = Math.max(40, Math.min(H - 40, y));
+        segments.push({ x, y });
+      }
+
+      paths.push({
+        segments,
+        opacity: 0.04 + Math.random() * 0.08,
+        width: 0.5 + Math.random() * 0.5,
+        isGold: Math.random() > 0.7
+      });
+    }
+  }
+  generatePaths();
+
+  // ---- PARTICLES ----
+  const PARTICLE_COUNT = W < 700 ? 60 : 140;
+  const particles = [];
+
+  function createParticle(onPath){
+    const pathIdx = Math.floor(Math.random() * paths.length);
+    const path = paths[pathIdx];
+    const segIdx = Math.floor(Math.random() * (path.segments.length - 1));
+    const t = Math.random();
+    const a = path.segments[segIdx];
+    const b = path.segments[segIdx + 1];
+
+    return {
+      x: a.x + (b.x - a.x) * t,
+      y: a.y + (b.y - a.y) * t,
+      pathIdx,
+      segIdx,
+      t,
+      speed: 0.3 + Math.random() * 1.2,
+      size: 1 + Math.random() * 2.5,
+      opacity: 0.3 + Math.random() * 0.7,
+      isGold: path.isGold || Math.random() > 0.6,
+      pulse: Math.random() * Math.PI * 2,
+      pulseSpeed: 1 + Math.random() * 3,
+      trail: [],
+      trailMax: 4 + Math.floor(Math.random() * 8)
+    };
+  }
+
+  for(let i = 0; i < PARTICLE_COUNT; i++){
+    particles.push(createParticle(true));
+  }
+
+  // ---- SPARKS (mouse interaction) ----
+  const sparks = [];
+
+  function emitSparks(x, y, count){
+    for(let i = 0; i < count; i++){
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 1 + Math.random() * 4;
+      sparks.push({
+        x, y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 1,
+        decay: 0.02 + Math.random() * 0.03,
+        size: 0.5 + Math.random() * 2
+      });
+    }
+  }
+
+  let lastMouse = { x: -9999, y: -9999 };
+  let sparkTimer = 0;
+
+  // ---- NODES (junction points that glow) ----
+  const nodes = [];
+  function generateNodes(){
+    nodes.length = 0;
+    paths.forEach(path => {
+      path.segments.forEach((seg, i) => {
+        if(i > 0 && i < path.segments.length - 1 && Math.random() > 0.5){
+          nodes.push({
+            x: seg.x, y: seg.y,
+            baseSize: 2 + Math.random() * 3,
+            pulse: Math.random() * Math.PI * 2,
+            isGold: path.isGold
+          });
+        }
+      });
+    });
+  }
+  generateNodes();
+
+  // ---- RENDER ----
+  function drawPath(path){
+    ctx.beginPath();
+    ctx.moveTo(path.segments[0].x, path.segments[0].y);
+    for(let i = 1; i < path.segments.length; i++){
+      ctx.lineTo(path.segments[i].x, path.segments[i].y);
+    }
+    const color = path.isGold ? `rgba(201,153,2,${path.opacity * 2.5})` : `rgba(14,14,12,${path.opacity * 1.5})`;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = path.width;
+    ctx.stroke();
+  }
+
+  function drawNode(node, t){
+    const pulse = Math.sin(t * 2 + node.pulse) * 0.5 + 0.5;
+    const size = node.baseSize + pulse * 2;
+    const alpha = 0.2 + pulse * 0.4;
+
+    // Outer glow
+    const grad = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, size * 3);
+    const color = node.isGold ? '201,153,2' : '107,101,90';
+    grad.addColorStop(0, `rgba(${color},${alpha * 0.6})`);
+    grad.addColorStop(1, `rgba(${color},0)`);
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(node.x, node.y, size * 3, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Core
+    ctx.fillStyle = `rgba(${color},${alpha})`;
+    ctx.beginPath();
+    ctx.arc(node.x, node.y, size * 0.6, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function moveParticle(p){
+    const path = paths[p.pathIdx];
+    if(!path) return;
+
+    p.t += p.speed * 0.008;
+
+    if(p.t >= 1){
+      p.t = 0;
+      p.segIdx++;
+      if(p.segIdx >= path.segments.length - 1){
+        // Reset to new path
+        const np = createParticle(true);
+        Object.assign(p, np);
+        p.trail = [];
+        return;
+      }
+    }
+
+    const a = path.segments[p.segIdx];
+    const b = path.segments[p.segIdx + 1];
+    if(!a || !b) return;
+
+    p.x = a.x + (b.x - a.x) * p.t;
+    p.y = a.y + (b.y - a.y) * p.t;
+
+    // Trail
+    p.trail.unshift({ x: p.x, y: p.y });
+    if(p.trail.length > p.trailMax) p.trail.pop();
+
+    // Mouse repulsion / attraction
+    const dx = mouse.x - p.x;
+    const dy = mouse.y - p.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if(dist < 150){
+      const force = (150 - dist) / 150;
+      p.x -= dx * force * 0.02;
+      p.y -= dy * force * 0.02;
+      p.opacity = Math.min(1, p.opacity + force * 0.3);
+    }
+  }
+
+  function drawParticle(p, t){
+    const pulse = Math.sin(t * p.pulseSpeed + p.pulse) * 0.3 + 0.7;
+    const alpha = p.opacity * pulse;
+    const color = p.isGold ? '201,153,2' : '14,14,12';
+
+    // Trail
+    if(p.trail.length > 1){
+      ctx.beginPath();
+      ctx.moveTo(p.trail[0].x, p.trail[0].y);
+      for(let i = 1; i < p.trail.length; i++){
+        ctx.lineTo(p.trail[i].x, p.trail[i].y);
+      }
+      ctx.strokeStyle = `rgba(${color},${alpha * 0.15})`;
+      ctx.lineWidth = p.size * 0.5;
+      ctx.stroke();
+    }
+
+    // Glow
+    const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 4);
+    grad.addColorStop(0, `rgba(${color},${alpha * 0.5})`);
+    grad.addColorStop(1, `rgba(${color},0)`);
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size * 4, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Core dot
+    ctx.fillStyle = `rgba(${color},${alpha})`;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function drawSpark(s){
+    const color = `rgba(201,153,2,${s.life})`;
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.size * s.life, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // ---- MAIN LOOP ----
+  function animate(now){
+    requestAnimationFrame(animate);
+    const t = now * 0.001;
+
+    ctx.clearRect(0, 0, W, H);
+
+    // Draw paths (wire traces)
+    paths.forEach(drawPath);
+
+    // Draw nodes
+    nodes.forEach(n => drawNode(n, t));
+
+    // Update & draw particles
+    particles.forEach(p => {
+      moveParticle(p);
+      drawParticle(p, t);
+    });
+
+    // Mouse sparks
+    sparkTimer++;
+    const mouseDist = Math.sqrt(
+      (mouse.x - lastMouse.x) ** 2 + (mouse.y - lastMouse.y) ** 2
+    );
+    if(mouseDist > 5 && sparkTimer % 3 === 0){
+      emitSparks(mouse.x, mouse.y, 1);
+    }
+    lastMouse.x = mouse.x;
+    lastMouse.y = mouse.y;
+
+    // Update & draw sparks
+    for(let i = sparks.length - 1; i >= 0; i--){
+      const s = sparks[i];
+      s.x += s.vx;
+      s.y += s.vy;
+      s.vx *= 0.97;
+      s.vy *= 0.97;
+      s.life -= s.decay;
+      if(s.life <= 0){
+        sparks.splice(i, 1);
+      } else {
+        drawSpark(s);
+      }
+    }
+  }
+
+  requestAnimationFrame(animate);
+})();
+</script>
+</body>
+</html>

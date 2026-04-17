@@ -56,19 +56,7 @@
 <link rel="stylesheet" href="style.css"/>
 <style>
   /* page-specific */
-  body::after{content:"";position:fixed;inset:auto -10vw -30vh auto;width:70vw;height:70vh;pointer-events:none;z-index:0;background:radial-gradient(closest-side,rgba(245,197,24,.20),transparent 70%);filter:blur(30px)}
-  .hero{padding:140px 28px 80px;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;border-top:0}
-  .schematic{position:absolute;inset:0;z-index:0;opacity:.9}
-  .schematic svg{width:100%;height:100%;display:block}
-  .schematic .wire{fill:none;stroke:var(--ink);stroke-width:.5;opacity:.18}
-  .schematic .wire.gold{stroke:var(--gold-deep);opacity:.55;stroke-width:.8}
-  .schematic .node{fill:var(--ink);opacity:.35}
-  .schematic .node.gold{fill:var(--gold);opacity:1;filter:drop-shadow(0 0 4px rgba(245,197,24,.5))}
-  .schematic .tick{stroke:var(--ink);stroke-width:.5;opacity:.22}
-  .schematic text{font-family:var(--mono);font-size:9px;fill:var(--ink-dim);letter-spacing:.1em}
-  .signal-path{stroke:var(--gold);stroke-width:1.4;fill:none;stroke-dasharray:3 6;opacity:.85;animation:dash 22s linear infinite}
-  @keyframes dash{to{stroke-dashoffset:-600}}
-  .bolts{position:absolute;right:6vw;top:14vh;width:min(420px,40vw);opacity:.10;z-index:0;pointer-events:none}
+  .hero{padding:140px 28px 80px;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;border-top:0;position:relative}
   .hero-inner{position:relative;z-index:2;width:100%;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:60px;align-items:end}
   .headline .hl::before{content:"";position:absolute;left:-.08em;right:-.08em;bottom:.08em;height:.32em;background:var(--gold);z-index:-1;transform-origin:left;transform:scaleX(0);animation:hl 1.2s cubic-bezier(.2,.7,.2,1) .9s forwards}
   .headline .hl{position:relative;z-index:1}
@@ -205,38 +193,8 @@
 
 <!-- ———— HERO ———— -->
 <section class="hero">
-  <div class="schematic" aria-hidden="true">
-    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-      <g>
-        <line class="tick" x1="0" y1="60" x2="1440" y2="60"/>
-        <line class="tick" x1="144" y1="50" x2="144" y2="70"/><line class="tick" x1="288" y1="50" x2="288" y2="70"/>
-        <line class="tick" x1="432" y1="50" x2="432" y2="70"/><line class="tick" x1="576" y1="50" x2="576" y2="70"/>
-        <line class="tick" x1="720" y1="50" x2="720" y2="70"/><line class="tick" x1="864" y1="50" x2="864" y2="70"/>
-        <line class="tick" x1="1008" y1="50" x2="1008" y2="70"/><line class="tick" x1="1152" y1="50" x2="1152" y2="70"/>
-        <line class="tick" x1="1296" y1="50" x2="1296" y2="70"/>
-        <text x="4" y="48">000</text><text x="576" y="48">0400</text><text x="1152" y="48">0800</text><text x="1400" y="48">1000mm</text>
-      </g>
-      <path class="wire" d="M0 420 H260 L300 380 H480 L520 420 H740 L780 380 H1000"/>
-      <path class="wire" d="M200 700 H360 L400 660 H620 L660 700 H900 L940 740 H1200"/>
-      <path class="wire gold" d="M0 520 H180 L220 560 H440 L480 520 H720 L760 560 H1000 L1040 520 H1440"/>
-      <path class="wire" d="M1440 200 H1200 L1160 240 H980 L940 200 H760"/>
-      <path class="wire" d="M1080 0 V120 L1040 160 V260 L1080 300 V420"/>
-      <path class="signal-path" d="M0 520 H180 L220 560 H440 L480 520 H720 L760 560 H1000 L1040 520 H1440"/>
-      <circle class="node gold" cx="0" cy="520" r="3"/><circle class="node gold" cx="480" cy="520" r="3"/><circle class="node gold" cx="1040" cy="520" r="3"/>
-      <circle class="node" cx="260" cy="420" r="2.5"/><circle class="node" cx="520" cy="420" r="2.5"/><circle class="node" cx="780" cy="380" r="2.5"/>
-      <text x="22" y="435" fill="#6b655a">A / ALIM. 400V</text>
-      <text x="530" y="400" fill="#6b655a">NODO 7.03</text>
-      <text x="1050" y="505" fill="#c99902">SEGNALE · Cu 2.5mm²</text>
-      <text x="920" y="185" fill="#6b655a">RETURN LINE</text>
-    </svg>
-  </div>
-
-  <div class="bolts" aria-hidden="true">
-    <svg viewBox="0 0 300 300">
-      <path d="M110 10 L80 140 L130 140 L100 290 L180 120 L130 120 L160 10 Z" fill="#f5c518" stroke="#0e0e0c" stroke-width="2" stroke-linejoin="round"/>
-      <path d="M230 40 L205 130 L240 130 L220 260 L280 120 L245 120 L265 40 Z" fill="#f5c518" stroke="#0e0e0c" stroke-width="2" stroke-linejoin="round" opacity=".85"/>
-    </svg>
-  </div>
+  <canvas id="hero-particles" style="position:absolute;inset:0;width:100%;height:100%;z-index:0" aria-hidden="true"></canvas>
+  <div class="hero-glow" style="position:fixed;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(245,197,24,.18),transparent 70%);pointer-events:none;z-index:0;transform:translate(-50%,-50%);transition:left .3s ease-out,top .3s ease-out;left:-999px;top:-999px"></div>
 
   <div class="serial">N.E. — LOTTO 74/2026 · REV.03 · AVIGLIANA (TO)</div>
   <div class="scroll-hint"><span class="bar"></span><span data-en="Scroll / explore">Scorri / esplora</span></div>
@@ -261,7 +219,7 @@
     </div>
 
     <aside class="hero-side fade-up">
-      <p data-en="We design the harness, &lt;em&gt;form&lt;/em&gt; the bundle, crimp every terminal under pull-force control. &lt;em&gt;Zero&lt;/em&gt; blind automation. Every cable has a code, a signature, a lot.">Progettiamo l'impianto, <em>formiamo</em> la matassa, crimpiamo ogni terminale sotto controllo pull-force. <em>Zero</em> automatismi ciechi. Ogni cavo ha un codice, una firma, un lotto.</p>
+      <p data-en="We &lt;em&gt;form&lt;/em&gt; the harness, crimp every terminal under pull-force control, test every single piece. &lt;em&gt;Zero&lt;/em&gt; blind automation. Every cable has a code, a signature, a lot."><em>Formiamo</em> il fascio cavi, crimpiamo ogni terminale sotto controllo pull-force, testiamo ogni singolo pezzo. <em>Zero</em> automatismi ciechi. Ogni cavo ha un codice, una firma, un lotto.</p>
       <div class="spec-box">
         <div class="lbl" data-en="Capacity · Avigliana facility">Capacità · Reparto Avigliana</div>
         <div class="val" data-en="&lt;b&gt;400 m²&lt;/b&gt; production floor&lt;br/&gt;cables 0.14 ÷ 240 mm² · AWG 26÷4/0"><b>400 m²</b> produzione<br/>cavi 0.14 ÷ 240 mm² · AWG 26÷4/0</div>
@@ -291,7 +249,7 @@
   <div class="wrap">
     <div class="left">
       <div class="mono-label" style="color:var(--ink)" data-en="§ 01 — Studio">§ 01 — Studio</div>
-      <h2 class="h-xl" data-reveal data-en="We don't supply &lt;em class='hl'&gt;spools.&lt;/em&gt;&lt;br/&gt;We supply &lt;em class='hl'&gt;processes.&lt;/em&gt;">Non forniamo <em class="hl">matasse.</em><br/>Forniamo <em class="hl">processi.</em></h2>
+      <h2 class="h-xl" data-reveal data-en="We don't supply &lt;em class='hl'&gt;cables.&lt;/em&gt;&lt;br/&gt;We supply &lt;em class='hl'&gt;processes.&lt;/em&gt;">Non forniamo <em class="hl">cavi.</em><br/>Forniamo <em class="hl">processi.</em></h2>
     </div>
     <div class="prose">
       <p data-en="Nuova Elettronica has been designing and manufacturing cable-to-terminal wiring harnesses, electromechanical sub-assemblies, and control panels for the automotive and industrial sectors since 1978. From our first workshop in Turin to the Almese facility (1988) and our current Avigliana plant (2023), we have upheld a single working principle: &lt;em class='hl'&gt;a wiring harness is a contract of continuity&lt;/em&gt;, and a contract must be signed.">Nuova Elettronica opera dal 1978 nella progettazione e produzione di cablaggi elettrici cavi-terminale, sotto-assemblati elettromeccanici e quadri di comando per i settori automotive e industriale. Dalla prima sede di Torino al reparto di Almese (1988) fino allo stabilimento attuale di Avigliana (2023), abbiamo mantenuto un solo principio di lavoro: <em class="hl">un cablaggio è un contratto di continuità</em>, e un contratto si firma.</p>
@@ -454,5 +412,6 @@
 </main>
 
 <script src="partials.js" defer></script>
+<script src="particles.js" defer></script>
 </body>
 </html>

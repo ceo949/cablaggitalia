@@ -118,7 +118,7 @@ p.small{font-size:14px;line-height:1.6;color:var(--ink-dim);max-width:58ch}
 
 /* ========== MARQUEE ========== */
 .marquee{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);overflow:hidden;padding:22px 0;background:var(--ink);color:var(--paper)}
-.marquee-track{display:flex;gap:60px;animation:scroll 42s linear infinite;white-space:nowrap;font-family:var(--display);font-size:clamp(28px,4.2vw,56px);font-style:italic;font-variation-settings:"opsz" 80;line-height:1;font-weight:300}
+.marquee-track{display:flex;gap:60px;animation:scroll 42s linear infinite;white-space:nowrap;font-family:var(--display);font-size:clamp(28px,4.2vw,56px);font-style:italic;font-variation-settings:"opsz" 80;line-height:1;font-weight:300;width:max-content}
 .marquee-track span{display:inline-flex;align-items:center;gap:60px;color:var(--paper)}
 .marquee-track span::after{content:"⚡";color:var(--gold);font-style:normal;font-size:.7em;transform:translateY(-.06em)}
 @keyframes scroll{to{transform:translateX(-50%)}}

@@ -43,11 +43,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   position:fixed;top:0;left:0;right:0;z-index:60;
   display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:20px;
   padding:14px 28px;
-  background:linear-gradient(to bottom,rgba(255,255,255,.94),rgba(255,255,255,.6) 80%,transparent);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid transparent;transition:border-color .4s;
+  background:rgba(246,243,236,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(14,14,12,.08);transition:border-color .4s,background .4s;
+  box-shadow:0 1px 8px rgba(14,14,12,.06);
 }
-.topbar.scrolled{border-bottom-color:var(--rule)}
+.topbar.scrolled{border-bottom-color:var(--rule);background:rgba(239,233,219,.95);box-shadow:0 2px 12px rgba(14,14,12,.1)}
 .mark{display:flex;align-items:center;gap:12px}
 .mark .logo{width:44px;height:44px;object-fit:contain}
 .mark .wm{font-family:var(--display);font-style:italic;font-weight:500;font-size:19px;letter-spacing:-.005em;font-variation-settings:"opsz" 40;line-height:1}

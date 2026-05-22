@@ -76,7 +76,7 @@ section.first{padding-top:160px;border-top:0}
 .eyebrow::before{content:"";width:22px;height:2px;background:var(--gold)}
 .eyebrow.inline::before{margin-right:6px}
 
-.h-xxl{font-family:var(--display);font-weight:320;font-size:clamp(54px,10vw,172px);line-height:.88;letter-spacing:-.032em;font-variation-settings:"opsz" 144}
+.h-xxl{font-family:var(--display);font-weight:320;font-size:clamp(41px,7.5vw,129px);line-height:.88;letter-spacing:-.032em;font-variation-settings:"opsz" 144}
 .h-xl{font-family:var(--display);font-weight:320;font-size:clamp(46px,6vw,92px);line-height:.95;letter-spacing:-.028em;font-variation-settings:"opsz" 120}
 .h-l{font-family:var(--display);font-weight:320;font-size:clamp(36px,4.4vw,64px);line-height:1.02;letter-spacing:-.022em;font-variation-settings:"opsz" 96}
 .h-m{font-family:var(--display);font-weight:340;font-size:clamp(26px,2.8vw,40px);line-height:1.1;letter-spacing:-.018em;font-variation-settings:"opsz" 72}

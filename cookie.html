@@ -74,8 +74,8 @@
       <li>cookie di sicurezza per prevenire abusi (CSRF, anti-bot).</li>
     </ul>
 
-    <h3 data-en="b) Analytical cookies (third-party, anonymized)">b) Cookie analitici (di terze parti, anonimizzati)</h3>
-    <p>Utilizzati per raccogliere informazioni aggregate sul numero di visitatori e su come il sito viene utilizzato. Sono assimilati ai cookie tecnici solo quando opportunamente anonimizzati (IP mascherato, assenza di incrocio con altri dataset). In assenza di queste condizioni, il loro rilascio richiede il consenso dell'utente.</p>
+    <h3>b) Statistiche di visita (senza cookie)</h3>
+    <p>Per conoscere in forma aggregata il numero di visite e le pagine consultate il sito utilizza <b>GoatCounter</b>, servizio di statistiche che <b>non installa cookie</b>, non memorizza l'indirizzo IP in chiaro e non crea profili degli utenti. Non è quindi richiesto il consenso.</p>
 
     <h3 data-en="c) Profiling and marketing cookies">c) Cookie di profilazione e marketing</h3>
     <p>Finalizzati a creare profili relativi all'utente e utilizzati per inviare messaggi pubblicitari in linea con le preferenze manifestate durante la navigazione. Questi cookie vengono rilasciati <b>solo previo consenso esplicito</b> dell'utente tramite il banner di selezione.</p>
@@ -84,12 +84,7 @@
     <table>
       <thead><tr><th>Nome cookie</th><th>Tipo</th><th>Finalità</th><th>Durata</th></tr></thead>
       <tbody>
-        <tr><td><code>XSRF-TOKEN</code></td><td>Tecnico</td><td>Sicurezza: protezione da attacchi CSRF</td><td>Sessione</td></tr>
-        <tr><td><code>ssr-caching</code></td><td>Tecnico</td><td>Cache di rendering lato server</td><td>1 ora</td></tr>
-        <tr><td><code>cookie-consent</code></td><td>Tecnico</td><td>Memorizza le scelte dell'utente sul banner cookie</td><td>12 mesi</td></tr>
-        <tr><td><code>_ga</code></td><td>Analitico (3ª parte)</td><td>Google Analytics — identificazione utente anonimizzata</td><td>24 mesi</td></tr>
-        <tr><td><code>_ga_*</code></td><td>Analitico (3ª parte)</td><td>Google Analytics 4 — stato sessione</td><td>24 mesi</td></tr>
-        <tr><td><code>_fbp</code></td><td>Profilazione</td><td>Meta Pixel — remarketing (solo con consenso)</td><td>3 mesi</td></tr>
+        <tr><td><code>ne-lang</code> (localStorage)</td><td>Tecnico</td><td>Memorizza la lingua scelta (IT/EN)</td><td>Fino alla cancellazione</td></tr>
       </tbody>
     </table>
     <p><em>Nota:</em> l'elenco può variare in funzione delle integrazioni attive. Per un controllo aggiornato è possibile utilizzare le funzioni dei browser (Chrome: DevTools → Application → Cookies) o richiedere l'elenco corrente al Titolare.</p>
@@ -97,10 +92,10 @@
     <h2 data-en="4. &lt;em&gt;Third-party&lt;/em&gt; cookies">4. Cookie di <em>terze parti</em></h2>
     <p>Il sito può integrare servizi forniti da terze parti. Il trattamento dei dati eseguito da questi soggetti è regolato dalle rispettive informative, a cui rinviamo:</p>
     <ul>
-      <li><b>Google Analytics / Google Tag Manager</b> — Google Ireland Limited — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+      <li><b>GoatCounter</b> — statistiche di visita senza cookie — <a href="https://www.goatcounter.com/help/privacy" target="_blank" rel="noopener">goatcounter.com/help/privacy</a></li>
+      <li><b>FormSubmit</b> — invio del modulo contatti — <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener">formsubmit.co</a></li>
       <li><b>Google Maps</b> — visualizzazione mappe — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
       <li><b>Google Fonts</b> — distribuzione font web — <a href="https://developers.google.com/fonts/faq/privacy" target="_blank" rel="noopener">developers.google.com/fonts/faq/privacy</a></li>
-      <li><b>Meta Pixel</b> (se attivo) — <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">facebook.com/privacy/policy</a></li>
     </ul>
 
     <h2 data-en="5. &lt;em&gt;How to manage&lt;/em&gt; cookies">5. <em>Come gestire</em> i cookie</h2>

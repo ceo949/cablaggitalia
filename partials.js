@@ -98,12 +98,14 @@
       nav:"Navigation", contacts:"Direct contacts", legal:"Legal",
       since:"Since 1978 · wiring harness production,<br/>repair &amp; restoration",
       copy:"© 1978 — 2026 Nuova Elettronica S.r.l. · VAT and R.E.A. in",
-      legLink:"Legal notes"
+      legLink:"Legal notes",
+      spec:[["riparazione-cablaggi.html","Harness repair"],["restauro-impianto-elettrico-auto-epoca.html","Vintage vehicle wiring"],["cablaggi-macchine-automatiche.html","Automatic machine harnesses"],["cablaggi-torino.html","Harnesses in Turin"]]
     } : {
       nav:"Navigazione", contacts:"Contatti diretti", legal:"Legale",
       since:"Dal 1978 · produzione, riparazione<br/>e restauro cablaggi",
       copy:"© 1978 — 2026 Nuova Elettronica S.r.l. · P. IVA 12220630011 · R.E.A. TO-1273965 ·",
-      legLink:"Note legali"
+      legLink:"Note legali",
+      spec:[["riparazione-cablaggi.html","Riparazione cablaggi"],["restauro-impianto-elettrico-auto-epoca.html","Impianti auto e moto d'epoca"],["cablaggi-macchine-automatiche.html","Cablaggi macchine automatiche"],["cablaggi-torino.html","Cablaggi a Torino"]]
     };
     footer.innerHTML = `
       <div class="wrap">
@@ -111,6 +113,7 @@
           <h4>Nuova Elettronica S.r.l.</h4>
           <p>Viale Caduti della Polveriera, 21<br/>10051 Avigliana (TO) — Italia</p>
           <p style="margin-top:12px">${t.since}</p>
+          <p style="margin-top:14px;display:flex;flex-direction:column;gap:6px">${t.spec.map(s=>`<a href="${s[0]}">${s[1]}</a>`).join("")}</p>
         </div>
         <div class="col">
           <h4>${t.nav}</h4>
@@ -208,4 +211,60 @@
     });
   },{threshold:.4});
   document.querySelectorAll("[data-count]").forEach(n=>cIO.observe(n));
+
+  /* -------- CONTATTO RAPIDO -------- */
+  const WA_NUM = "393802189876";
+  const qc = document.createElement("div");
+  qc.className = "quick-contact";
+  const qcStyle = document.createElement("style");
+  qcStyle.textContent = `
+    .quick-contact{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;flex-direction:column;gap:10px}
+    .quick-contact a{display:flex;align-items:center;gap:10px;justify-content:center;height:52px;min-width:52px;padding:0 16px;border-radius:26px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 6px 18px rgba(0,0,0,.18);text-decoration:none}
+    .quick-contact a svg{width:22px;height:22px;flex:none}
+    .quick-contact .qc-wa{background:#25D366;color:#fff}
+    .quick-contact .qc-tel{background:var(--ink);color:var(--paper)}
+    .quick-contact .qc-mail{display:none}
+    @media(max-width:700px){
+      .quick-contact{left:0;right:0;bottom:0;flex-direction:row;gap:0;background:var(--ink);padding:8px;padding-bottom:calc(8px + env(safe-area-inset-bottom))}
+      .quick-contact a{flex:1;height:46px;border-radius:0;box-shadow:none;font-size:11px;padding:0 8px}
+      .quick-contact .qc-mail{display:flex;background:var(--gold);color:var(--ink)}
+      body{padding-bottom:62px}
+    }`;
+  document.head.appendChild(qcStyle);
+  function renderQuick(){
+    const en = lang==="en";
+    const msg = encodeURIComponent(en ? "Hello, I'm writing from cablaggitalia.com about a wiring harness." : "Buongiorno, vi scrivo dal sito cablaggitalia.com per un cablaggio.");
+    qc.innerHTML = `
+      <a class="qc-wa" href="https://wa.me/${WA_NUM}?text=${msg}" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>WhatsApp</span></a>
+      <a class="qc-tel" href="tel:+393802189876" aria-label="${en?"Call":"Chiama"}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>${en?"Call":"Chiama"}</span></a>
+      <a class="qc-mail" href="contatti.html"><span>${en?"Quote":"Preventivo"}</span></a>`;
+  }
+  renderQuick();
+  document.body.appendChild(qc);
+  document.addEventListener("click",(e)=>{
+    const b = e.target.closest(".lang-toggle"); if(b) setTimeout(renderQuick,0);
+  });
+
+  /* -------- STATISTICHE (GoatCounter, senza cookie) -------- */
+  const GC_CODE = "cablaggitalia";
+  if(location.hostname.endsWith("cablaggitalia.com")){
+    const gc = document.createElement("script");
+    gc.async = true;
+    gc.dataset.goatcounter = `https://${GC_CODE}.goatcounter.com/count`;
+    gc.src = "https://gc.zgo.at/count.js";
+    document.head.appendChild(gc);
+  }
+  function gcEvent(name){
+    try{ if(window.goatcounter && window.goatcounter.count) window.goatcounter.count({path:name, title:name, event:true}); }catch(err){}
+  }
+  document.addEventListener("click",(e)=>{
+    const a = e.target.closest("a"); if(!a) return;
+    const h = a.getAttribute("href")||"";
+    if(h.startsWith("tel:")) gcEvent("click-telefono");
+    else if(h.includes("wa.me/")) gcEvent("click-whatsapp");
+    else if(h.startsWith("mailto:")) gcEvent("click-email");
+  });
+  document.addEventListener("submit",(e)=>{
+    if(e.target.matches("form.fields")) gcEvent("invio-modulo");
+  });
 })();

@@ -197,7 +197,7 @@
     <div class="right">
       <p data-en="Prefer the form? Fill it in below, we'll reply by email with a structured proposal. We'll request large files in our reply to avoid overloading the form.">Preferisci il modulo? Compila sotto, ti rispondiamo via email con una proposta strutturata. I file pesanti li chiederemo in risposta per non saturare il form.</p>
 
-      <form class="fields" action="https://formsubmit.co/info@cablaggitalia.com" method="POST">
+      <form class="fields" action="https://formsubmit.co/info@cablaggitalia.com" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_subject" value="Nuova richiesta dal sito cablaggitalia.com"/>
         <input type="hidden" name="_next" value="https://www.cablaggitalia.com/contatti.html?sent=1"/>
         <input type="hidden" name="_captcha" value="true"/>
@@ -237,14 +237,21 @@
             <option>Preventivo cablaggi custom</option>
             <option>Prototipo / campionatura</option>
             <option>Produzione in serie</option>
-            <option>Riparazione / restauro cablaggi (allego foto via email)</option>
+            <option>Riparazione / restauro cablaggi</option>
             <option>Valutazione tecnica in sede</option>
             <option>Richiesta documentazione</option>
           </select>
         </div>
         <div class="fld full">
           <div class="k" data-en="07 · Briefly describe the project">07 · Descrivi brevemente il progetto</div>
-          <textarea rows="4" placeholder="Due righe bastano — tipo di cablaggio, quantità, tempi attesi. Allega file via email dopo l'invio." name="message"></textarea>
+          <textarea rows="4" placeholder="Due righe bastano — tipo di cablaggio, quantità, tempi attesi." name="message"></textarea>
+        </div>
+        <div class="fld full">
+          <div class="k" data-en="08 · Photos or drawings (optional, max 10 MB in total)">08 · Foto o disegni (facoltativo, max 10 MB in totale)</div>
+          <input type="file" name="attachment" accept="image/*,.pdf" class="ne-file" style="font-family:var(--mono);font-size:12px"/>
+          <input type="file" name="attachment2" accept="image/*,.pdf" class="ne-file" style="margin-top:8px;font-family:var(--mono);font-size:12px"/>
+          <input type="file" name="attachment3" accept="image/*,.pdf" class="ne-file" style="margin-top:8px;font-family:var(--mono);font-size:12px"/>
+          <div class="k ne-file-msg" style="margin-top:8px" data-en="For repairs: whole harness, connectors and damaged areas.">Per le riparazioni: cablaggio intero, connettori e zone danneggiate.</div>
         </div>
         <div class="fld full">
           <label class="consent">
@@ -252,6 +259,15 @@
             <span data-en="I have read and accept the &lt;a href='privacy.html'&gt;Privacy policy&lt;/a&gt; and consent to data processing solely for the purpose of handling this request (EU Reg. 2016/679 — GDPR).">Ho letto e accetto l'informativa <a href="privacy.html">Privacy</a> e do il consenso al trattamento dei dati ai soli fini della gestione della richiesta (Reg. UE 2016/679 — GDPR).</span>
           </label>
         </div>
+        <script>
+        (function(){
+          const fs=[...document.querySelectorAll(".ne-file")];
+          fs.forEach(i=>i.addEventListener("change",()=>{
+            const tot=fs.reduce((s,x)=>s+(x.files[0]?x.files[0].size:0),0);
+            if(tot>10*1024*1024){ alert("I file superano 10 MB in totale: riduci le foto o inviale via email a info@cablaggitalia.com"); i.value=""; }
+          }));
+        })();
+        </script>
         <button type="submit" class="submit"><span data-en="Send request &lt;span class='arr'&gt;&lt;/span&gt;">Invia richiesta <span class="arr"></span></span></button>
       </form>
     </div>

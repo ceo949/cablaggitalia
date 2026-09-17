@@ -138,6 +138,14 @@ Se arrivano dati reali, sostituirli.
 
 ---
 
+- **2026-09-17 (SEO)** — pagina `riparazione-cablaggi.html` (valutazione gratuita da foto, spedizione, nessuna trasferta);
+  pagine di nicchia `cablaggi-torino.html`, `restauro-impianto-elettrico-auto-epoca.html`, `cablaggi-macchine-automatiche.html`;
+  canonical home su `/`, rimossi hreflang, noindex pagine legali, `404.html`;
+  pulsanti fissi WhatsApp/Chiama (+ Preventivo su mobile) e statistiche GoatCounter senza cookie, iniettati da `partials.js`
+  (codice `cablaggitalia`, eventi: click-telefono, click-whatsapp, click-email, invio-modulo);
+  modulo contatti con 3 allegati (FormSubmit, max 10 MB totali); cookie policy riscritta (niente GA/Meta).
+- **Google Maps:** esistono due schede per la stessa sede ("Nuova Elettronica S.r.l." con recensioni e "Nuova Elettronica SRL"): tenere la prima, eliminare la seconda.
+
 ## 7. Da fare / aperti
 
 - Confermare o togliere **"3.240 commesse concluse"** (home).

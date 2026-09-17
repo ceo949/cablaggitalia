@@ -9,19 +9,21 @@
     { id:"home",          label:"Home",           href:"index.html",          num:"00" },
     { id:"chi-siamo",     label:"Chi siamo",      href:"chi-siamo.html",      num:"01" },
     { id:"servizi",       label:"Servizi",        href:"servizi.html",        num:"02" },
-    { id:"settori",       label:"Settori",        href:"settori.html",        num:"03" },
-    { id:"certificazioni",label:"Certificazioni", href:"certificazioni.html", num:"04" },
-    { id:"processo",      label:"Processo",       href:"processo.html",       num:"05" },
-    { id:"contatti",      label:"Contatti",       href:"contatti.html",       num:"06" }
+    { id:"riparazioni",   label:"Riparazioni",    href:"riparazione-cablaggi.html", num:"03" },
+    { id:"settori",       label:"Settori",        href:"settori.html",        num:"04" },
+    { id:"certificazioni",label:"Certificazioni", href:"certificazioni.html", num:"05" },
+    { id:"processo",      label:"Processo",       href:"processo.html",       num:"06" },
+    { id:"contatti",      label:"Contatti",       href:"contatti.html",       num:"07" }
   ];
   const NAV_EN = [
     { id:"home",          label:"Home",           href:"index.html",          num:"00" },
     { id:"chi-siamo",     label:"About us",       href:"chi-siamo.html",      num:"01" },
     { id:"servizi",       label:"Services",       href:"servizi.html",        num:"02" },
-    { id:"settori",       label:"Industries",     href:"settori.html",        num:"03" },
-    { id:"certificazioni",label:"Certifications", href:"certificazioni.html", num:"04" },
-    { id:"processo",      label:"Process",        href:"processo.html",       num:"05" },
-    { id:"contatti",      label:"Contact",        href:"contatti.html",       num:"06" }
+    { id:"riparazioni",   label:"Repairs",        href:"riparazione-cablaggi.html", num:"03" },
+    { id:"settori",       label:"Industries",     href:"settori.html",        num:"04" },
+    { id:"certificazioni",label:"Certifications", href:"certificazioni.html", num:"05" },
+    { id:"processo",      label:"Process",        href:"processo.html",       num:"06" },
+    { id:"contatti",      label:"Contact",        href:"contatti.html",       num:"07" }
   ];
 
   let lang = localStorage.getItem("ne-lang") || "it";
@@ -94,12 +96,12 @@
     const NAV = getNav();
     const t = lang==="en" ? {
       nav:"Navigation", contacts:"Direct contacts", legal:"Legal",
-      since:"Since 1978 · wiring harness specialists<br/>automotive &amp; industrial",
+      since:"Since 1978 · wiring harness production,<br/>repair &amp; restoration",
       copy:"© 1978 — 2026 Nuova Elettronica S.r.l. · VAT and R.E.A. in",
       legLink:"Legal notes"
     } : {
       nav:"Navigazione", contacts:"Contatti diretti", legal:"Legale",
-      since:"Dal 1978 · specialisti cablaggi<br/>automotive &amp; industriali",
+      since:"Dal 1978 · produzione, riparazione<br/>e restauro cablaggi",
       copy:"© 1978 — 2026 Nuova Elettronica S.r.l. · P. IVA 12220630011 · R.E.A. TO-1273965 ·",
       legLink:"Note legali"
     };

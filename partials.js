@@ -3,7 +3,7 @@
    so the 11 pages stay in sync when we change header/footer markup. */
 
 (function(){
-  const LOGO = "https://static.wixstatic.com/media/5faddc_e50d0d818eed4b21bb1c7d1614ba7243~mv2.png";
+  const LOGO = "img/logo-mark.png";
 
   const NAV_IT = [
     { id:"home",          label:"Home",           href:"index.html",          num:"00" },

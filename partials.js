@@ -9,21 +9,19 @@
     { id:"home",          label:"Home",           href:"index.html",          num:"00" },
     { id:"chi-siamo",     label:"Chi siamo",      href:"chi-siamo.html",      num:"01" },
     { id:"servizi",       label:"Servizi",        href:"servizi.html",        num:"02" },
-    { id:"fibra-ottica",  label:"Fibra ottica",   href:"fibra-ottica.html",   num:"03" },
-    { id:"settori",       label:"Settori",        href:"settori.html",        num:"04" },
-    { id:"certificazioni",label:"Certificazioni", href:"certificazioni.html", num:"05" },
-    { id:"processo",      label:"Processo",       href:"processo.html",       num:"06" },
-    { id:"contatti",      label:"Contatti",       href:"contatti.html",       num:"07" }
+    { id:"settori",       label:"Settori",        href:"settori.html",        num:"03" },
+    { id:"certificazioni",label:"Certificazioni", href:"certificazioni.html", num:"04" },
+    { id:"processo",      label:"Processo",       href:"processo.html",       num:"05" },
+    { id:"contatti",      label:"Contatti",       href:"contatti.html",       num:"06" }
   ];
   const NAV_EN = [
     { id:"home",          label:"Home",           href:"index.html",          num:"00" },
     { id:"chi-siamo",     label:"About us",       href:"chi-siamo.html",      num:"01" },
     { id:"servizi",       label:"Services",       href:"servizi.html",        num:"02" },
-    { id:"fibra-ottica",  label:"Fiber optics",   href:"fibra-ottica.html",   num:"03" },
-    { id:"settori",       label:"Industries",     href:"settori.html",        num:"04" },
-    { id:"certificazioni",label:"Certifications", href:"certificazioni.html", num:"05" },
-    { id:"processo",      label:"Process",        href:"processo.html",       num:"06" },
-    { id:"contatti",      label:"Contact",        href:"contatti.html",       num:"07" }
+    { id:"settori",       label:"Industries",     href:"settori.html",        num:"03" },
+    { id:"certificazioni",label:"Certifications", href:"certificazioni.html", num:"04" },
+    { id:"processo",      label:"Process",        href:"processo.html",       num:"05" },
+    { id:"contatti",      label:"Contact",        href:"contatti.html",       num:"06" }
   ];
 
   let lang = localStorage.getItem("ne-lang") || "it";

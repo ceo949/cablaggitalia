@@ -13,7 +13,8 @@
     { id:"settori",       label:"Settori",        href:"settori.html",        num:"04" },
     { id:"certificazioni",label:"Certificazioni", href:"certificazioni.html", num:"05" },
     { id:"processo",      label:"Processo",       href:"processo.html",       num:"06" },
-    { id:"contatti",      label:"Contatti",       href:"contatti.html",       num:"07" }
+    { id:"sostenibilita", label:"Sostenibilità",  href:"sostenibilita.html",  num:"07" },
+    { id:"contatti",      label:"Contatti",       href:"contatti.html",       num:"08" }
   ];
   const NAV_EN = [
     { id:"home",          label:"Home",           href:"index.html",          num:"00" },
@@ -23,7 +24,8 @@
     { id:"settori",       label:"Industries",     href:"settori.html",        num:"04" },
     { id:"certificazioni",label:"Certifications", href:"certificazioni.html", num:"05" },
     { id:"processo",      label:"Process",        href:"processo.html",       num:"06" },
-    { id:"contatti",      label:"Contact",        href:"contatti.html",       num:"07" }
+    { id:"sostenibilita", label:"Sustainability", href:"sostenibilita.html",  num:"07" },
+    { id:"contatti",      label:"Contact",        href:"contatti.html",       num:"08" }
   ];
 
   let lang = localStorage.getItem("ne-lang") || "it";

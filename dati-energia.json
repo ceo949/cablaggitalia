@@ -1,0 +1,32 @@
+{
+  "aggiornato": "2026-10-01",
+  "impianto": {
+    "potenza_kwp": 10.8,
+    "in_esercizio_dal": "2026-03-12",
+    "giorni_esercizio": 202,
+    "accumulo_kwh": 10
+  },
+  "energia": {
+    "produzione_totale_kwh": 7345,
+    "immessa_in_rete_kwh": 1204,
+    "consumo_sede_kwh": 8119,
+    "prelevata_da_rete_kwh": 2718,
+    "autoprodotta_consumata_kwh": 5401,
+    "autosufficienza_pct": 66.5,
+    "batteria_caricata_kwh": 1654
+  },
+  "mobilita": {
+    "veicoli_totali": 2,
+    "veicoli_elettrici": 2,
+    "km_model3": 43525,
+    "km_proace": 40664,
+    "km_totali": 84189,
+    "wallbox_erogati_kwh": 6945
+  },
+  "emissioni": {
+    "fattore_ispra_g_kwh": 213,
+    "evitate_fotovoltaico_kg": 1564,
+    "evitate_mobilita_kg": 9991,
+    "evitate_totali_kg": 11555
+  }
+}

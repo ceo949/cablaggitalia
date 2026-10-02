@@ -6,7 +6,7 @@
   const LOGO = "img/logo-mark.png";
 
   const NAV_IT = [
-    { id:"home",          label:"Home",           href:"index.html",          num:"00" },
+    { id:"home",          label:"Home",           href:"/",          num:"00" },
     { id:"chi-siamo",     label:"Chi siamo",      href:"chi-siamo.html",      num:"01" },
     { id:"servizi",       label:"Servizi",        href:"servizi.html",        num:"02" },
     { id:"riparazioni",   label:"Riparazioni",    href:"riparazione-cablaggi.html", num:"03" },
@@ -17,7 +17,7 @@
     { id:"contatti",      label:"Contatti",       href:"contatti.html",       num:"08" }
   ];
   const NAV_EN = [
-    { id:"home",          label:"Home",           href:"index.html",          num:"00" },
+    { id:"home",          label:"Home",           href:"/",          num:"00" },
     { id:"chi-siamo",     label:"About us",       href:"chi-siamo.html",      num:"01" },
     { id:"servizi",       label:"Services",       href:"servizi.html",        num:"02" },
     { id:"riparazioni",   label:"Repairs",        href:"riparazione-cablaggi.html", num:"03" },
@@ -41,7 +41,7 @@
   function renderTopbar(){
     const NAV = getNav();
     topbar.innerHTML = `
-      <a class="mark" href="index.html" aria-label="Nuova Elettronica S.r.l.">
+      <a class="mark" href="/" aria-label="Nuova Elettronica S.r.l.">
         <img class="logo" src="${LOGO}" alt="Nuova Elettronica S.r.l."/>
         <span class="wm">Nuova Elettronica<small>S.r.l. · cablaggitalia.com</small></span>
       </a>
@@ -125,7 +125,7 @@
           <h4>${t.contacts}</h4>
           <a href="tel:+393802189876">+39 380 218 9876</a>
           <a href="mailto:info@cablaggitalia.com">info@cablaggitalia.com</a>
-          <a href="https://www.cablaggitalia.com" target="_blank" rel="noopener">cablaggitalia.com</a>
+          <a href="https://www.cablaggitalia.com/" target="_blank" rel="noopener">cablaggitalia.com</a>
         </div>
         <div class="col">
           <h4>${t.legal}</h4>

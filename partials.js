@@ -101,13 +101,13 @@
       since:"Since 1978 · wiring harness production,<br/>repair &amp; restoration",
       copy:"© 1978 — 2026 Nuova Elettronica S.r.l. · VAT and R.E.A. in",
       legLink:"Legal notes",
-      spec:[["riparazione-cablaggi.html","Harness repair"],["restauro-impianto-elettrico-auto-epoca.html","Vintage vehicle wiring"],["cablaggi-macchine-automatiche.html","Automatic machine harnesses"],["cablaggi-torino.html","Harnesses in Turin"]]
+      spec:[["riparazione-cablaggi.html","Harness repair"],["restauro-impianto-elettrico-auto-epoca.html","Vintage vehicle wiring"],["cablaggi-macchine-automatiche.html","Automatic machine harnesses"],["cablaggi-industriali.html","Industrial harnesses"],["cablaggi-torino.html","Harnesses in Turin"]]
     } : {
       nav:"Navigazione", contacts:"Contatti diretti", legal:"Legale",
       since:"Dal 1978 · produzione, riparazione<br/>e restauro cablaggi",
       copy:"© 1978 — 2026 Nuova Elettronica S.r.l. · P. IVA 12220630011 · R.E.A. TO-1273965 ·",
       legLink:"Note legali",
-      spec:[["riparazione-cablaggi.html","Riparazione cablaggi"],["restauro-impianto-elettrico-auto-epoca.html","Impianti auto e moto d'epoca"],["cablaggi-macchine-automatiche.html","Cablaggi macchine automatiche"],["cablaggi-torino.html","Cablaggi a Torino"]]
+      spec:[["riparazione-cablaggi.html","Riparazione cablaggi"],["restauro-impianto-elettrico-auto-epoca.html","Impianti auto e moto d'epoca"],["cablaggi-macchine-automatiche.html","Cablaggi macchine automatiche"],["cablaggi-industriali.html","Cablaggi industriali conto terzi"],["cablaggi-torino.html","Cablaggi a Torino"]]
     };
     footer.innerHTML = `
       <div class="wrap">

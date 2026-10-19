@@ -247,6 +247,18 @@
     const b = e.target.closest(".lang-toggle"); if(b) setTimeout(renderQuick,0);
   });
 
+  /* -------- GOOGLE ANALYTICS 4 -------- */
+  if(location.hostname.endsWith("cablaggitalia.com")){
+    const gtagScript = document.createElement("script");
+    gtagScript.async = true;
+    gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-ELKKY8PXF2";
+    document.head.appendChild(gtagScript);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){window.dataLayer.push(arguments);};
+    window.gtag('js', new Date());
+    window.gtag('config', 'G-ELKKY8PXF2');
+  }
+
   /* -------- STATISTICHE (GoatCounter, senza cookie) -------- */
   const GC_CODE = "cablaggitalia";
   if(location.hostname.endsWith("cablaggitalia.com")){

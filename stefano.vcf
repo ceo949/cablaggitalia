@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Garbuglia;Stefano;;;
+FN:Stefano Garbuglia
+ORG:Nuova Elettronica S.r.l. - Cablaggi Italia
+TITLE:CEO
+TEL;TYPE=WORK,VOICE,pref:+393802189876
+EMAIL;TYPE=INTERNET,WORK,pref:ceo@cablaggitalia.com
+EMAIL;TYPE=INTERNET,WORK:info@cablaggitalia.com
+ADR;TYPE=WORK:;;Viale Caduti della Polveriera 21;Avigliana;TO;10051;Italia
+URL:https://www.cablaggitalia.com
+NOTE:Cablaggi su disegno\, rilavorazione e riparazione cablaggi dal 1978 - ISO 9001 - IPC/WHMA-A-620
+END:VCARD

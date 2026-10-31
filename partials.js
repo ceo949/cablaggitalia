@@ -131,6 +131,7 @@
           <h4>${t.legal}</h4>
           <a href="privacy.html">Privacy policy</a>
           <a href="cookie.html">Cookie policy</a>
+          <a href="#" data-cookie-prefs>${lang==='en'?'Cookie preferences':'Preferenze cookie'}</a>
           <a href="note-legali.html">${t.legLink}</a>
         </div>
       </div>
@@ -247,17 +248,122 @@
     const b = e.target.closest(".lang-toggle"); if(b) setTimeout(renderQuick,0);
   });
 
-  /* -------- GOOGLE ANALYTICS 4 -------- */
-  if(location.hostname.endsWith("cablaggitalia.com")){
-    const gtagScript = document.createElement("script");
-    gtagScript.async = true;
-    gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-ELKKY8PXF2";
-    document.head.appendChild(gtagScript);
+  /* -------- CONSENSO COOKIE + GOOGLE ANALYTICS 4 --------
+     GA4 viene caricato SOLO dopo il consenso esplicito (Accetta).
+     Scelta salvata in localStorage "ne-consent"; richiesta di nuovo dopo 6 mesi
+     o se cambia la versione della policy (CONSENT_V). */
+  const GA_ID = "G-ELKKY8PXF2";
+  const CONSENT_KEY = "ne-consent";
+  const CONSENT_V = 1;
+  const CONSENT_MAX_AGE = 1000*60*60*24*182;
+  const IS_PROD = location.hostname.endsWith("cablaggitalia.com");
+
+  function readConsent(){
+    try{
+      const c = JSON.parse(localStorage.getItem(CONSENT_KEY)||"null");
+      if(!c || c.v!==CONSENT_V || (Date.now()-c.ts)>CONSENT_MAX_AGE) return null;
+      return c;
+    }catch(e){ return null; }
+  }
+  function saveConsent(analytics){
+    const c = {v:CONSENT_V, ts:Date.now(), analytics:!!analytics};
+    try{ localStorage.setItem(CONSENT_KEY, JSON.stringify(c)); }catch(e){}
+    return c;
+  }
+  let gaLoaded = false;
+  function loadGA(){
+    if(gaLoaded || !IS_PROD) return;
+    gaLoaded = true;
     window.dataLayer = window.dataLayer || [];
     window.gtag = function(){window.dataLayer.push(arguments);};
+    window.gtag('consent','default',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
     window.gtag('js', new Date());
-    window.gtag('config', 'G-ELKKY8PXF2');
+    window.gtag('config', GA_ID, {anonymize_ip:true, allow_google_signals:false, allow_ad_personalization_signals:false});
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id="+GA_ID;
+    document.head.appendChild(s);
   }
+  function clearGACookies(){
+    const host = location.hostname.replace(/^www\./,"");
+    document.cookie.split(";").forEach(c=>{
+      const n = c.split("=")[0].trim();
+      if(/^_ga/.test(n)){
+        [ "", "; domain=."+host, "; domain="+location.hostname ].forEach(d=>{
+          document.cookie = n+"=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"+d;
+        });
+      }
+    });
+  }
+
+  const ckStyle = document.createElement("style");
+  ckStyle.textContent = `
+    .ck-banner{position:fixed;left:24px;bottom:24px;z-index:9999;max-width:460px;background:var(--paper);color:var(--ink);border:1px solid var(--rule-strong);box-shadow:0 12px 40px rgba(14,14,12,.18);padding:22px 22px 18px;font-size:14px;line-height:1.55}
+    .ck-banner h3{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin:0 0 10px;display:flex;align-items:center;gap:10px}
+    .ck-banner h3::before{content:"";width:22px;height:2px;background:var(--gold)}
+    .ck-banner p{margin:0 0 14px}
+    .ck-banner a{border-bottom:1px solid var(--gold-deep)}
+    .ck-actions{display:flex;flex-wrap:wrap;gap:8px}
+    .ck-actions button{flex:1 1 auto;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:11px 14px;border:1px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer}
+    .ck-actions button.ck-primary{background:var(--ink);color:var(--paper)}
+    .ck-actions button:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+    .ck-prefs{display:none;border-top:1px solid var(--rule);margin:4px 0 14px;padding-top:12px}
+    .ck-prefs.open{display:block}
+    .ck-row{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;padding:8px 0}
+    .ck-row small{display:block;color:rgba(14,14,12,.65);font-size:12.5px;line-height:1.45;margin-top:2px}
+    .ck-row input{width:18px;height:18px;margin-top:3px;accent-color:#0e0e0c;flex:none}
+    @media(max-width:700px){.ck-banner{left:10px;right:10px;bottom:72px;max-width:none;padding:18px 16px 14px;font-size:13.5px}}`;
+  document.head.appendChild(ckStyle);
+
+  let ckBox = null;
+  function showBanner(openPrefs){
+    if(ckBox) ckBox.remove();
+    const en = lang==="en";
+    const cur = readConsent();
+    ckBox = document.createElement("div");
+    ckBox.className = "ck-banner";
+    ckBox.setAttribute("role","dialog");
+    ckBox.setAttribute("aria-label", en?"Cookie preferences":"Preferenze cookie");
+    ckBox.innerHTML = `
+      <h3>${en?"Cookies":"Cookie"}</h3>
+      <p>${en
+        ? 'We use technical cookies needed for the site and, only with your consent, Google Analytics cookies to measure visits. Basic statistics are collected cookie-free. <a href="cookie.html">Cookie policy</a>'
+        : 'Usiamo cookie tecnici necessari al sito e, solo con il tuo consenso, cookie di Google Analytics per misurare le visite. Le statistiche di base sono raccolte senza cookie. <a href="cookie.html">Cookie policy</a>'}</p>
+      <div class="ck-prefs${openPrefs?" open":""}">
+        <label class="ck-row"><span><b>${en?"Technical":"Tecnici"}</b><small>${en?"Language and consent choice. Always active.":"Lingua e scelta sul consenso. Sempre attivi."}</small></span><input type="checkbox" checked disabled/></label>
+        <label class="ck-row"><span><b>${en?"Statistics (Google Analytics)":"Statistiche (Google Analytics)"}</b><small>${en?"Anonymous visit measurement, data processed by Google.":"Misurazione delle visite, dati trattati da Google."}</small></span><input type="checkbox" id="ck-an" ${cur&&cur.analytics?"checked":""}/></label>
+      </div>
+      <div class="ck-actions">
+        <button type="button" data-ck="reject">${en?"Reject":"Rifiuta"}</button>
+        <button type="button" data-ck="prefs">${en?"Customize":"Personalizza"}</button>
+        <button type="button" data-ck="accept" class="ck-primary">${en?"Accept":"Accetta"}</button>
+      </div>`;
+    ckBox.addEventListener("click",(e)=>{
+      const b = e.target.closest("[data-ck]"); if(!b) return;
+      const act = b.dataset.ck;
+      const prefs = ckBox.querySelector(".ck-prefs");
+      if(act==="prefs"){
+        if(!prefs.classList.contains("open")){ prefs.classList.add("open"); b.textContent = en?"Save choices":"Salva scelte"; return; }
+        applyConsent(ckBox.querySelector("#ck-an").checked);
+      } else applyConsent(act==="accept");
+    });
+    document.body.appendChild(ckBox);
+    if(openPrefs){ const pb = ckBox.querySelector('[data-ck="prefs"]'); pb.textContent = en?"Save choices":"Salva scelte"; }
+  }
+  function applyConsent(analytics){
+    const before = readConsent();
+    saveConsent(analytics);
+    if(ckBox){ ckBox.remove(); ckBox = null; }
+    if(analytics) loadGA();
+    else { clearGACookies(); if(gaLoaded || (before && before.analytics)) location.reload(); }
+  }
+  document.addEventListener("click",(e)=>{
+    const a = e.target.closest("[data-cookie-prefs]"); if(!a) return;
+    e.preventDefault(); showBanner(true);
+  });
+  const ckNow = readConsent();
+  if(ckNow){ if(ckNow.analytics) loadGA(); }
+  else showBanner(false);
 
   /* -------- STATISTICHE (GoatCounter, senza cookie) -------- */
   const GC_CODE = "cablaggitalia";

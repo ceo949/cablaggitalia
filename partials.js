@@ -126,6 +126,7 @@
           <a href="tel:+393802189876">+39 380 218 9876</a>
           <a href="mailto:info@cablaggitalia.com">info@cablaggitalia.com</a>
           <a href="https://www.cablaggitalia.com/" target="_blank" rel="noopener">cablaggitalia.com</a>
+          <a href="https://www.linkedin.com/company/nuova-elettronica-srl/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <div class="col">
           <h4>${t.legal}</h4>
